@@ -74,7 +74,7 @@ div.header div.iconBar > a {
 }
 
 a#regularHeader_homeLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -41px 0;
 }
 
@@ -83,7 +83,7 @@ a#regularHeader_homeLink:hover, .iconBar a#regularHeader_homeLink:focus {
 }
 
 a#regularHeader_multiHomeLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -164px -82px;
 }
 
@@ -92,7 +92,7 @@ a#regularHeader_multiHomeLink:hover, .iconBar a#regularHeader_multiHomeLink:focu
 }
 
 a#regularHeader_multiHomeMenuOpen {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -82px -82px;
 }
 
@@ -101,7 +101,7 @@ a#regularHeader_multiHomeMenuOpen:hover, a#regularHeader_multiHomeMenuOpen:focus
 }
 
 a#regularHeader_multiHomeMenuClose {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: 0 -82px;
 }
 
@@ -110,7 +110,7 @@ a#regularHeader_multiHomeMenuClose:hover, a#regularHeader_multiHomeMenuClose:foc
 }
 
 a#regularHeader_webmailLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -451px -41px;
 }
 
@@ -119,17 +119,17 @@ a#regularHeader_webmailLink:hover, a#regularHeader_webmailLink:focus {
 }
 
 a#regularHeader_webmailLink.animated {
-    background-image: url(/images/toolbar/ca_icons_webmail_animated.gif);
+    background-image: url(https://www.connexus.com/images/toolbar/ca_icons_webmail_animated.gif);
     background-position: 0 0;
 }
 
 a#regularHeader_webmailLink.animated:hover, a#regularHeader_webmailLink.animated:focus {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -410px -82px;
 }
 
 a#regularHeader_plannerLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -123px -41px;
 }
 
@@ -138,7 +138,7 @@ a#regularHeader_plannerLink:hover, a#regularHeader_plannerLink:focus {
 }
 
 a#regularHeader_libraryLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -451px 0;
 }
 
@@ -147,7 +147,7 @@ a#regularHeader_libraryLink:hover, a#regularHeader_libraryLink:focus {
 }
 
 a#regularHeader_forumsLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -205px 0;
 }
 
@@ -156,7 +156,7 @@ a#regularHeader_forumsLink:hover, a#regularHeader_forumsLink:focus {
 }
 
 a#regularHeader_usersLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -369px -41px;
 }
 
@@ -165,7 +165,7 @@ a#regularHeader_usersLink:hover, a#regularHeader_usersLink:focus {
 }
 
 a#regularHeader_rolesLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -205px -41px;
 }
 
@@ -174,7 +174,7 @@ a#regularHeader_rolesLink:hover, a#regularHeader_rolesLink:focus {
 }
 
 a#regularHeader_locationsLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -41px -41px;
 }
 
@@ -183,7 +183,7 @@ a#regularHeader_locationsLink:hover, a#regularHeader_locationsLink:focus {
 }
 
 a#regularHeader_sectionsLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -287px -41px;
 }
 
@@ -192,7 +192,7 @@ a#regularHeader_sectionsLink:hover, a#regularHeader_sectionsLink:focus {
 }
 
 a#regularHeader_issueLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -369px 0;
 }
 
@@ -201,7 +201,7 @@ a#regularHeader_issueLink:hover, a#regularHeader_issueLink:focus {
 }
 
 a#regularHeader_directoryLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -123px 0;
 }
 
@@ -210,7 +210,7 @@ a#regularHeader_directoryLink:hover, a#regularHeader_directoryLink:focus {
 }
 
 a#regularHeader_helpLink {
-    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-image: url("https://www.connexus.com/images/toolbar/toolbarSprites.png");
     background-position: -287px 0;
 }
 
@@ -223,23 +223,23 @@ div#regularHeader_headerDiv.header {
 }
 
 div#regularHeader_headerDiv.header.headerBackgroundBlue {
-    background: url("/images/toolbar/headerBackgroundBlue.gif") repeat-x;
+    background: url("https://www.connexus.com/images/toolbar/headerBackgroundBlue.gif") repeat-x;
 }
 
 div#regularHeader_headerDiv.header.headerBackgroundRed {
-    background: url("/images/toolbar/headerBackgroundRed.gif") repeat-x;
+    background: url("https://www.connexus.com/images/toolbar/headerBackgroundRed.gif") repeat-x;
 }
 
 div#regularHeader_headerDiv.header.headerBackgroundGreen {
-    background: url("/images/toolbar/headerBackgroundGreen.gif") repeat-x;
+    background: url("https://www.connexus.com/images/toolbar/headerBackgroundGreen.gif") repeat-x;
 }
 
 div#regularHeader_headerDiv.header.headerBackgroundOrange {
-    background: url("/images/toolbar/headerBackgroundOrange.gif") repeat-x;
+    background: url("https://www.connexus.com/images/toolbar/headerBackgroundOrange.gif") repeat-x;
 }
 
 div#regularHeader_headerDiv.header.headerBackgroundPurple {
-    background: url("/images/toolbar/headerBackgroundPurple.gif") repeat-x;
+    background: url("https://www.connexus.com/images/toolbar/headerBackgroundPurple.gif") repeat-x;
 }
 
 div.header, div.headerDivider {
@@ -372,7 +372,7 @@ div.header, div.headerDivider {
   width: 100%;
   z-index: 997;
   height: 100%;
-  background: url(/images/overlayBg.png) repeat;
+  background: url(https://www.connexus.com/images/overlayBg.png) repeat;
   background: rgba(50, 50, 50, 0.5);
   text-align: left;
 }
@@ -631,7 +631,7 @@ div.header, div.headerDivider {
 .cxIcon.relatedHelpIcon {
   width: 15px;
   height: 15px;
-  /*background-image: url(/images/relatedHelpTemp.png);*/
+  /*background-image: url(https://www.connexus.com/images/relatedHelpTemp.png);*/
 }
 .expandIconWhite {
   padding: 4px;
@@ -670,7 +670,7 @@ div.header, div.headerDivider {
   margin: 0px 0;
   width: 360px;
   border-radius: 3px;
-  background: url(/images/helpBgPattern.png) repeat;
+  background: url(https://www.connexus.com/images/helpBgPattern.png) repeat;
   box-shadow: 0 0 2px rgba(0, 0, 50, 0.3);
   -webkit-transition: -webkit-transform ease-out 0.25s;
   transition: transform ease-out 0.25s;
@@ -690,7 +690,7 @@ div.header, div.headerDivider {
   position: relative;
   padding: 9px 65px 9px 15px;
   border-bottom: 1px solid #0b3e89;
-  background: #0f56bb url(/images/helpHeaderBg.png) 0 0 repeat-x;
+  background: #0f56bb url(https://www.connexus.com/images/helpHeaderBg.png) 0 0 repeat-x;
   /*
 	background: #437bc7;   
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQzN2JjNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjVkYmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -794,12 +794,12 @@ div.header, div.headerDivider {
 }
 /* Gray Help */
 .helpPanel.grayHelp {
-  background: url(/images/helpGrayBgPattern.png) repeat;
+  background: url(https://www.connexus.com/images/helpGrayBgPattern.png) repeat;
   border: 1px solid #cccccc;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 .helpPanel.grayHelp .helpHeader {
-  background: #ecece8 url(/images/helpHeaderGrayBg.png) 0 0 repeat-x;
+  background: #ecece8 url(https://www.connexus.com/images/helpHeaderGrayBg.png) 0 0 repeat-x;
   color: #333;
   text-shadow: 1px 1px 1px #fff;
   border-bottom: 1px solid #fff;
@@ -896,9 +896,9 @@ body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
   z-index: 3;
 }
 .cxLoadingOverlay.blockUI {
-  background: url(/images/overlayWhiteBg.png) repeat;
+  background: url(https://www.connexus.com/images/overlayWhiteBg.png) repeat;
   background: rgba(241, 241, 241, 0.6);
-  /*background: url(/images/overlayBg.png) repeat;
+  /*background: url(https://www.connexus.com/images/overlayBg.png) repeat;
 	background: rgba(50,50,50,.5);*/
   height: 100%;
   box-shadow: inset 0 0 3px #ccc;
@@ -949,7 +949,7 @@ body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
   height: 20px;
   width: 20px;
   margin-right: 8px;
-  background: url(/images/cxLoadingSmall.gif);
+  background: url(https://www.connexus.com/images/cxLoadingSmall.gif);
   display: inline-block;
   overflow: hidden;
   padding: 0;
@@ -1108,7 +1108,7 @@ body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
   margin: -1px auto 0 auto;
   width: 15px;
   height: 10px;
-  background: url(../images/toolTipDownArrow.png) top no-repeat;
+  background: url(..https://www.connexus.com/images/toolTipDownArrow.png) top no-repeat;
 }
 .cxIcon.cxtUpArrowIcon {
   position: relative;
@@ -1118,7 +1118,7 @@ body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
   margin: 0 auto -1px auto;
   width: 15px;
   height: 10px;
-  background: url(../images/toolTipUpArrow.png) bottom no-repeat;
+  background: url(..https://www.connexus.com/images/toolTipUpArrow.png) bottom no-repeat;
 }
 .ie7 .cxIcon.cxtUpArrowIcon {
   margin: 0 0 -1px;
@@ -1148,7 +1148,7 @@ body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
 .cxForm .validMessage,
 .cxForm .invalidMessageOverlay,
 .cxIcon {
-  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-image: url(https://www.connexus.com/images/iconSprites.png?v=i14_2015);
   background-repeat: no-repeat;
 }
 /* Used for screen reader only content */
@@ -1766,7 +1766,7 @@ body .cxBtn,
   padding: 5px 12px 6px;
   border: 1px solid rgba(100, 100, 100, 0.75);
   border-radius: 6px;
-  background: #f9f9f8 url(/images/btnBgSprites.png) 0 0px repeat-x;
+  background: #f9f9f8 url(https://www.connexus.com/images/btnBgSprites.png) 0 0px repeat-x;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
   color: #222;
@@ -1821,7 +1821,7 @@ body .cxBtn:active {
   padding: 0 7px 0 0;
   height: 30px;
   border: 0;
-  background: transparent url(/images/ieBtnSprites.png) right -100px no-repeat;
+  background: transparent url(https://www.connexus.com/images/ieBtnSprites.png) right -100px no-repeat;
 }
 .ie8 .cxBtn .btnContent {
   display: block;
@@ -1829,7 +1829,7 @@ body .cxBtn:active {
   padding: 6px 5px 6px 12px;
   width: auto;
   height: 18px;
-  background: transparent url(/images/ieBtnSprites.png) 0px -100px no-repeat;
+  background: transparent url(https://www.connexus.com/images/ieBtnSprites.png) 0px -100px no-repeat;
   vertical-align: middle;
   font-size: 14px;
   font-size: 1.4rem;
@@ -1868,7 +1868,7 @@ body .cxBtn:active {
 body .cxPrimaryBtn,
 body .cxPrimaryBtnLegacy {
   border: 1px solid rgba(2, 24, 126, 0.8);
-  background: #034eb8 url(/images/primaryBtnBg.png) 0 0 repeat-x;
+  background: #034eb8 url(https://www.connexus.com/images/primaryBtnBg.png) 0 0 repeat-x;
   color: #fff;
   text-shadow: 0 0 2px #010c24;
 }
@@ -1944,7 +1944,7 @@ body .btnDisabled .cxIcon {
 .ie8 .cxBtn[disabled="disabled"]:hover,
 .ie8 .cxBtn[disabled="disabled"]:focus,
 .ie8 .cxBtn[disabled="disabled"]:active {
-  background: transparent url(/images/ieBtnSprites.png) right -100px no-repeat !important;
+  background: transparent url(https://www.connexus.com/images/ieBtnSprites.png) right -100px no-repeat !important;
 }
 .ie8 .btnDisabled .btnContent,
 .ie8 .btnDisabled:hover .btnContent,
@@ -2135,7 +2135,7 @@ body .btnDisabled .cxIcon {
 }
 .cxForm .invalidMessage:before {
   content: "";
-  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-image: url(https://www.connexus.com/images/iconSprites.png?v=i14_2015);
   background-repeat: no-repeat;
   background-position: 0 -118px;
   width: 19px;
@@ -2341,7 +2341,7 @@ body .btnDisabled .cxIcon {
   top: 0;
   height: 24px;
   width: 24px;
-  background: url(/images/cxlLoading.gif);
+  background: url(https://www.connexus.com/images/cxlLoading.gif);
 }
 /* Extra padding for the large icon */
 .cxForm .alert p.largeIcon {
@@ -3039,7 +3039,7 @@ body .btnDisabled .cxIcon {
 /*Lesson related: Assessment icons, LV images*/
 /***** For Later!!! *****/
 /*.cxLessonIcon {
-	background-image:url(/images/lessonSprites.png?v=i8);
+	background-image:url(https://www.connexus.com/images/lessonSprites.png?v=i8);
 	background-repeat:no-repeat;
 }
 
@@ -3423,11 +3423,11 @@ div.formAction {
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   body .cxBtn,
   body .cxPrimaryBtn {
-    background-image: url(/images/btnBgSprites@2x.png);
+    background-image: url(https://www.connexus.com/images/btnBgSprites@2x.png);
     background-size: 10px auto;
   }
   body .cxPrimaryBtn {
-    background-image: url(/images/primaryBtnBg@2x.png);
+    background-image: url(https://www.connexus.com/images/primaryBtnBg@2x.png);
   }
   body .btnDisabled,
   body .btnDisabled:hover,
@@ -3440,7 +3440,7 @@ div.formAction {
     background: #eee;
   }
   body .cxIcon {
-    background-image: url(/images/iconSprites@2x.png?v=i14_2015);
+    background-image: url(https://www.connexus.com/images/iconSprites@2x.png?v=i14_2015);
     background-size: 200px auto;
   }
 }
@@ -3535,7 +3535,7 @@ div.formAction {
 .cxForm .fieldContainer + span[style*="color:Red;"] {
   display: inline-block;
   padding: 7px 3px 7px 22px;
-  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-image: url(https://www.connexus.com/images/iconSprites.png?v=i14_2015);
   background-position: 0 -114px;
   background-repeat: no-repeat;
   color: #da362e !important;
@@ -3680,7 +3680,7 @@ p.dataViewInstruction {
   display: inline-block;
   *display: inline;
   border-radius: 4px;
-  background: #034eb8 url(/images/primaryBtnBg.png) bottom repeat-x;
+  background: #034eb8 url(https://www.connexus.com/images/primaryBtnBg.png) bottom repeat-x;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -4038,7 +4038,7 @@ div.loginFooterWrapper div.loginFooter ul.footerLinks a:hover {
 /*#region Login Icon Sprite*/
 .loginPage .cxIcon,
 .multipleUsers .cxIcon {
-  background-image: url(../../images/loginIconSprites.png);
+  background-image: url(../..https://www.connexus.com/images/loginIconSprites.png);
 }
 .cxIcon.phoneIcon {
   width: 16px;
@@ -4805,7 +4805,7 @@ div.expiredPasswordArea div.expiredPasswordFields.singleFieldRow {
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .loginPage .cxIcon,
   .multipleUsers .cxIcon {
-    background-image: url(../../images/loginIconSprites@2x.png);
+    background-image: url(../..https://www.connexus.com/images/loginIconSprites@2x.png);
   }
   .multipleUsers .cxTable .cxIcon.preSelectIcon {
     height: 20px;
