@@ -1,0 +1,4985 @@
+.feedbackForm {
+  overflow-x: hidden;
+  height: 100%;
+}
+.feedbackForm #message {
+  display: none;
+}
+.feedbackForm #validationSummary {
+  display: none;
+}
+.feedbackForm .cxForm textarea.field {
+  width: 320px;
+}
+@media all and (max-width: 520px) {
+  .feedbackForm .cxForm textarea.field {
+    width: 100%;
+  }
+}
+.feedbackForm .requiredMessage[style="visibility:hidden;"] .invalidMessage {
+  display: none;
+}
+/* feedbackFrame is must be sized before it is placed inside the overlay, */
+/* otherwise the overlay will not be properly centered */
+#feedbackFrame {
+  border: 0;
+  width: 95%;
+  height: 330px;
+}
+@media all and (max-width: 520px) {
+  #feedbackFrame {
+    height: 300px;
+  }
+}
+@media all and (max-width: 520px) and (min-height: 560px) {
+  #feedbackFrame {
+    height: 425px;
+  }
+}
+.feedbackOverlay .cxlBody {
+  padding: 0;
+}
+@media all and (max-width: 520px) {
+  .feedbackPage .mainContent {
+    height: 320px;
+  }
+}
+/*# sourceMappingURL=feedback.css.map */
+
+
+/* Header Icons */
+
+div.iconBar {
+    margin-left: 2px;
+    margin-top: 2px;
+}
+div.header div.iconBar > a {
+    color: transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 40px;
+    overflow: hidden;
+    text-indent: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 40px; 
+}
+
+.iconBar a#regularHeader_multiHomeMenuOpen, .iconBar a#regularHeader_multiHomeMenuClose {
+    width: 23px;
+}
+
+.iconBar a, .iconBar a:hover, .iconBar a:focus {
+    text-decoration: none;
+}
+
+a#regularHeader_homeLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -41px 0;
+}
+
+a#regularHeader_homeLink:hover, .iconBar a#regularHeader_homeLink:focus {
+    background-position: 0 0;
+}
+
+a#regularHeader_multiHomeLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -164px -82px;
+}
+
+a#regularHeader_multiHomeLink:hover, .iconBar a#regularHeader_multiHomeLink:focus {
+    background-position: -205px -82px;
+}
+
+a#regularHeader_multiHomeMenuOpen {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -82px -82px;
+}
+
+a#regularHeader_multiHomeMenuOpen:hover, a#regularHeader_multiHomeMenuOpen:focus  {
+    background-position: -123px -82px;
+}
+
+a#regularHeader_multiHomeMenuClose {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: 0 -82px;
+}
+
+a#regularHeader_multiHomeMenuClose:hover, a#regularHeader_multiHomeMenuClose:focus  {
+    background-position: -41px -82px;
+}
+
+a#regularHeader_webmailLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -451px -41px;
+}
+
+a#regularHeader_webmailLink:hover, a#regularHeader_webmailLink:focus {
+    background-position: -410px -41px;
+}
+
+a#regularHeader_webmailLink.animated {
+    background-image: url(/images/toolbar/ca_icons_webmail_animated.gif);
+    background-position: 0 0;
+}
+
+a#regularHeader_webmailLink.animated:hover, a#regularHeader_webmailLink.animated:focus {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -410px -82px;
+}
+
+a#regularHeader_plannerLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -123px -41px;
+}
+
+a#regularHeader_plannerLink:hover, a#regularHeader_plannerLink:focus {
+    background-position: -82px -41px;
+}
+
+a#regularHeader_libraryLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -451px 0;
+}
+
+a#regularHeader_libraryLink:hover, a#regularHeader_libraryLink:focus {
+    background-position: -410px 0;
+}
+
+a#regularHeader_forumsLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -205px 0;
+}
+
+a#regularHeader_forumsLink:hover, a#regularHeader_forumsLink:focus {
+    background-position: -164px 0;
+}
+
+a#regularHeader_usersLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -369px -41px;
+}
+
+a#regularHeader_usersLink:hover, a#regularHeader_usersLink:focus {
+    background-position: -328px -41px;
+}
+
+a#regularHeader_rolesLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -205px -41px;
+}
+
+a#regularHeader_rolesLink:hover, a#regularHeader_rolesLink:focus {
+    background-position: -164px -41px;
+}
+
+a#regularHeader_locationsLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -41px -41px;
+}
+
+a#regularHeader_locationsLink:hover, a#regularHeader_locationsLink:focus {
+    background-position: 0 -41px;
+}
+
+a#regularHeader_sectionsLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -287px -41px;
+}
+
+a#regularHeader_sectionsLink:hover, a#regularHeader_sectionsLink:focus {
+    background-position: -246px -41px;
+}
+
+a#regularHeader_issueLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -369px 0;
+}
+
+a#regularHeader_issueLink:hover, a#regularHeader_issueLink:focus {
+    background-position: -328px 0;
+}
+
+a#regularHeader_directoryLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -123px 0;
+}
+
+a#regularHeader_directoryLink:hover, a#regularHeader_directoryLink:focus {
+    background-position: -82px 0;
+}
+
+a#regularHeader_helpLink {
+    background-image: url("/images/toolbar/toolbarSprites.png");
+    background-position: -287px 0;
+}
+
+a#regularHeader_helpLink:hover, a#regularHeader_helpLink:focus {
+    background-position: -246px 0;
+}
+
+div#regularHeader_headerDiv.header {
+    margin-top: -2px;
+}
+
+div#regularHeader_headerDiv.header.headerBackgroundBlue {
+    background: url("/images/toolbar/headerBackgroundBlue.gif") repeat-x;
+}
+
+div#regularHeader_headerDiv.header.headerBackgroundRed {
+    background: url("/images/toolbar/headerBackgroundRed.gif") repeat-x;
+}
+
+div#regularHeader_headerDiv.header.headerBackgroundGreen {
+    background: url("/images/toolbar/headerBackgroundGreen.gif") repeat-x;
+}
+
+div#regularHeader_headerDiv.header.headerBackgroundOrange {
+    background: url("/images/toolbar/headerBackgroundOrange.gif") repeat-x;
+}
+
+div#regularHeader_headerDiv.header.headerBackgroundPurple {
+    background: url("/images/toolbar/headerBackgroundPurple.gif") repeat-x;
+}
+
+div.header, div.headerDivider {
+	color: #ffffff;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+}
+
+.imgBgcolor {
+	background-color: #003399;
+	margin: 4px;
+	margin-left: 4px;
+	padding-left: 4px;
+}
+
+
+
+.debug  
+{
+	display: none 
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u_w4BMUTPHjxsI9w2_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u_w4BMUTPHjxsI5wq_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkids18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7nsDc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCds18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSds18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdr.ttf) format('truetype');
+}
+/*! ************************************************************************************************
+	***     This CSS file was generated from a LESS stylesheet. Please do not edit this CSS      ***
+	***     file directly as your change will be lost. Please only edit the LESS stylesheet.     ***
+    ************************************************************************************************
+ */
+/*#region Imports*/
+/*references the LESS files rather than importing everything (Comments, etc.)*/
+/*#endregion*/
+/* Cx Popup Window */
+.cxlWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10041;
+  width: 100%;
+  height: 100%;
+}
+.cxlBg {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 997;
+  height: 100%;
+  background: url(/images/overlayBg.png) repeat;
+  background: rgba(50, 50, 50, 0.5);
+  text-align: left;
+}
+.cxlWrapper.loadingContent {
+  text-align: center;
+}
+.cxlWrapper .error {
+  font-weight: bold;
+  text-align: center;
+  color: #e93b29;
+  padding: 5px;
+}
+.cxlWrapper .cxLoadingMessage {
+  z-index: 998;
+  position: relative;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.cxlContent {
+  padding: 20px 0px;
+  opacity: 1;
+  overflow: auto;
+  color: #222;
+  z-index: 998;
+  position: relative;
+  background: #fff;
+  width: 70%;
+  max-width: 720px;
+  max-height: 80%;
+  margin: 0px auto 0 auto;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 5px #666;
+  box-shadow: 0 0 5px #666;
+  -webkit-transition: width linear 0.25s;
+  transition: width linear 0.25s;
+  animation: moveUp 0.4s;
+  -webkit-animation: moveUp 0.4s;
+  top: 10%;
+}
+@-webkit-keyframes moveUp {
+  0% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+@keyframes moveUp {
+  0% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+.cxlContent:focus {
+  outline: none;
+}
+.cxlContent h2 {
+  font-weight: normal;
+  color: #222;
+  font-size: 22px;
+  font-size: 2.2rem;
+  margin: 0 0 20px 0;
+  padding: 0 0;
+}
+.cxlContent .cxlHeader {
+  padding: 0 30px;
+}
+.cxlContent p {
+  padding: 2px 0;
+  margin: 0;
+}
+.cxlContent .cxlFooter {
+  padding: 15px 30px 0 30px;
+}
+.completeForm .cxlContent {
+  -webkit-box-shadow: 0 0 6px #74b9ef, inset 0px 0px 5px #ddd;
+  box-shadow: 0 0 6px #74b9ef, inset 0px 0px 3px #ddd;
+  -webkit-animation: shake 1s;
+  animation: shake 1s;
+}
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+.cxlLarge .cxlContent {
+  width: 80%;
+  max-width: 100%;
+}
+.cxlBody {
+  overflow: auto;
+  padding: 0px 30px;
+}
+.cxlBody.scrolling {
+  box-shadow: inset 0 0 2px #bbb;
+}
+.cxlOn,
+.cxlOn body {
+  overflow: hidden;
+}
+/* Styles for Passive Alert */
+.cxAlert {
+  position: fixed;
+  top: 30px;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  pointer-events: none;
+}
+.cxAlert .clickable {
+  pointer-events: auto;
+}
+.cxAlert .cxaMessage {
+  display: inline-block;
+  margin: 0px auto;
+  padding: 4px 12px 6px 12px;
+  max-width: 550px;
+  font-size: 16px;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 3px #fffede;
+  box-shadow: 0 0 3px #fffede;
+  color: #222;
+  background: #fffede;
+  background: #fffede url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZlZGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fdfcec 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #fdfcec 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #fdfcec 100%);
+  animation: moveUp 0.3s;
+  -webkit-animation: moveUp 0.3s;
+}
+.cxAlert .cxaMessage p {
+  background: transparent;
+  /* overwrite main.css */
+  line-height: 160%;
+  margin: 0;
+  padding: 1px 0;
+  text-shadow: 1px 1px 1px #fff;
+}
+.cxAlert .cxaMessage.deleted,
+.cxAlert .cxaMessage.error {
+  background: #fff4f4;
+  background: #fff4f4 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fff2f2 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #fff2f2 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #fff2f2 100%);
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+  border-color: #FF1800;
+}
+.cxAlert .cxaMessage.saved {
+  border-color: #78cb1b;
+  background: #f3fff2;
+  background: #f3fff2 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2ZmZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f3fff2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #f3fff2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #f3fff2 100%);
+  /* W3C */
+  -webkit-box-shadow: 0 0 2px #b3e481;
+  box-shadow: 0 0 2px #b3e481;
+}
+.cxAlert .cxaMessage.saved strong {
+  color: #428003;
+}
+.cxAlert .cxaMessage.deleted strong,
+.cxAlert .cxaMessage.error strong {
+  color: #c12514;
+}
+.cxAlert .cxIcon {
+  margin: 3px 5px 0px 0;
+  vertical-align: middle;
+}
+/*lesson viewer overlay*/
+.cxAlert .cxaMessage.error .cxIcon.invalidIcon {
+  background-position: 0 -120px;
+}
+.cxAlert .cxaMessageTxt {
+  vertical-align: middle;
+}
+.cxAlert .cxaMessageTxt h2 {
+  display: inline-block;
+  font-family: Lato, Helvetica, Verdana, Sans-Serif;
+  color: #222;
+}
+.cxAlert .cxaMessageTxt span {
+  display: block;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+/* Adjust Spacing for Error Icon*/
+.cxAlert .invalidIcon {
+  margin: 1px 6px 1px 0;
+}
+@media only screen and (max-width: 520px) {
+  .cxlWrapper {
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+  }
+  .cxlWrapper .cxlContent {
+    width: 100%;
+    top: 0 !important;
+    margin: 0;
+    max-width: none;
+    max-height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    border-radius: 0;
+  }
+}
+/* Help Panel */
+.cxIcon.relatedHelpIcon {
+  width: 15px;
+  height: 15px;
+  /*background-image: url(/images/relatedHelpTemp.png);*/
+}
+.expandIconWhite {
+  padding: 4px;
+  width: 15px;
+  height: 15px;
+  background-position: -24px -1524px;
+}
+.collapseIconWhite {
+  padding: 4px;
+  width: 15px;
+  height: 15px;
+  background-position: -51px -1523px;
+}
+.helpPanelWrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.helpPanelWrapper.expanded {
+  padding-right: 365px;
+}
+.helpPanelWrapper.expanded.overlay {
+  padding-right: 0;
+}
+.helpPanelWrapper.expanded.overlay .helpPanel {
+  right: 1px;
+}
+.helpPanel {
+  position: absolute;
+  right: 5px;
+  top: 1px;
+  z-index: 100;
+  overflow: hidden;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px 0;
+  width: 360px;
+  border-radius: 3px;
+  background: url(/images/helpBgPattern.png) repeat;
+  box-shadow: 0 0 2px rgba(0, 0, 50, 0.3);
+  -webkit-transition: -webkit-transform ease-out 0.25s;
+  transition: transform ease-out 0.25s;
+  webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  transform: translate(300px, 0);
+  -webkit-transform: translate(300px, 0);
+}
+.helpPanel:focus {
+  outline: none;
+}
+.helpPanelWrapper.expanded .helpPanel {
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+}
+.helpPanel .helpHeader {
+  position: relative;
+  padding: 9px 65px 9px 15px;
+  border-bottom: 1px solid #0b3e89;
+  background: #0f56bb url(/images/helpHeaderBg.png) 0 0 repeat-x;
+  /*
+	background: #437bc7;   
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQzN2JjNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjVkYmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -webkit-linear-gradient(top,  #437bc7 0%,#1b5dba 100%); 
+	background: -ms-linear-gradient(top,  #437bc7 0%,#1b5dba 100%); 
+	background: linear-gradient(to bottom,  #437bc7 0%,#1b5dba 100%); 
+	*/
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: 0px 0px 1px #03152f;
+}
+.helpPanel .helpHeader h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: Lato, Helvetica, Verdana, Sans-Serif;
+}
+.helpActions {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.helpActions li {
+  float: left;
+  margin: 0;
+  padding: 0 3px;
+}
+.helpActions li:nth-child(2) {
+  padding-right: 0;
+  padding-left: 3px;
+}
+.helpActions li a {
+  border: 1px solid #eee;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 1px rgba(11, 62, 137, 0.6);
+  border-radius: 5px;
+}
+.helpActions li a:hover {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: #0b3e89;
+}
+.helpPanel .helpContent {
+  overflow: auto;
+  padding: 1px 2px 2px 1px;
+  border-top: 1px solid #fff;
+}
+.helpPanel .expandedSection {
+  margin: 1px;
+  background: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), inset 1px 1px 1px rgba(26, 93, 185, 0.15);
+}
+.helpPanel .helpSection {
+  padding: 10px 15px;
+  border-bottom: 1px dotted #94b3dd;
+}
+.helpPanel .helpSection .cxIcon {
+  margin-right: 5px;
+}
+.helpPanel .expandedSection {
+  color: #333;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+/* to override main */
+.helpPanel .expandedSection div {
+  font-size: 13px;
+  font-size: 1.3rem;
+  padding-bottom: 5px;
+}
+.helpPanel .expandedSection dl {
+  margin: 0;
+  padding: 2px 0;
+}
+.helpPanel .expandedSection dt {
+  font-weight: bold;
+}
+.helpPanel .relatedHelp {
+  font-size: 13px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1459bc;
+  margin-left: 3px;
+}
+/* After Scroll */
+.helpPanel.helpPanelFixed {
+  position: fixed;
+  top: 0;
+  margin: 5px 0;
+}
+/* For New Header Content Wrapper */
+.headerWrapper ~ .contentWrapper .helpPanel.helpPanelFixed {
+  right: 42px;
+}
+/* Gray Help */
+.helpPanel.grayHelp {
+  background: url(/images/helpGrayBgPattern.png) repeat;
+  border: 1px solid #cccccc;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.helpPanel.grayHelp .helpHeader {
+  background: #ecece8 url(/images/helpHeaderGrayBg.png) 0 0 repeat-x;
+  color: #333;
+  text-shadow: 1px 1px 1px #fff;
+  border-bottom: 1px solid #fff;
+}
+.helpPanel.grayHelp .helpHeader h2 {
+  color: #333;
+}
+.grayHelp .helpActions li a:hover {
+  background-color: #fff;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.helpPanel.grayHelp .helpSection {
+  border-bottom: 1px dotted #aaa;
+}
+.helpPanel.grayHelp .expandedSection {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.grayHelp .expandIconWhite {
+  background-position: 5px -1525px;
+}
+.grayHelp .collapseIconWhite {
+  background-position: -82px -554px;
+}
+@media only screen and (max-width: 980px) {
+  .helpPanelWrapper.expanded {
+    padding-right: 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .helpPanelWrapper.expanded {
+    padding-right: 448px;
+  }
+  .helpPanel {
+    width: 440px;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .helpPanel {
+    right: auto;
+    width: 100%;
+    z-index: 10002;
+  }
+  /* For New Header Content Wrapper */
+  .headerWrapper ~ .contentWrapper .helpPanel.helpPanelFixed {
+    right: 0;
+  }
+  .headerWrapper ~ .contentWrapper .helpPanelWrapper.expanded {
+    z-index: 10002;
+  }
+}
+/* Help Panel Scrollbar*/
+.helpPanel ::-webkit-scrollbar {
+  width: 10px;
+  padding: 0;
+}
+.helpPanel ::-webkit-scrollbar-track {
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  background: rgba(150, 150, 150, 0.2);
+  -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.15);
+}
+.helpPanel ::-webkit-scrollbar-track:hover {
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+.helpPanel ::-webkit-scrollbar-track:hover {
+  background: rgba(150, 150, 150, 0.3);
+}
+.helpPanel ::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.4);
+}
+.helpPanel ::-webkit-scrollbar-thumb:hover {
+  background: #969696;
+}
+.helpPanel ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(100, 100, 100, 0.2);
+}
+/* CX Loading Overlay */
+body > .cxLoadingOverlay {
+  position: fixed;
+}
+body > .cxLoadingOverlay.blockUI .cxLoadingMessage {
+  display: inline-block;
+  max-width: 520px;
+  padding: 8px 20px;
+}
+.cxLoadingOverlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+}
+.cxLoadingOverlay.blockUI {
+  background: url(/images/overlayWhiteBg.png) repeat;
+  background: rgba(241, 241, 241, 0.6);
+  /*background: url(/images/overlayBg.png) repeat;
+	background: rgba(50,50,50,.5);*/
+  height: 100%;
+  box-shadow: inset 0 0 3px #ccc;
+  pointer-events: inherit;
+}
+.cxLoadingOverlay.blockUI.glow {
+  box-shadow: 0 0 10px #add7fd;
+}
+.cxLoadingOverlay .cxLoadingMessage,
+.cxlWrapper .cxLoadingMessage {
+  display: inline-block;
+  text-align: center;
+  color: #555;
+  text-shadow: 1px 1px 1px #fff;
+  font-style: italic;
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 20px auto;
+  padding: 8px 18px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  transition: padding linear 0.3s;
+  -webkit-transition: padding linear 0.3s;
+  border-radius: 3px;
+}
+.cxLoadingOverlay.blockUI .cxLoadingMessage {
+  background: #fff;
+  display: block;
+  padding: 8px 0;
+  border-radius: 0;
+  margin: 4px 2px;
+}
+.cxLoadingOverlay.cxLoadingVisible.blockUI .cxLoadingMessage {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.cxLoadingOverlay .cxLoadingMessage span {
+  vertical-align: middle;
+}
+.cxLoadingOverlay .cxIcon.cxLoadingIconSmall,
+.cxlWrapper .cxIcon.cxLoadingIconSmall {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+  background: url(/images/cxLoadingSmall.gif);
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  vertical-align: middle;
+  color: transparent;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -9999px;
+}
+.ie7 .cxLoadingOverlay .cxIcon.cxLoadingIconSmall,
+.ie7 .cxlWrapper .cxIcon.cxLoadingIconSmall {
+  display: inline;
+  color: transparent;
+  font-size: 1px;
+  text-indent: 0;
+  zoom: 1;
+}
+.loading {
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 1px #fff;
+  font-style: italic;
+  font-size: 13px;
+}
+.loading span {
+  vertical-align: middle;
+}
+/* Stop high z-index elements from appearing over the overlays*/
+.cxlWrapper ~ .mainContent {
+  position: relative;
+  z-index: 1;
+}
+/*#region CX Tooltip*/
+.cxTooltip {
+  position: absolute;
+  z-index: 999;
+  overflow: visible;
+  -webkit-animation: popin ease-in 0.2s;
+  -moz-animation: popin ease-in 0.2s;
+  animation: popin ease-in 0.2s;
+}
+.cxTooltip.cxtRemove {
+  -webkit-animation: popout ease-out 0.15s;
+  -moz-animation: popout ease-out 0.15s;
+  animation: popout ease-out 0.15s;
+}
+.cxTooltip .cxtText {
+  display: block;
+  padding: 9px 15px 9px 15px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 3px #ddd, inset 1px 1px 1px #eee;
+  box-shadow: 0 0 3px #eee, inset 1px 1px 1px #eee;
+  color: #222;
+  text-align: center;
+  font-size: 13px;
+  font-family: Source Sans Pro, Verdana, Arial, sans-serif;
+  line-height: 145%;
+}
+.ie7 .cxTooltip {
+  text-align: center;
+}
+@keyframes popin {
+  0% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+  90% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes popin {
+  0% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+  90% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes popin {
+  0% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+  90% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes popout {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+}
+@-moz-keyframes popout {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+}
+@-webkit-keyframes popout {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    transform: scale(0.65);
+  }
+}
+.cxIcon.cxtDownArrowIcon {
+  display: block;
+  margin: -1px auto 0 auto;
+  width: 15px;
+  height: 10px;
+  background: url(../images/toolTipDownArrow.png) top no-repeat;
+}
+.cxIcon.cxtUpArrowIcon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  overflow: visible;
+  margin: 0 auto -1px auto;
+  width: 15px;
+  height: 10px;
+  background: url(../images/toolTipUpArrow.png) bottom no-repeat;
+}
+.ie7 .cxIcon.cxtUpArrowIcon {
+  margin: 0 0 -1px;
+}
+/*#endregion*/
+
+/*! ************************************************************************************************
+	***     This CSS file was generated from a LESS stylesheet. Please do not edit this CSS      ***
+	***     file directly as your change will be lost. Please only edit the LESS stylesheet.     ***
+    ************************************************************************************************
+ */
+/*#region Imports*/
+/*references the LESS files rather than importing everything (Comments, etc.)*/
+/*#endregion*/
+/* CSS for forms, button, and icon styles */
+.cxForm h1,
+.cxForm h2,
+.cxForm h3,
+.cxForm h4,
+.cxForm h5,
+.cxHeader {
+  text-rendering: optimizelegibility;
+}
+/*Icon spritesheet*/
+.cxForm fieldset legend a.toggle,
+.cxForm .invalidMessage,
+.cxForm .validMessage,
+.cxForm .invalidMessageOverlay,
+.cxIcon {
+  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-repeat: no-repeat;
+}
+/* Used for screen reader only content */
+.audibleOnly {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  left: -9999px;
+  z-index: -1;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+.cxContent {
+  padding: 0 15px;
+}
+.cxContent a {
+  color: #024d99;
+}
+/* Removes Spaces for inline-block Components */
+.inlineNoSpace {
+  word-spacing: -0.43em;
+}
+.inlineNoSpace * {
+  word-spacing: normal;
+}
+/* Breadcrumb Styles - Not yet Implemented */
+.cxBreadcrumb {
+  margin: 8px 0 18px;
+  padding-top: 5px;
+  padding-left: 11px;
+  color: #666;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxBreadcrumb .separator {
+  padding: 0 3px;
+}
+/* Header Tags */
+.cxForm h1,
+h1.cxHeader {
+  margin: 0 10px;
+  padding: 1.2em 0 0.4em;
+  border-bottom: 1px solid #fff;
+  color: #222;
+  font-weight: 400;
+  font-size: 28px;
+  font-size: 2.8rem;
+}
+.cxForm h2,
+h2.cxHeader {
+  margin: 0;
+  padding: 1.2em 0 0.8em;
+  color: #222;
+  font-weight: 700;
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+.cxForm h3,
+h3.cxHeader {
+  margin: 0;
+  padding: 1.2em 0 0.4em;
+  color: #111;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.cxForm h4,
+h4.cxHeader {
+  margin: 0;
+  padding: 1.2em 0 0.4em;
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.cxForm h5,
+h5.cxHeader {
+  margin: 0;
+  padding: 1.2em 0 0.4em;
+  color: #000;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.cxContent h1.cxHeader {
+  margin-left: 0;
+}
+.cxForm p {
+  line-height: 1.5em;
+}
+.cxForm .actionList li {
+  list-style-type: none;
+  padding-bottom: 5px;
+}
+.cxForm input,
+.cxForm textarea,
+.cxForm select {
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+}
+/* Fieldset class can be used to adjust form layout */
+.cxForm fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.cxForm fieldset.leftLabels {
+  padding: 12px 5px;
+  min-width: 650px;
+}
+.cxForm fieldset.extendedLabels {
+  padding: 10px 0;
+}
+.cxForm fieldset.extendedLabels .formLabels {
+  display: block;
+  padding: 0 0 6px;
+  text-align: left;
+}
+.cxForm fieldset.extendedLabels .formFields {
+  max-width: 720px;
+}
+.cxForm fieldset.extendedLabels.formCol {
+  padding-bottom: 0;
+}
+.cxForm fieldset.extendedLabels.formCol .formRow {
+  display: inline-block;
+  padding: 8px 15px 8px 0;
+}
+.cxForm fieldset legend {
+  display: block;
+  margin: 0;
+  padding: 20px 0 8px;
+  width: 100%;
+  border-bottom: 1px solid #dedede;
+  color: #555;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.cxForm fieldset legend a.toggle {
+  display: block;
+  padding-left: 18px;
+  background-position: -2px -300px;
+  color: #555;
+  text-decoration: none;
+}
+.cxForm fieldset legend a.toggle:hover {
+  color: #024d99;
+  text-decoration: underline;
+}
+.cxForm fieldset legend a.toggleOpen {
+  background-position: -2px -334px;
+}
+/* Layout */
+.cxForm .formRow {
+  clear: both;
+  padding: 8px 0;
+}
+.cxForm .formLabels {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .leftLabels .formLabels {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  margin: 0 -0.43em 0 0;
+  padding: 7px 8px 7px 5px;
+  width: 17%;
+  vertical-align: top;
+  text-align: right;
+}
+.cxForm .leftLabels .formFields {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 83%;
+  vertical-align: top;
+}
+.cxForm .leftLabels .formComponent {
+  padding: 7px 0;
+}
+.cxForm .fieldSection {
+  margin-bottom: 8px;
+}
+.cxForm .fieldInline {
+  display: inline-block;
+  /*vertical-align: middle;*/
+}
+.cxForm .leftLabels .formFieldsLimited {
+  max-width: 720px;
+}
+.cxForm .leftLabelsSmall .formLabels {
+  width: 14%;
+}
+.cxForm .leftLabelsSmall .formFields {
+  width: 85%;
+}
+.cxForm .leftLabelsLarge .formLabels {
+  width: 22%;
+}
+.cxForm .leftLabelsLarge .formFields {
+  width: 77%;
+}
+/* For IE 7 width adjustment  */
+.ie7 .cxForm .leftLabels .formFields {
+  width: 81%;
+}
+.ie7 .cxForm .leftLabelsSmall .formFields {
+  width: 81%;
+}
+.ie7 .cxForm .leftLabelsLarge .formFields {
+  width: 74%;
+}
+/* Label Formatting*/
+.cxForm .primaryLabel {
+  color: #444;
+  font-weight: 700;
+  line-height: 120%;
+}
+.cxForm .requiredIndicator {
+  color: #DA2B19;
+  font-weight: 700;
+}
+/* Form Field Element Formating */
+.cxForm .field,
+.cxField,
+.cxForm .optionList input[type=checkbox],
+.cxForm .optionList input[type=radio],
+.cxForm .locationTreeDropDown {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  -webkit-transition: border-color linear 0.25s, box-shadow linear 0.25s, -webkit-box-shadow linear 0.25s;
+  transition: border-color linear 0.25s, box-shadow linear 0.25s, -webkit-box-shadow linear 0.25s;
+}
+.cxForm input.field:hover,
+.cxForm select.field:hover,
+.cxForm textarea.field:hover,
+.cxField:focus,
+.cxForm .optionList input[type=checkbox]:hover,
+.cxForm .optionList input[type=radio]:hover,
+.cxForm span.field input[type=file]:hover {
+  -webkit-box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+  box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+}
+.cxForm input[type=text].field,
+.cxForm .datagridCondensed input[type=text],
+.cxForm input[type=email].field,
+.cxForm input[type=password].field,
+.cxForm input[type=tel].field,
+.cxForm input[type=url].field,
+.cxForm textarea.field,
+.cxForm select.field,
+.cxField,
+.cxForm .locationTreeDropDown {
+  margin: 0 3px 0 0;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+.cxForm input[type=text].field:focus,
+.cxForm input[type=email].field:focus,
+.cxForm input[type=password].field:focus,
+.cxForm input[type=tel].field:focus,
+.cxForm input[type=url].field:focus,
+.cxForm textarea.field:focus,
+.cxForm select.field:focus,
+.cxField:focus {
+  outline: none;
+  border-color: #74b9ef;
+  -webkit-box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+  box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+}
+.cxForm textarea.field,
+textarea.cxField {
+  width: 480px;
+  line-height: 130%;
+}
+.cxForm select.field,
+select.cxField {
+  padding: 4px;
+}
+/* Spacing fix for IE */
+.ie .cxForm select.field {
+  padding-top: 4px;
+}
+.ie7 .cxForm select.field {
+  margin-top: 5px;
+}
+.cxForm input[type=checkbox].field,
+.cxForm .optionList input[type=checkbox] {
+  margin: 3px 2px 3px 0;
+  padding: 0;
+  vertical-align: middle;
+}
+.cxForm input[type=radio].field,
+.cxForm .optionList input[type=radio] {
+  margin-bottom: 3px;
+  margin-left: 0;
+  vertical-align: middle;
+}
+.cxForm .optionList input[type=radio].radio,
+.cxForm .optionList input[type=checkbox].checkbox {
+  /*margin-right: 1px;*/
+}
+/* Spacing fix for IE */
+.ie input[type=radio].field,
+.ie .optionList input[type=radio] {
+  margin: 2px 5px 1px 0;
+}
+/* Lists of Options */
+.cxForm .optionList {
+  margin: 0 0 -3px 0;
+  padding: 0;
+  max-width: 700px;
+  list-style-type: none;
+}
+.cxForm .optionList.widthNone {
+  max-width: none;
+}
+.cxForm .leftLabels .optionList {
+  padding-top: 2px;
+}
+.cxForm .optionListExtended {
+  max-width: none;
+}
+.cxForm .optionList li {
+  margin: 0;
+  padding: 2px 0;
+  line-height: 130%;
+}
+.cxForm .optionList label,
+.cxForm .checkboxLabel,
+.cxForm .radioLabel {
+  font-size: 13px;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+.cxForm ol.optionList {
+  margin-left: 0;
+  padding-top: 0;
+  padding-left: 0;
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+.cxForm .leftLabels ol.optionList {
+  padding-top: 0;
+}
+.cxForm .optionListInline {
+  display: block;
+}
+.cxForm .optionList li input[type=checkbox] {
+  margin-right: 3px;
+  margin-left: 0;
+}
+.cxForm .optionList li input[type=radio] {
+  margin-right: 4px;
+  margin-left: 0;
+}
+.cxForm .optionListInline li,
+.cxForm .optionListInline2 li,
+.cxForm .optionListInline3 li,
+.cxForm .optionListInline4 li,
+.cxForm .optionListInline5 li {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  padding-right: 12px;
+}
+/* IE Formatting Adjustment */
+.ie .cxForm .optionListInline li,
+.ie .cxForm .optionListInline2 li,
+.ie .cxForm .optionListInline3 li,
+.ie .cxForm .optionListInline4 li,
+.ie .cxForm .optionListInline5 li {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.cxForm .optionListInline2 li {
+  width: 45%;
+}
+.cxForm .optionListInline3 li {
+  width: 30%;
+}
+.cxForm .optionListInline4 li {
+  width: 22.5%;
+}
+.cxForm .optionListInline5 li {
+  width: 18%;
+}
+.cxForm .multilineOptions {
+  position: relative;
+}
+.cxForm .multilineOptions li {
+  position: relative;
+  padding-left: 18px;
+  vertical-align: top;
+}
+.cxForm .multilineOptions li input[type=checkbox],
+.cxForm .multilineOptions li input[type=radio] {
+  position: absolute;
+  left: 0;
+  margin-top: 4px;
+}
+.cxForm .multilineOptions li label {
+  display: block;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.ie7 .cxForm .multilineOptions {
+  position: relative;
+  zoom: 1;
+}
+.ie7 .cxForm .multilineOptions li input[type=checkbox],
+.ie7 .cxForm .multilineOptions li input[type=radio] {
+  margin-top: 0;
+}
+.ie7 .cxForm .multilineOptions li {
+  padding-left: 24px;
+}
+/* Stacked Options With Extended Label Names */
+.cxForm .multilineOptionsStacked li {
+  display: table-row;
+  margin-bottom: 5px;
+}
+.cxForm .multilineOptionsStacked label {
+  display: table-cell;
+  vertical-align: top;
+  padding-bottom: 6px;
+  line-height: 150%;
+}
+.cxForm .multilineOptionsStacked input[type=radio],
+.cxForm .multilineOptionsStacked input[type=checkbox] {
+  margin-right: 4px;
+  display: table-cell;
+}
+.ie7 .cxForm .multilineOptionsStacked input[type=radio],
+.ie7 .cxForm .multilineOptionsStacked input[type=checkbox] {
+  float: left;
+}
+/* Add Remove Interface */
+.cxForm .addRemove {
+  margin-bottom: 6px;
+}
+.cxForm .addRemove li .field {
+  margin-right: 1px;
+}
+.cxForm .addRemove .addLink {
+  display: inline-block;
+  margin: 8px 0 5px 0;
+  padding-left: 12px;
+}
+.cxForm .removeOption input[type=text],
+.cxForm .removeOption select {
+  border-color: #bb1200;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+  text-decoration: line-through;
+}
+.cxForm .optionList .removeOption input[type=file] {
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.addLink .cxIcon {
+  margin-right: 5px;
+}
+/* Read Only Fields */
+.cxForm .readOnlyField {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .leftLabels .readOnlyField {
+  padding: 7px 0;
+}
+.cxForm .readOnlyForm .formFields,
+.cxForm .readOnlyForm .formLabels {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  max-width: 730px;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .readOnlyRow .formFields .readOnlyField,
+.cxForm .readOnlyForm .formFields .readOnlyField {
+  padding: 0;
+}
+.cxForm .formFields input.readOnlyField,
+.cxForm .formFields input.readOnlyField:hover,
+.cxForm .formFields input.readOnlyField:focus {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .leftLabels .readOnlyRow .formFields,
+.cxForm .leftLabels .readOnlyRow .formLabels {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  max-width: 720px;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .leftLabels .readOnlyRow .formFields,
+.cxForm .readOnlyForm .formFields {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .readOnlyRow .requiredIndicator,
+.cxForm .readOnlyForm .requiredIndicator {
+  display: none;
+}
+.cxForm fieldset.readOnlyForm .optionList,
+.cxForm .readOnlyRow .optionList {
+  margin: -4px 0;
+  padding-top: 0;
+}
+.cxForm .fieldDescription {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+/* Defined Widths */
+.cxForm input.fieldDate,
+.cxForm input.dateField {
+  width: 75px;
+}
+.cxForm input.shortField,
+.cxForm textarea.shortField {
+  width: 55px;
+}
+.cxForm select.shortField {
+  width: 67px;
+}
+.cxForm input.medField,
+.cxForm textarea.medField {
+  width: 150px;
+}
+.cxForm select.medField {
+  width: 162px;
+}
+.cxForm input.longField,
+.cxForm textarea.longField {
+  width: 270px;
+}
+.cxForm select.longField {
+  width: 282px;
+}
+.cxForm input.superField,
+.cxForm textarea.superField {
+  width: 480px;
+}
+.cxForm select.superField {
+  width: 492px;
+}
+.cxForm .formFields .fieldMax,
+.cxForm .formFields .maxField {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  -ms-box-sizing: border-box;
+}
+.ie7 .cxForm .formFields .fieldMax,
+.ie7 .cxForm .formFields .maxField {
+  width: 90%;
+}
+/* Table Styles */
+.cxTable {
+  border-spacing: 0;
+  border-top: 2px solid #D6D6D6;
+  border-bottom: 1px solid #D6D6D6;
+}
+.cxTable th {
+  padding: 7px 0;
+  border-bottom: 3px double #E9E9E9;
+  background-color: #fff;
+  color: #6b6b6b;
+  font-weight: 400;
+  font-size: 13px;
+  font-size: 1.3rem;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+}
+.cxTable td {
+  padding: 8px 5px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.cxTable tbody > :first-child td {
+  padding-top: 10px;
+}
+.cxTable tbody > :last-child td {
+  padding-bottom: 10px;
+}
+.tableTools {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.tableTools li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+/* Btns */
+body .cxBtn,
+.ie8 div .cxBtnLegacy {
+  display: inline-block;
+  margin: 0 3px 0 0;
+  padding: 5px 12px 6px;
+  border: 1px solid rgba(100, 100, 100, 0.75);
+  border-radius: 6px;
+  background: #f9f9f8 url(/images/btnBgSprites.png) 0 0px repeat-x;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #222;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  line-height: 1.3em;
+  cursor: pointer;
+  -webkit-transition: all linear 0.1s;
+  transition: all linear 0.1s;
+}
+body .cxBtn input {
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  font-size: 1.6rem;
+  border-image-width: 0;
+  background: transparent;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+body .cxBtn:focus {
+  outline: 1px dotted #ccc;
+  border-color: #74b9ef;
+  -webkit-box-shadow: 0 0 3px #a9cfed;
+  box-shadow: 0 0 3px #a9cfed;
+}
+body .cxBtn:hover,
+body .cxBtn.active,
+body .cxBtnLegacy:hover {
+  outline: none;
+  background-position: 0 70px;
+  -webkit-box-shadow: 0 0 4px #74b9ef;
+  box-shadow: 0 0 4px #74b9ef;
+}
+body .cxBtn:active {
+  -webkit-box-shadow: inset 0 0 4px #74b9ef;
+  box-shadow: inset 0 0 4px #74b9ef;
+}
+/* IE 8 and Below Compatibility  */
+.ie8 .cxBtn {
+  white-space: nowrap;
+  overflow: visible;
+  padding: 0 7px 0 0;
+  height: 30px;
+  border: 0;
+  background: transparent url(/images/ieBtnSprites.png) right -100px no-repeat;
+}
+.ie8 .cxBtn .btnContent {
+  display: block;
+  margin: 0;
+  padding: 6px 5px 6px 12px;
+  width: auto;
+  height: 18px;
+  background: transparent url(/images/ieBtnSprites.png) 0px -100px no-repeat;
+  vertical-align: middle;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.ie8 .cxBtn input.btnContent {
+  position: relative;
+  overflow: visible;
+  height: 30px;
+  cursor: pointer;
+}
+.ie7 .cxBtn input.btnContent {
+  padding-right: 1px;
+  padding-left: 7px;
+}
+.ie8 .cxBtn:focus {
+  outline: 1px dotted #666;
+}
+.ie8 .cxBtn:hover {
+  background-color: transparent;
+  background-position: right -150px;
+}
+.ie8 .cxBtn:hover .btnContent {
+  background-position: 1px -150px;
+}
+.ie8 .cxBtn .cxIcon {
+  vertical-align: inherit;
+}
+.ie8 .cxBtnLegacy {
+  height: auto;
+  width: auto;
+}
+.ie7 input.cxBtnLegacy {
+  padding: 5px 12px;
+}
+/* Primary Btn*/
+body .cxPrimaryBtn,
+body .cxPrimaryBtnLegacy {
+  border: 1px solid rgba(2, 24, 126, 0.8);
+  background: #034eb8 url(/images/primaryBtnBg.png) 0 0 repeat-x;
+  color: #fff;
+  text-shadow: 0 0 2px #010c24;
+}
+body .cxPrimaryBtn:focus {
+  outline: 1px dotted #666;
+  border-color: #001337;
+  -webkit-box-shadow: 0 0 4px #0751b9;
+  box-shadow: 0 0 4px #0751b9;
+}
+body .cxPrimaryBtn:hover,
+body .cxPrimaryBtn.active,
+body .cxPrimaryBtnLegacy:hover {
+  border-color: #001337;
+  background-position: 0 -20px;
+}
+.ie8 .cxPrimaryBtn {
+  background-position: right 0px;
+}
+.ie8 .cxPrimaryBtn .btnContent {
+  background-position: 0 0;
+}
+.ie8 .cxPrimaryBtn:hover {
+  background-position: right -50px;
+}
+.ie8 .cxPrimaryBtn:hover .btnContent {
+  background-position: 0 -50px;
+}
+body .deleteBtn:focus {
+  outline: 1px dotted #ccc;
+  border-color: #bb1200;
+}
+body .deleteBtn:hover {
+  border-color: #bb1200;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+  color: #DA2B19;
+}
+body .deleteBtn:active {
+  -webkit-box-shadow: inset 0 0 4px #ff2f19;
+  box-shadow: inset 0 0 4px #ff2f19;
+}
+/* Disabled Button Types */
+body .btnDisabled,
+body .btnDisabled:hover,
+body .btnDisabled:focus,
+body .btnDisabled:active,
+body .cxBtn[disabled="disabled"],
+body .cxBtn[disabled="disabled"]:hover,
+body .cxBtn[disabled="disabled"]:focus,
+body .cxBtn[disabled="disabled"]:active {
+  border-color: #ccc;
+  background: #eee;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #444;
+  text-shadow: none;
+  opacity: 0.75;
+  cursor: default;
+}
+body .btnDisabled input,
+body .cxBtn[disabled="disabled"] input {
+  cursor: default;
+}
+body .cxBtn[disabled=disabled] .cxIcon,
+body .btnDisabled .cxIcon {
+  opacity: 0.5;
+}
+.ie8 .btnDisabled,
+.ie8 .btnDisabled:hover,
+.ie8 .btnDisabled:focus,
+.ie8 .btnDisabled:active,
+.ie8 .cxBtn[disabled="disabled"],
+.ie8 .cxBtn[disabled="disabled"]:hover,
+.ie8 .cxBtn[disabled="disabled"]:focus,
+.ie8 .cxBtn[disabled="disabled"]:active {
+  background: transparent url(/images/ieBtnSprites.png) right -100px no-repeat !important;
+}
+.ie8 .btnDisabled .btnContent,
+.ie8 .btnDisabled:hover .btnContent,
+.ie8 .btnDisabled:focus .btnContent,
+.ie8 .btnDisabled:active .btnContent,
+.cxBtn[disabled="disabled"]:hover .btnContent,
+.ie8 .cxBtn[disabled="disabled"]:focus .btnContent,
+.ie8 .cxBtn[disabled="disabled"] .btnContent {
+  background-position: 0 -100px !important;
+}
+/* Button Groups */
+.cxBtn.nextBtn {
+  font-size: 10px;
+  font-size: 1rem;
+  padding: 5px 8px 6px 10px;
+}
+.cxBtn.prevBtn {
+  font-size: 10px;
+  font-size: 1rem;
+  padding: 5px 10px 6px 8px;
+}
+.ie8 .prevBtn,
+.ie8 .nextBtn {
+  padding: 0 7px 0 0;
+}
+.ie8 .prevBtn .cxIcon,
+.ie8 .nextBtn .cxIcon {
+  margin-top: 2px;
+  margin-left: 2px;
+}
+.ie8 .btnDisabled .cxIcon.prevIcon {
+  background-position: -30px -649px;
+}
+.ie8 .btnDisabled .cxIcon.nextIcon {
+  background-position: -30px -679px;
+}
+/* Button Groups */
+.btnGrp {
+  display: inline-block;
+  margin: 0 0.42em 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+.btnGrp > li {
+  display: inline-block;
+  margin: 0 -0.43em 0 0;
+  padding: 0;
+}
+.btnGrp .cxBtn {
+  position: relative;
+  margin: 0;
+  white-space: nowrap;
+}
+.btnGrp .cxBtn:hover {
+  z-index: 2;
+}
+.btnGrp .leftBtn > .cxBtn {
+  border-radius: 6px 0 0 6px;
+}
+.btnGrp .rightBtn > .cxBtn {
+  border-radius: 0 6px 6px 0;
+}
+.btnGrp .middleBtn > .cxBtn {
+  border-radius: 0;
+}
+/* Compound Button */
+.compoundBtn > .cxBtn .cxIcon {
+  display: block;
+  height: auto;
+  overflow: visible;
+  vertical-align: inherit;
+}
+.compoundBtn > .menuTitle .cxBtn {
+  padding-right: 10px;
+  border-right: 0;
+}
+.compoundBtn > .menuOptions .cxBtn {
+  padding-right: 8px;
+  padding-left: 5px;
+  border-left: 1px solid rgba(150, 150, 150, 0.3);
+}
+.compoundBtn > .menuOptions .cxPrimaryBtn {
+  border-left: 1px solid rgba(2, 24, 126, 0.3);
+}
+.compoundBtn > .menuOptions .cxIcon {
+  overflow: visible;
+  vertical-align: middle;
+}
+.compoundBtn > .menuOptions .cxPrimaryBtn .cxIcon {
+  height: inherit;
+  vertical-align: inherit;
+}
+/* IE8 and below Styles for Btns Group */
+.ie7 ul.btnGrp {
+  margin-right: 0.43em;
+}
+.ie8 ul.btnGrp > li {
+  margin-right: -4px;
+}
+.ie7 ul.btnGrp > li,
+.ie8 ul.btnGrp > li .cxBtn {
+  margin-right: 0;
+}
+.ie8 .btnGrp .middleBtn > .cxBtn,
+.ie8 .btnGrp .leftBtn > .cxBtn {
+  padding-right: 0;
+  background-image: none;
+}
+.ie8 .btnGrp .rightBtn > .cxBtn {
+  padding-right: 7px;
+  padding-left: 0;
+}
+.ie8 .btnGrp .middleBtn > .cxBtn .btnContent {
+  padding-right: 12px;
+  border-right: 1px solid #ccc;
+  background-position: -10px -100px;
+}
+.ie8 .btnGrp .middleBtn > .cxBtn:hover .btnContent,
+.ie8 .btnGrp .rightBtn > .cxBtn:hover .btnContent {
+  background-position: -10px -150px;
+}
+.ie8 .btnGrp .leftBtn > .cxBtn .btnContent {
+  padding-right: 12px;
+  border-right: 1px solid #ccc;
+  background-position: 0 -100px;
+}
+.ie8 .btnGrp .leftBtn > .cxBtn:hover .btnContent {
+  background-position: 0 -150px;
+}
+.ie8 .btnGrp .rightBtn > .cxBtn .btnContent {
+  background-position: -10px -100px;
+}
+.ie8 .btnGrp .middleBtn > .cxPrimaryBtn .btnContent {
+  border-right: 1px solid #039;
+  background-position: -10px 0;
+}
+.ie8 .btnGrp .middleBtn > .cxPrimaryBtn:hover .btnContent,
+.ie8 .btnGrp .rightBtn > .cxPrimaryBtn:hover .btnContent {
+  background-position: -10px -50px;
+}
+.ie8 .btnGrp .leftBtn > .cxPrimaryBtn .btnContent {
+  border-right: 1px solid #039;
+  background-position: 0 0;
+}
+.ie8 .btnGrp .rightBtn > .cxPrimaryBtn .btnContent {
+  background-position: -10px 0;
+}
+.ie8 .cxPrimaryBtn:hover .btnContent,
+.ie8 .btnGrp .leftBtn > .cxPrimaryBtn:hover .btnContent {
+  background-position: 0 -50px;
+}
+.ie8 .compoundBtn > .menuOptions .cxBtn {
+  padding-left: 0;
+}
+.ie8 .compoundBtn > .menuOptions .cxIcon {
+  vertical-align: top;
+}
+.ie7 .compoundBtn > .menuOptions .cxIcon {
+  vertical-align: middle;
+}
+/* Validation */
+.cxForm .validationNote,
+.cxForm .fieldNote {
+  display: block;
+  padding: 6px 0;
+  color: #444;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .invalidMessage,
+.cxForm .validMessage {
+  display: inline-block;
+  padding: 5px 3px 7px 22px;
+  background-position: 0 -114px;
+  color: #da362e;
+  vertical-align: top;
+  font-weight: 700;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .invalidMessage {
+  background-image: none;
+  padding: 5px 0 5px 3px;
+  vertical-align: middle;
+  line-height: 20px;
+}
+.cxForm .invalidMessage:before {
+  content: "";
+  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-repeat: no-repeat;
+  background-position: 0 -118px;
+  width: 19px;
+  height: 20px;
+  display: inline-block;
+  float: left;
+  margin-right: 3px;
+}
+/* Required Messages overrides */
+.cxForm .formFields .requiredMessage span[style*="display: inline"] ~ span .invalidMessage,
+.cxForm .requiredMessage[style*="display: inline-block"] ~ .invalidMessage,
+.cxForm .formFields .requiredMessage[style*="display: inline"] ~ span .invalidMessage,
+.cxForm .formFields .requiredMessage[style*="display: inline-block"] ~ span .invalidMessage {
+  display: none !important;
+}
+/* Don't show multiple icons, but only for non mobile mode */
+@media only screen and (min-width: 520px) {
+  .cxForm .formFields span[style*="display: inline"] ~ span .invalidMessage,
+  .cxForm .invalidMessage[style*="display: inline-block"] ~ .invalidMessage {
+    padding-left: 0;
+    background: transparent;
+  }
+}
+.cxForm .validMessage {
+  background-position: 0 -83px;
+  color: #549f06;
+  display: none;
+}
+.cxForm .invalid {
+  position: relative;
+}
+.cxForm .invalidMessageOverlay {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  overflow: hidden;
+  padding: 0;
+  min-height: 16px;
+  width: 16px;
+  background-position: 0 -118px;
+  text-indent: -1200px;
+}
+.cxForm input[type=text].invalid,
+.cxForm input[type=email].invalid,
+.cxForm input[type=password].invalid,
+.cxForm input[type=tel].invalid,
+.cxForm input[type=url].invalid,
+.cxForm textarea.invalid,
+.cxForm select.invalid {
+  border-color: #cc3425;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.cxForm input[type=text].invalid:focus,
+.cxForm input[type=email].invalid:focus,
+.cxForm input[type=password].invalid:focus,
+.cxForm input[type=tel].invalid:focus,
+.cxForm input[type=url].invalid:focus,
+.cxForm textarea.invalid:focus,
+.cxForm select.invalid:focus {
+  border-color: #74b9ef;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.cxForm input[type=text].valid,
+.cxForm input[type=email].valid,
+.cxForm input[type=password].valid,
+.cxForm input[type=tel].valid,
+.cxForm input[type=url].valid,
+.cxForm textarea.valid,
+.cxForm select.valid {
+  -webkit-box-shadow: 0 0 3px #7ffb7f;
+  box-shadow: 0 0 3px #7ffb7f;
+}
+.cxForm .invalid .selectContainer {
+  display: inline-block;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.cxForm .invalidSummary,
+.saveConfirmation,
+.deleteConfirmation,
+.cxForm .alert {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border: solid 1px #FF1800;
+  border-radius: 3px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fff2f2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #fff2f2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #fff2f2 100%);
+  /* W3C */
+  background-color: #fff4f4;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+  color: #000;
+}
+/**/
+.cxForm .invalidSummary p,
+.saveConfirmation p,
+.deleteConfirmation p,
+.cxForm .alert p {
+  position: relative;
+  margin: 0;
+  padding: 2px 0 2px 22px;
+  min-height: 18px;
+  background: transparent;
+  color: #c12514;
+  font-weight: 700;
+  line-height: 135%;
+}
+.cxForm .invalidSummary ul {
+  margin-top: 0;
+  padding-top: 5px;
+  padding-left: 40px;
+  color: #333;
+}
+.cxForm .invalidSummary li {
+  margin: 0;
+  padding: 2px 0;
+  color: #333;
+}
+.cxForm .invalidSummary li .fieldsetLabel {
+  display: inline-block;
+  padding: 3px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  font-weight: 700;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+.cxForm .invalidSummary li .fieldsetLabel:hover {
+  border-color: #bb1200;
+  background: #fff;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+  color: #DA2B19;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cxForm .invalidSummary .cxIcon,
+.saveConfirmation .cxIcon,
+.deleteConfirmation .cxIcon,
+.cxForm .alert .cxIcon {
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+/* Confirmation */
+.saveConfirmation {
+  border-color: #7ec437;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2ZmZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f3fff2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #f3fff2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #f3fff2 100%);
+  /* W3C */
+  background-color: #f3fff2;
+  -webkit-box-shadow: 0 0 2px #b3e481;
+  box-shadow: 0 0 2px #b3e481;
+}
+.saveConfirmation p {
+  color: #428003;
+}
+.deleteConfirmation {
+  border-color: #7e0000;
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fff2f3 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #fff2f3 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #fff2f3 100%);
+  /* W3C */
+  background-color: #fff2f3;
+  -webkit-box-shadow: 0 0 2px #ff2f19;
+  box-shadow: 0 0 2px #ff2f19;
+}
+.deleteConfirmation p {
+  color: #bf2716;
+}
+/* General Alert */
+.cxForm .alert {
+  border-color: #faebcc;
+  background: #fffede url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZlZGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fdfcec 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #fdfcec 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #fdfcec 100%);
+  background-color: #f3fff2;
+  -webkit-box-shadow: 0 0 2px #faebcc;
+  box-shadow: 0 0 5px #faebcc;
+}
+.cxForm .alert p {
+  color: #8a6d3b;
+}
+/* Loading icon in alert */
+.cxForm .cxIcon.cxLoadingIcon.large {
+  top: 0;
+  height: 24px;
+  width: 24px;
+  background: url(/images/cxlLoading.gif);
+}
+/* Extra padding for the large icon */
+.cxForm .alert p.largeIcon {
+  padding: 2px 0 2px 32px;
+}
+/* Optional top/bottom margin */
+.cxForm .margin-medium-vertical {
+  margin: 10px 0;
+}
+.cxForm .margin-xlarge-vertical {
+  margin: 24px 0;
+}
+/* Message Overlay */
+.cxOverlay {
+  position: absolute;
+  top: 28px;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+}
+.cxOverlay .saveConfirmation,
+.cxOverlay .deleteConfirmation {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 4px 12px;
+  max-width: 550px;
+}
+.cxOverlay .saveConfirmation p,
+.cxOverlay .deleteConfirmation p {
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 160%;
+}
+/*********ICONS*********/
+/*Universal: Form related, etc*/
+.cxIcon {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  vertical-align: middle;
+  color: transparent;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -9999px;
+  *display: inline;
+  /* Fixes for IE7 Support */
+  *text-indent: 0;
+  *zoom: 1;
+  /*&.helpPanelIcon.borders, &.settingsIcon.borders {
+	    border-radius: 5px;
+	    box-shadow: inset 0 0 4px #ddd;
+	    -webkit-box-shadow: inset 0 0 4px #ddd;	
+    }*/
+  /*** Lesson Status Icons ***/
+  /*** Grade Book Weight Icons ***/
+}
+.cxIcon.deleteIcon {
+  width: 14px;
+  height: 14px;
+  background-position: 0 -30px;
+}
+.cxIcon.deleteDisabledIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -30px;
+}
+.cxIcon.deleteSmallIcon {
+  width: 12px;
+  height: 12px;
+  background-position: -65px -30px;
+}
+.cxIcon.newIcon,
+.cxIcon.createIcon {
+  width: 18px;
+  height: 15px;
+  background-position: 0 -60px;
+}
+.cxIcon.confirmIcon {
+  width: 17px;
+  height: 16px;
+  background-position: 0 -90px;
+}
+.cxIcon.invalidIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -120px;
+  color: #DA2B19;
+}
+.cxIcon.newMultipleIcon {
+  width: 18px;
+  height: 18px;
+  background-position: 0 -150px;
+}
+.sortAscending .cxIcon.sortIcon,
+.cxIcon.sortAscendingIcon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-position: -2px -299px;
+}
+.sortDescending .cxIcon.sortIcon,
+.cxIcon.sortDescendingIcon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-position: -2px -334px;
+}
+.cxIcon.inboxIcon,
+.cxIcon.unreadIcon {
+  width: 20px;
+  height: 16px;
+  background-position: 0 -380px;
+}
+.cxIcon.folderIcon {
+  width: 20px;
+  height: 16px;
+  background-position: 0 -409px;
+}
+.cxIcon.mustReadFolderIcon {
+  width: 20px;
+  height: 20px;
+  background-position: -60px -437px;
+}
+.cxIcon.editFolderIcon {
+  width: 24px;
+  height: 13px;
+  background-position: -30px -410px;
+}
+.cxIcon.menuIcon {
+  width: 15px;
+  height: 15px;
+  background-position: -60px -410px;
+}
+.cxIcon.composeIcon {
+  width: 27px;
+  height: 27px;
+  background-position: 6px -1246px;
+}
+.cxIcon.draftFolderIcon {
+  width: 20px;
+  height: 16px;
+  background-position: 0 -440px;
+}
+.cxIcon.deleteFolderIcon {
+  width: 24px;
+  height: 13px;
+  background-position: -30px -440px;
+}
+.cxIcon.sentIcon,
+.cxIcon.sentFolderIcon {
+  width: 20px;
+  height: 15px;
+  background-position: 0 -530px;
+}
+.cxIcon.createFolderIcon {
+  width: 24px;
+  height: 13px;
+  background-position: -30px -470px;
+}
+.cxIcon.deletedIcon {
+  width: 20px;
+  height: 16px;
+  background-position: 0 -500px;
+}
+.cxIcon.moveFolderIcon {
+  width: 24px;
+  height: 13px;
+  background-position: -30px -500px;
+}
+.cxIcon.leftIcon {
+  width: 13px;
+  height: 13px;
+  background-position: 0 -560px;
+}
+.cxIcon.rightIcon {
+  width: 13px;
+  height: 13px;
+  background-position: -30px -560px;
+}
+.cxIcon.leftCollapseIcon {
+  width: 9px;
+  height: 12px;
+  background-position: -60px -560px;
+}
+.cxIcon.rightCollapseIcon {
+  width: 9px;
+  height: 12px;
+  background-position: -90px -560px;
+}
+.cxIcon.expandedIcon {
+  width: 14px;
+  height: 14px;
+  background-position: -30px -589px;
+}
+.cxIcon.collapsedIcon {
+  width: 14px;
+  height: 14px;
+  background-position: -60px -590px;
+}
+.cxIcon.upIcon {
+  width: 13px;
+  height: 12px;
+  background-position: 0 -618px;
+}
+.cxIcon.downIcon {
+  width: 13px;
+  height: 12px;
+  background-position: -60px -618px;
+}
+.cxIcon.prevIcon {
+  width: 11px;
+  height: 12px;
+  background-position: 0 -649px;
+}
+.cxIcon.prevDisabledIcon {
+  width: 11px;
+  height: 12px;
+  background-position: -30px -649px;
+}
+.cxIcon.nextIcon {
+  width: 11px;
+  height: 12px;
+  background-position: 0 -679px;
+}
+.cxIcon.nextDisabledIcon {
+  width: 11px;
+  height: 12px;
+  background-position: -30px -679px;
+}
+.cxIcon.plusIcon {
+  width: 14px;
+  height: 14px;
+  background-position: 0 -710px;
+}
+.cxIcon.minusIcon {
+  width: 14px;
+  height: 14px;
+  background-position: 0 -740px;
+}
+.cxIcon.readIcon {
+  width: 20px;
+  height: 15px;
+  background-position: 0 -770px;
+}
+.cxIcon.forwardedIcon {
+  width: 18px;
+  height: 14px;
+  background-position: 0 -800px;
+}
+.cxIcon.repliedIcon {
+  width: 18px;
+  height: 14px;
+  background-position: 0 -830px;
+}
+.cxIcon.announcementIcon {
+  width: 18px;
+  height: 14px;
+  background-position: 0 -860px;
+}
+.cxIcon.attachmentsIcon {
+  width: 12px;
+  height: 14px;
+  background-position: 0 -890px;
+}
+.cxIcon.noAttachmentsIcon {
+  background-position: -999px 999px;
+}
+.cxIcon.noAttachmentsIcon:hover {
+  background-position: 0 -890px;
+  opacity: 0.5;
+}
+.cxPrimaryBtn .cxIcon.downIcon,
+.cxIcon.downIconWhite {
+  width: 13px;
+  height: 12px;
+  background-position: 0 -913px;
+}
+.cxPrimaryBtn .cxIcon.upIcon,
+.cxIcon.upIconWhite {
+  width: 13px;
+  height: 12px;
+  background-position: 0 -947px;
+}
+.cxIcon.mustReadIcon {
+  width: 18px;
+  height: 14px;
+  background-position: 0 -1020px;
+}
+.cxIcon.deletePageIcon {
+  width: 18px;
+  height: 20px;
+  background-position: 0 -1050px;
+}
+.cxIcon.deletePageDisabledIcon {
+  width: 18px;
+  height: 20px;
+  background-position: -30px -1050px;
+}
+.cxIcon.copyIcon {
+  width: 18px;
+  height: 18px;
+  background-position: 0 -1080px;
+}
+.cxIcon.draftCopyIcon {
+  width: 18px;
+  height: 18px;
+  background-position: -29px -1080px;
+}
+.cxIcon.removeIcon {
+  width: 13px;
+  height: 13px;
+  background-position: 0 -1110px;
+}
+.cxIcon.removeDisabledIcon {
+  width: 13px;
+  height: 13px;
+  background-position: -30px -1110px;
+}
+.cxIcon.removeBigIcon {
+  width: 17px;
+  height: 17px;
+  background-position: 0 -1140px;
+}
+.cxIcon.removeBigDisabledIcon {
+  width: 17px;
+  height: 17px;
+  background-position: -30px -1140px;
+}
+.cxIcon.searchIcon {
+  width: 18px;
+  height: 18px;
+  background-position: 0 -1200px;
+}
+.cxIcon.deleteBigIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -1290px;
+}
+.cxIcon.deleteBigDisabledIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -1290px;
+}
+.cxIcon.sendWebMailIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -1320px;
+}
+.cxIcon.userLogIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -1350px;
+}
+.cxIcon.dataViewIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -1380px;
+}
+.cxIcon.livelessonIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -1380px;
+}
+.cxIcon.messageBoardIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -1380px;
+}
+.cxIcon.calculatorIcon {
+  width: 18px;
+  height: 18px;
+  background-position: 0 -1410px;
+}
+.cxIcon.falseIcon {
+  width: 12px;
+  height: 12px;
+  background-position: 0 -1440px;
+}
+.cxIcon.checkIcon,
+.cxIcon.trueIcon {
+  width: 20px;
+  height: 16px;
+  background-position: 0 -1470px;
+}
+.cxIcon.closeIcon {
+  background-position: -23px -24px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 4px #ddd;
+  height: 26px;
+  opacity: 0.7;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 28px;
+  -webkit-box-shadow: inset 0 0 4px #ccc;
+}
+.cxIcon.closeIcon:hover,
+.cxIcon.closeIcon:focus {
+  box-shadow: inset 0 0 3px #74b9ef;
+  opacity: 1;
+}
+.cxIcon.expandIcon {
+  background-position: 0 -1530px;
+  width: 14px;
+  height: 14px;
+}
+.cxIcon.addWhiteArrowIcon {
+  background-position: -30px -920px;
+  width: 6px;
+  height: 11px;
+}
+.cxIcon.removeArrowIcon {
+  background-position: -60px -950px;
+  width: 7px;
+  height: 11px;
+}
+.cxIcon.undoIcon {
+  background-position: 0 -1600px;
+  width: 17px;
+  height: 16px;
+}
+.cxIcon.helpIcon,
+.cxIcon.newHelpIcon {
+  background-position: -60px -1320px;
+  width: 16px;
+  height: 16px;
+}
+.cxIcon.helpPanelIcon {
+  opacity: 0.7;
+  background-position: -53px -1315px;
+  height: 27px;
+  width: 29px;
+}
+.cxIcon.settingsIcon {
+  opacity: 0.7;
+  background-position: -23px -1345px;
+  height: 27px;
+  width: 29px;
+}
+.cxIcon.medAlertIcon {
+  background-position: 0 -1628px;
+  height: 16px;
+  width: 17px;
+}
+.cxIcon.borders {
+  border-radius: 5px;
+  box-shadow: inset 0 0 4px #ddd;
+  -webkit-box-shadow: inset 0 0 4px #ddd;
+}
+.cxIcon.helpPanelIcon:hover,
+.cxIcon.helpPanelIcon:focus,
+.cxIcon.settingsIcon:hover,
+.cxIcon.settingsIcon:focus {
+  opacity: 1;
+}
+.cxIcon.plannerIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -1410px;
+}
+.cxIcon.progressionPlanIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -1440px;
+}
+.cxIcon.starOffIcon {
+  width: 17px;
+  height: 15px;
+  background-position: 0 -1170px;
+}
+.cxIcon.starOnIcon {
+  width: 17px;
+  height: 15px;
+  background-position: -30px -1170px;
+}
+.cxIcon.schedulerBlueIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -1410px;
+}
+.cxIcon.schedulerGreyIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -1440px;
+}
+.cxIcon.schedulerRedIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -30px -1470px;
+}
+.cxIcon.gradeBookIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -1350px;
+}
+.cxIcon.borders:hover,
+.cxIcon.borders:focus {
+  box-shadow: inset 0 0 3px #74b9ef;
+}
+.cxIcon.lessonIncompleteIcon {
+  width: 20px;
+  height: 16px;
+  background-position: -100px -150px;
+}
+.cxIcon.lessonPendingCompleteIcon {
+  width: 20px;
+  height: 16px;
+  background-position: -160px -150px;
+}
+.cxIcon.lessonCompleteIcon {
+  width: 20px;
+  height: 16px;
+  background-position: -100px -180px;
+}
+.cxIcon.lessonSkippedIcon {
+  width: 20px;
+  height: 16px;
+  background-position: -130px -180px;
+}
+.cxIcon.discussionIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -100px 0px;
+}
+.cxIcon.testIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -130px 0px;
+}
+.cxIcon.skillsCheckIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -160px 0px;
+}
+.cxIcon.quizIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -100px -30px;
+}
+.cxIcon.quickCheckIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -130px -30px;
+}
+.cxIcon.portfolioIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -30px;
+}
+.cxIcon.practiceIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -100px -60px;
+}
+.cxIcon.endOfCourseExamIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -130px -60px;
+}
+.cxIcon.finalExamIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -60px;
+}
+.cxIcon.participationIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -100px -90px;
+}
+.cxIcon.endOfCourseSurveyIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -130px -90px;
+}
+.cxIcon.sampleWorkIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -90px;
+}
+.cxIcon.preTestIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -100px -210px;
+}
+.cxIcon.reflectionIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -130px -210px;
+}
+.cxIcon.gradeBookNeedsGradingIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -120px -1320px;
+}
+.cxIcon.homeIcon {
+  background-position: -100px -350px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.orderAwareIcon {
+  background-position: -90px -1320px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.attendanceIcon {
+  background-position: -90px -1350px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.coursePlacementIcon {
+  background-position: -90px -1380px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.assessmentToSubmitIcon {
+  background-position: -90px -1410px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.escalation-on-track-icon {
+  background-position: -100px -380px;
+  height: 10px;
+  width: 13px;
+}
+.cxIcon.escalation-approaching-alarm-icon {
+  background-position: -130px -380px;
+  height: 10px;
+  width: 13px;
+}
+.cxIcon.escalation-alarm-icon {
+  background-position: -160px -380px;
+  height: 10px;
+  width: 13px;
+}
+.cxIcon.escalation-exempt-icon {
+  background-position: -190px -380px;
+  height: 10px;
+  width: 13px;
+}
+.cxIcon.view-lessons-icon {
+  background-position: -120px -1350px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.view-students-in-section-icon {
+  background-position: -120px -1380px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.view-planner-icon {
+  background-position: -60px -1411px;
+  height: 16px;
+  width: 16px;
+}
+.cxIcon.logIcon {
+  background-position: 0 -1350px;
+  width: 16px;
+  height: 16px;
+}
+.cxIcon.create-custom-assessment-icon {
+  background-position: -150px -1320px;
+  width: 16px;
+  height: 16px;
+}
+.cxIcon.create-log-entry-icon {
+  background-position: -150px -1350px;
+  width: 16px;
+  height: 16px;
+}
+.ie7 .cxIcon {
+  text-indent: 0;
+  font-size: 0;
+  zoom: 1;
+  text-decoration: underline;
+}
+.inlineBlock {
+  display: inline-block;
+}
+.helpLinkMargin {
+  margin-bottom: 4px;
+}
+/* Left Aligned Icons */
+.addLink {
+  display: inline-block;
+  padding-left: 12px;
+  margin-right: 5px;
+}
+.cxIcon.activityLogIcon {
+  width: 16px;
+  height: 16px;
+  background-position: -151px -1381px;
+}
+/*Lesson related: Assessment icons, LV images*/
+/***** For Later!!! *****/
+/*.cxLessonIcon {
+	background-image:url(/images/lessonSprites.png?v=i8);
+	background-repeat:no-repeat;
+}
+
+.cxLessonIcon {
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	vertical-align: middle;
+	color: transparent;
+	text-align: left;
+	text-decoration: none;
+	text-indent: -9999px;
+	*display:inline; 
+	*text-indent:0;
+	*zoom: 1;
+}
+.ie7 .cxLessonIcon {
+	text-indent: 0;
+	font-size: 0;
+	zoom: 1;
+	text-decoration: underline;
+}*/
+/***assessment icons***/
+/*.cxLessonIcon .courseSurveyAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .discussionAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .endOfCourseExamAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .finalExamAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .participationAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .portfolioItemAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .practiceAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .pretestAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .quickCheckAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .quizAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .sampleWorkAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .skillsCheckAssessmentIcon {
+	width:
+	height:
+	background-position:
+}
+
+.cxLessonIcon .testAssessmentIcon {
+	width:
+	height:
+	background-position:
+}*/
+/* Misc Form Components */
+/* Location Selector  */
+.cxForm .leftLabels .locationContainer {
+  padding-top: 3px;
+}
+/* Grade Selector  */
+.cxForm .leftLabels .gradeSelector {
+  padding-top: 2px;
+}
+/* Bottom Actions  */
+div.formAction {
+  margin: 0 0 0 0;
+  padding: 30px 1px 50px 0px;
+}
+.formAction .cxButton {
+  margin-right: 5px;
+}
+.cxForm .leftLabels .formAction,
+.cxForm .formActionLeftLabels {
+  margin-left: 17%;
+}
+.cxForm .leftLabelsLarge .formAction {
+  margin-left: 22%;
+}
+.cxForm .leftLabelsSmall .formAction {
+  margin-left: 14%;
+}
+/* CalloutBox */
+.withCalloutBox {
+  position: relative;
+}
+.cxForm .calloutBox {
+  background: #f6f6f6;
+  /* Old browsers */
+  background: #f6f6f6 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-linear-gradient(top, #f6f6f6 0%, #f2f2f2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #f6f6f6 0%, #f2f2f2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f6f6f6 0%, #f2f2f2 100%);
+  /* W3C */
+  text-shadow: 1px 1px 1px #fff;
+  color: #333;
+  padding: 10px 12px;
+  margin: 0;
+  border-radius: 3px;
+  border-color: #ddd;
+  box-shadow: 0 0 2px #eee;
+}
+.cxForm .calloutBox p,
+.cxForm .calloutBox label {
+  display: block;
+  font-style: italic;
+  background-color: transparent;
+  color: #222;
+  margin: 0;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 150%;
+  padding: 2px 0 4px 0;
+}
+.cxForm .rightCalloutBox {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 320px;
+}
+/* Angular Location Tree */
+.dropdown-menu {
+  display: none;
+}
+.open > .dropdown-menu {
+  display: block;
+}
+.cxForm .locationSelectContainer {
+  width: 325px;
+  padding: 0;
+  vertical-align: middle;
+}
+.cxForm .locationSelectContainer .selectedName {
+  max-width: 90%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cxForm .locationSelectContainer .locationTreeDropDown {
+  position: relative;
+  height: 18px;
+}
+.cxForm .locationSelectContainer .locationTreeDropDown .cxBtn.dropdown-toggle {
+  padding: 0;
+  padding: 4px 8px 4px 7px;
+  position: absolute;
+  top: -1px;
+  right: -4px;
+  border-radius: 0 3px 3px 0;
+  height: 30px;
+}
+.cxForm .locationSelectContainer .locationTreeDropDown .dropdown-menu {
+  width: 100%;
+  overflow: auto;
+  max-height: 300px;
+}
+.cxForm .locationSelectContainer .locationTreeDropDown .dropdown-menu .treeNodeRow .tree-label {
+  border-bottom: 1px dotted #e2e2e2;
+}
+.datagridCondensed.roleDatagrid {
+  width: 100%;
+}
+@media only screen and (max-width: 750px) {
+  .cxForm .withCalloutBox .leftLabels {
+    float: none;
+  }
+  .cxForm .rightCalloutBox {
+    position: static;
+    float: none;
+    max-width: none;
+    margin: 8px 0;
+  }
+}
+/* IE7 display inline fixes */
+.ie7 {
+  /* Fixes IE Rendering Bugs */
+}
+.ie7 body {
+  *zoom: 1;
+}
+.ie7 .cxForm .leftLabels .formLabels,
+.ie7 .cxForm .leftLabels .formFields,
+.ie7 .cxForm .leftLabels .formComponent,
+.ie7 .cxForm .invalid .invalidMessage,
+.ie7 .cxForm .optionListInline li,
+.ie7 .cxForm .optionListInline2 li,
+.ie7 .cxForm .optionListInline3 li,
+.ie7 .cxForm .optionListInline4 li,
+.ie7 .cxForm .optionListInline5 li,
+.ie7 .cxForm .inlineField,
+.ie7 .cxForm .invalid .selectContainer,
+.ie7 .cxForm .sliderLables li,
+.ie7 .cxForm .readOnlyField,
+.ie7 .cxForm .actionList li {
+  *display: inline;
+  margin-right: 3px;
+  *zoom: 1;
+}
+.ie7 .cxForm .cxBtn,
+.ie7 .btnGrp,
+.ie7 .btnGrp > li,
+.ie7 .cxIcon {
+  *display: inline;
+  margin-right: 0;
+  *zoom: 1;
+}
+/* Display for Mobile Devices */
+@media only screen and (max-width: 520px) {
+  .mainContent {
+    width: auto;
+    border: 0;
+    padding: 0px 15px ;
+  }
+  .cxForm fieldset.leftLabels {
+    padding-right: 0;
+    padding-left: 0;
+    min-width: 0;
+  }
+  body .cxForm .leftLabels .formLabels {
+    display: block;
+    margin-right: 0;
+    padding-left: 0;
+    width: auto;
+    text-align: left;
+  }
+  body .cxForm .leftLabels .formFields {
+    display: block;
+    width: auto;
+  }
+  .cxForm input[type=text].field,
+  .cxForm input[type=password].field,
+  .cxForm input[type=email].field,
+  .cxForm input[type=url].field,
+  .cxForm input[type=tel].field,
+  .cxForm textarea.field,
+  .cxForm select.field,
+  .cxForm .locationSelectContainer {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    -ms-box-sizing: border-box;
+  }
+  .cxForm .fieldInline {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .cxForm .validationNote,
+  .cxForm .fieldNote {
+    padding-bottom: 0;
+  }
+  .noMobile input[type=text].field,
+  .noMobile input[type=email].field,
+  .noMobile input[type=url].field,
+  .noMobile input[type=tel].field,
+  .noMobile textarea.field,
+  .noMobile select.field {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: inherit !important;
+    -ms-box-sizing: content-box;
+  }
+  .noMobile .leftLabels .formLabels {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 -4px 0 0;
+    padding: 7px 8px 7px 5px;
+    width: 15%;
+    vertical-align: top;
+    text-align: right;
+    font-size: 13px;
+    font-size: 1.3rem;
+    -ms-box-sizing: border-box;
+  }
+  .noMobile .leftLabels .formFields {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 83%;
+    vertical-align: top;
+  }
+  .noMobile fieldset.leftLabels {
+    min-width: 650px;
+  }
+  .cxForm .leftLabels .optionList {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .cxForm .invalidMessageOverlay {
+    right: -4px;
+    margin-left: 0;
+  }
+  .cxForm fieldset.readOnlyForm .optionList {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .cxForm .addRemove input[type=text].field {
+    width: 85%;
+  }
+  .cxForm .inlineField,
+  .cxForm .formComponent {
+    padding-top: 4px;
+  }
+  .cxForm #idLocationBorder,
+  .cxForm #idLocation {
+    width: 100%;
+  }
+  .cxForm .optionListInline4 li,
+  .cxForm .optionListInline5 li {
+    width: 48%;
+  }
+  .cxForm .leftLabels .formAction,
+  .cxForm .formActionLeftLabels {
+    margin-left: 0;
+  }
+  .cxForm .invalidMessage {
+    display: block;
+  }
+  .cxForm .leftLabels .readOnlyField,
+  .cxForm .leftLabels .readOnlyRow .formFields {
+    padding: 2px 0;
+  }
+  .cxForm .locationSelectContainer .selectedName {
+    max-width: 90%;
+  }
+}
+/* Retina Assets*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  body .cxBtn,
+  body .cxPrimaryBtn {
+    background-image: url(/images/btnBgSprites@2x.png);
+    background-size: 10px auto;
+  }
+  body .cxPrimaryBtn {
+    background-image: url(/images/primaryBtnBg@2x.png);
+  }
+  body .btnDisabled,
+  body .btnDisabled:hover,
+  body .btnDisabled:focus,
+  body .btnDisabled:active,
+  body .cxBtn[disabled="disabled"],
+  body .cxBtn[disabled="disabled"]:hover,
+  body .cxBtn[disabled="disabled"]:focus,
+  body .cxBtn[disabled="disabled"]:active {
+    background: #eee;
+  }
+  body .cxIcon {
+    background-image: url(/images/iconSprites@2x.png?v=i14_2015);
+    background-size: 200px auto;
+  }
+}
+/* Galaxy Tab Button Spacing Adjustment  */
+@media only screen and (max-device-width: 1280px) and (max-device-height: 800px) and (orientation: landscape), only screen and (max-device-width: 800px) and (max-device-height: 1280px) and (orientation: portrait) {
+  body .cxBtn {
+    padding-bottom: 4px;
+  }
+}
+/* Input Fields for Deprecated HTML  */
+.cxForm .fieldContainer input,
+.cxForm .fieldContainer textarea,
+.cxForm .fieldContainer select {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  -webkit-transition: border-color linear 0.25s, box-shadow linear 0.25s, -webkit-box-shadow linear 0.25s;
+  transition: border-color linear 0.25s, box-shadow linear 0.25s, -webkit-box-shadow linear 0.25s;
+}
+.cxForm .fieldContainer input:hover,
+.cxForm .fieldContainer textarea:hover,
+.cxForm .fieldContainer select:hover,
+.cxForm .datagridCondensed td span select:hover,
+.cxForm .datagridCondensed td input[type=text]:hover {
+  -webkit-box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+  box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+}
+.cxForm .fieldContainer input[type=text],
+.cxForm .fieldContainer input[type=email],
+.cxForm .fieldContainer input[type=password],
+.cxForm .fieldContainer input[type=tel],
+.cxForm .fieldContainer input[type=url],
+.cxForm .fieldContainer input textarea,
+.cxForm .fieldContainer select {
+  margin: 0 3px 0 0;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+.cxForm .fieldContainer input[type=text]:focus,
+.cxForm .datagridCondensed td input[type=text]:focus,
+.cxForm .fieldContainer input[type=email]:focus,
+.cxForm .fieldContainer input[type=password]:focus,
+.cxForm .fieldContainer input[type=tel]:focus,
+.cxForm .fieldContainer input[type=url]:focus,
+.cxForm .fieldContainer input textarea:focus,
+.cxForm .fieldContainer select:focus,
+.cxForm .datagridCondensed td span select:focus {
+  outline: none;
+  border-color: #74b9ef;
+  -webkit-box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+  box-shadow: 0 0 3px #74b9ef, inset 1px 1px 3px #ddd;
+}
+.cxForm .fieldContainer.invalid input[type=text],
+.cxForm .fieldContainer.invalid input[type=email],
+.cxForm .fieldContainer.invalid input[type=password],
+.cxForm .fieldContainer.invalid input[type=tel],
+.cxForm .fieldContainer.invalid input[type=url],
+.cxForm .fieldContainer.invalid textarea,
+.cxForm .fieldContainer.invalid select {
+  border-color: #cc3425;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.cxForm .fieldContainer.invalid input[type=text]:focus,
+.cxForm .fieldContainer.invalid input[type=email]:focus,
+.cxForm .fieldContainer.invalid input[type=password]:focus,
+.cxForm .fieldContainer.invalid input[type=tel]:focus,
+.cxForm .fieldContainer.invalid input[type=url]:focus,
+.cxForm .fieldContainer.invalid textarea:focus,
+.cxForm .fieldContainer.invalid select:focus {
+  border-color: #74b9ef;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+.cxForm .fieldContainer textarea {
+  width: 480px;
+  line-height: 130%;
+}
+.cxForm .fieldContainer select {
+  padding: 4px 4px 4px 1px;
+}
+.iconWithLink .cxIcon {
+  margin-right: 5px;
+}
+/* Replace Old Validation Styles */
+.cxForm .fieldContainer .requiredField,
+.cxForm .fieldContainer span.requiredFieldError,
+.cxForm .requiredField {
+  border: 0;
+}
+.cxForm .fieldContainer + span[style*="color:Red;"] {
+  display: inline-block;
+  padding: 7px 3px 7px 22px;
+  background-image: url(/images/iconSprites.png?v=i14_2015);
+  background-position: 0 -114px;
+  background-repeat: no-repeat;
+  color: #da362e !important;
+  font-weight: bold;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .fieldContainer input.requiredFieldError,
+.cxForm .fieldContainer select.requiredFieldError {
+  border-color: #cc3425;
+  background: transparent;
+  -webkit-box-shadow: 0 0 3px #ff2f19;
+  box-shadow: 0 0 3px #ff2f19;
+}
+/* action link list */
+.cxForm .actionList {
+  margin-bottom: 20px;
+  padding-left: 0;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .actionList li {
+  list-style-type: none;
+  padding: 5px 0;
+  margin: 0 12px 0 0;
+  display: inline-block;
+}
+/* header label */
+.cxForm .headerLabel {
+  background-color: #efefef;
+  padding: 10px;
+  margin-top: 15px;
+}
+.cxForm .headerLabel label {
+  font-weight: bold;
+}
+/* New Submenu Styles */
+.cxSubmenu {
+  line-height: 135%;
+  border-bottom: 1px solid #003399;
+}
+/* Used for left aligned fields */
+.cxForm fieldset.inlineLabels .formLabels {
+  display: inline-block;
+  padding: 0 4px 0;
+}
+.cxForm fieldset.inlineLabels .formRow,
+.cxForm fieldset.inlineLabels .formFields {
+  display: inline-block;
+}
+/* Data View Management CSS */
+.cxForm fieldset.inlineLabels .formLabels {
+  display: inline-block;
+  padding: 0 4px 0;
+}
+.cxForm fieldset.inlineLabels .formRow,
+.cxForm fieldset.inlineLabels .formFields {
+  display: inline-block;
+}
+p.cxP {
+  color: #222;
+  line-height: 140%;
+  padding: 3px 0;
+  margin: 0;
+}
+.cxForm fieldset.inlineLabels .goToLinks {
+  display: inline-block;
+}
+p.dataViewInstruction {
+  margin: 10px 0;
+}
+.ie7 .cxForm fieldset.inlineLabels .formLabel,
+.ie7 .cxForm fieldset.inlineLabels .formFields,
+.ie7 .cxForm fieldset.inlineLabels .goToLinks {
+  display: inline;
+}
+/* Filtering by Alphabet for grids */
+.cxForm span.datagridCondensed {
+  display: inline-block;
+  margin: 6px 0;
+  color: #333;
+}
+.cxForm span.datagridCondensed .selectedLetter {
+  display: inline-block;
+  padding: 1px 4px;
+  background: #f6f6f6;
+  border: solid 1px #aaa;
+  font-weight: normal;
+}
+/* Pagination for grids */
+.cxForm table.datagridCondensed {
+  border-spacing: 0 !important;
+  padding: 0;
+  border-radius: 3px;
+  border-collapse: separate;
+  margin-bottom: 20px;
+}
+.cxForm table.datagridCondensed tr.dataGridPager > td {
+  border: 1px solid #cccccc;
+  background: #fbfbfb;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.5);
+  padding: 6px  8px 4px 8px;
+}
+.cxForm table.datagridCondensed tr.dataGridPager > td select {
+  margin: 0;
+}
+.cxForm .dataGridPager td > table tbody tr td:first-child {
+  border: 0;
+}
+.cxForm tr.dataGridPager td {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.cxForm tr.dataGridPager .totalDisplayed {
+  font-style: italic;
+  color: #555555;
+}
+.cxForm tr.dataGridPager .dataGridPages {
+  padding: 2px 0;
+}
+/* Highlight Current Page in Pagination */
+.cxForm tr.dataGridPager .dataGridPages a,
+.cxForm tr.dataGridPager > td > a,
+.cxForm span.datagridCondensed > a {
+  display: inline-block;
+  *display: inline;
+  border-radius: 4px;
+  padding: 3px 3px;
+  -webkit-transition: -webkit-box-shadow linear 0.25s, box-shadow linear 0.25s;
+  transition: -webkit-box-shadow linear 0.25s, box-shadow linear 0.25s;
+}
+.cxForm tr.dataGridPager .dataGridPages a:hover,
+.cxForm tr.dataGridPager > td > a:hover {
+  background: #f4f7fc;
+  box-shadow: 0 0px 2px #c9dcf7;
+  -webkit-box-shadow: 0 0px 2px #c9dcf7;
+}
+.cxForm tr.dataGridPager .currentPage,
+.cxForm tr.dataGridPager > td > span {
+  display: inline-block;
+  *display: inline;
+  border-radius: 4px;
+  background: #034eb8 url(/images/primaryBtnBg.png) bottom repeat-x;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 1px #010c24;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.7em;
+  width: 1.7em;
+}
+.cxForm tr.dataGridPager td td {
+  border: 0;
+  padding: 0;
+}
+.cxForm .datagridCondensed.noPagination tr.th td,
+.cxForm .datagridCondensed.noPagination th {
+  border-top: 1px solid #ccc;
+  -webkit-box-shadow: inset 1px 0 0 #fff;
+  box-shadow: inset 1px 0 0 #fff;
+}
+.cxForm .datagridCondensed tr.th td,
+.cxForm .datagridCondensed th {
+  border-left: 1px solid #eee;
+  background: #f3f6fb;
+  color: #555;
+  border-top: 1px solid #fff;
+  padding: 8px 5px;
+  font-weight: bold;
+  margin-top: 100px;
+  border-bottom: 3px double #cccccc;
+  border-right: 1px solid #e5e7f1;
+  vertical-align: bottom;
+  text-align: left;
+  font-size: 13px;
+  font-size: 1.3rem;
+  -webkit-box-shadow: inset 0 1px 0 rgba(200, 200, 200, 0.3), inset 1px 0 0 #fff;
+  box-shadow: inset 0 1px 0 rgba(200, 200, 200, 0.3), inset 1px 0 0 #fff;
+  line-height: 130%;
+}
+.cxForm .datagridCondensed tr.th td br {
+  display: none;
+}
+.cxForm .datagridCondensed tr.th a,
+.cxForm .datagridCondensed th a {
+  color: #003399;
+  text-decoration: none;
+}
+.cxForm .datagridCondensed tr.th a:hover,
+.cxForm .datagridCondensed th a:hover {
+  color: #660099;
+  text-decoration: underline;
+}
+.cxForm .datagridCondensed tr.th td:first-child,
+.cxForm .datagridCondensed th:first-child,
+.cxForm .datagridCondensed > tbody td:first-child,
+.cxForm .datagridCondensed > tbody .shade td:first-child {
+  border-left: 1px solid #ccc;
+}
+.cxForm .datagridCondensed tr.th td:last-child,
+.cxForm .datagridCondensed th:last-child,
+.cxForm .datagridCondensed th:last-child,
+.cxForm .datagridCondensed > tbody td:last-child {
+  border-right: 1px solid #ccc;
+}
+.cxForm .datagridCondensed > tbody tr:last-child > td {
+  -webkit-box-shadow: inset 1px 0px 0 #fff;
+  box-shadow: inset 1px 0px 0 #fff;
+}
+.cxForm .datagridCondensed td {
+  border: 0;
+  padding: 8px 7px 8px 7px;
+  line-height: 135%;
+  max-width: 520px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ededed;
+  box-shadow: inset 1px 1px 0 #fff;
+  -webkit-box-shadow: inset 1px 1px 0 #fff;
+  transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.5s;
+  -webkit-transition: background-color 0.2s, -webkit-box-shadow 0.2s, color 0.2s, border-color 0.5s;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.cxForm .datagridCondensed tr:hover td {
+  box-shadow: inset 0 1px 0px #f3f7fc, inset 0 -1px 0px #f3f7fc;
+  -webkit-box-shadow: inset 0 1px 0px #f3f7fc, inset 0 -1px 0px #f3f7fc;
+  border-bottom-color: #bbb;
+  color: #000;
+}
+.cxForm .datagridCondensed tr.shade {
+  background-color: #f5f5f5;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+@media only screen and (min-width: 1367px) {
+  .cxForm .datagridCondensed tr.th td,
+  .cxForm .datagridCondensed th {
+    padding: 8px;
+  }
+  .cxForm .datagridCondensed td {
+    padding: 8px;
+  }
+}
+@media only screen and (min-width: 1601px) {
+  .cxForm .datagridCondensed td {
+    padding: 8px 12px 9px 12px;
+    line-height: 140%;
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+  .cxForm .datagridCondensed tr.th td,
+  .cxForm .datagridCondensed th {
+    padding: 8px 12px;
+  }
+}
+@media all and (max-width: 640px) {
+  /*#region Header Tags*/
+  .cxForm h1,
+  h1.cxHeader {
+    font-size: 18.75px;
+    font-size: 1.875rem;
+  }
+  .cxForm h2,
+  h2.cxHeader {
+    font-size: 13.75px;
+    font-size: 1.375rem;
+  }
+  /*#endregion*/
+}
+.printIcon {
+  width: 23px;
+  height: 18px;
+  background-position: -50px -1202px;
+}
+
+/*! ************************************************************************************************
+	***     This CSS file was generated from a LESS stylesheet. Please do not edit this CSS      ***
+	***     file directly as your change will be lost. Please only edit the LESS stylesheet.     ***
+    ************************************************************************************************
+ */
+/*#region Imports*/
+/*references the LESS files rather than importing everything (Comments, etc.)*/
+/*#endregion*/
+/*#region General*/
+/* Place any general ariables, functions, styles here. 
+ * Some of these may later on move to a more general stylesheet and then be imported here.
+ */
+html {
+  font-size: 62.5%;
+}
+/*#region Tags*/
+a img {
+  border: 0;
+}
+/*#endregion*/
+/*#region IDs & Classes*/
+/*#region Environment Indicator*/
+div#environmentIndicator {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  content: "";
+  display: block;
+  font-size: 14px;
+  font-size: 1.4rem;
+  min-height: 10px;
+  opacity: .75;
+  text-indent: 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+div#environmentIndicator span#environmentText {
+  font-weight: bold;
+}
+div#environmentIndicator.development,
+div#environmentIndicator.integration {
+  background: linear-gradient(to bottom, #8b46a8 1%, #651985 100%);
+}
+div#environmentIndicator.test {
+  background: linear-gradient(to bottom, #ff9600 0, #e36b00 100%);
+}
+div#environmentIndicator.TestCurrent {
+  background: linear-gradient(to bottom, #12b09f 0, #088174 100%);
+}
+div#environmentIndicator.demo {
+  background: linear-gradient(to bottom, #d24731 0, #a62a1a 100%);
+}
+div#environmentIndicator.staging {
+  background: linear-gradient(to bottom, #6fa300 0, #527800 100%);
+}
+div#environmentIndicator.BusProc {
+  background: linear-gradient(to bottom, #ff235c 0, #b0123b 100%);
+}
+div#environmentIndicator.LoadTest {
+  background: linear-gradient(to bottom, #228cff 0, #0062cc 100%);
+}
+/*#endregion*/
+/*#region Feedback */
+div.feedbackWrapper {
+  margin: 0 auto;
+  max-width: 1120px;
+  position: relative;
+  text-align: right;
+  z-index: 2;
+}
+div.feedbackWrapper a.feedback {
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #bfb4ae;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  padding: 11px 20px 13px 20px;
+  text-decoration: none;
+}
+div.feedbackWrapper a.feedback:hover {
+  background: #fff;
+  background: linear-gradient(to bottom, #ffffff 0, #eeeeee 100%);
+  /* W3C */
+  text-decoration: underline;
+}
+/*#endregion*/
+/*#region Footer */
+div.loginFooterWrapper {
+  background: #000;
+  background: rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+div.loginFooterWrapper div.loginFooter {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 20px 20px;
+}
+div.loginFooterWrapper div.loginFooter:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+div.loginFooterWrapper div.loginFooter div.copyright {
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #fff;
+  float: left;
+  padding: 1px 0 0 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+div.loginFooterWrapper div.loginFooter div.copyright img {
+  margin-top: 3px;
+}
+div.loginFooterWrapper div.loginFooter div.copyright img,
+div.loginFooterWrapper div.loginFooter div.copyright span {
+  vertical-align: middle;
+}
+div.loginFooterWrapper div.loginFooter ul.footerLinks {
+  font-size: 14px;
+  font-size: 1.4rem;
+  float: right;
+  color: #999;
+  list-style-type: none;
+  margin: 0;
+  padding: 1px 0;
+}
+div.loginFooterWrapper div.loginFooter ul.footerLinks li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+div.loginFooterWrapper div.loginFooter ul.footerLinks li.footerFeedback {
+  display: none;
+}
+div.loginFooterWrapper div.loginFooter ul.footerLinks a {
+  color: #65aeff;
+  display: inline-block;
+  margin: 0 2px;
+  padding: 5px;
+  text-shadow: 0 0 2px #000;
+  transition: background ease-in 0.3s;
+}
+div.loginFooterWrapper div.loginFooter ul.footerLinks a:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  color: #fff;
+}
+@media all and (max-width: 1140px) {
+  div.loginFooterWrapper div.loginFooter ul.footerLinks {
+    float: none;
+    clear: both;
+  }
+}
+@media all and (max-width: 640px) {
+  html {
+    font-size: 100%;
+  }
+  div.loginFooterWrapper {
+    background: none;
+    position: static;
+    border-top: 1px solid #ccc;
+  }
+  div.loginFooterWrapper div.loginFooter {
+    margin: 0 auto;
+    padding: 12px 20px;
+    width: auto;
+  }
+  div.loginFooterWrapper div.loginFooter div.copyright,
+  div.loginFooterWrapper div.loginFooter ul.footerlinks {
+    padding: 10px 0;
+  }
+  div.loginFooterWrapper div.loginFooter div.copyright {
+    font-size: 10px;
+    font-size: 1rem;
+    float: none;
+    text-shadow: none;
+  }
+  div.loginFooterWrapper div.loginFooter div.copyright img,
+  div.loginFooterWrapper div.loginFooter div.copyright span {
+    display: block;
+  }
+  div.loginFooterWrapper div.loginFooter div.copyright span {
+    color: #333;
+  }
+  div.loginFooterWrapper div.loginFooter ul.footerLinks {
+    font-size: 10px;
+    font-size: 1rem;
+    clear: both;
+    float: none;
+    padding: 10px 0;
+  }
+  div.loginFooterWrapper div.loginFooter ul.footerLinks li {
+    padding: 5px 0;
+  }
+  div.loginFooterWrapper div.loginFooter ul.footerLinks li.footerFeedback {
+    display: inline-block;
+  }
+  div.loginFooterWrapper div.loginFooter ul.footerLinks a {
+    color: #65aeff;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-shadow: none;
+  }
+  div.loginFooterWrapper div.loginFooter ul.footerLinks a:hover {
+    background: transparent;
+    color: #005BC0;
+  }
+}
+/*#endregion*/
+/*#endregion*/
+/*#endregion*/
+/*#region Login*/
+/*#region Login Icon Sprite*/
+.loginPage .cxIcon,
+.multipleUsers .cxIcon {
+  background-image: url(../../images/loginIconSprites.png);
+}
+.cxIcon.phoneIcon {
+  width: 16px;
+  height: 16px;
+  background-position: 0 0;
+  margin: 0 3px 0 0;
+}
+.cxIcon.emailIcon {
+  width: 17px;
+  height: 17px;
+  margin: 0 3px 0 0;
+  background-position: 0 -30px;
+}
+.cxIcon.preSelectIcon {
+  background-position: 0 -360px;
+  width: 23px;
+  height: 16px;
+}
+.cxIcon.invalidIcon {
+  background-position: 2px -260px;
+  width: 20px;
+  height: 16px;
+}
+/*#endregion*/
+div.pageWrapper {
+  height: 100%;
+}
+div.mainContent {
+  position: relative;
+  height: 100%;
+}
+html,
+body {
+  font-family: 'Source Sans Pro', Helvetica, Verdana, Sans-Serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizelegibility;
+}
+div.loginPage {
+  min-height: 100%;
+  position: relative;
+}
+div.loginPage a {
+  color: #0f65df;
+}
+div.loginPage a:hover {
+  color: #022c69;
+}
+div.loginPage div.loginWrapper {
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 1120px;
+  /* Clear login wrapper*/
+}
+div.loginPage div.loginWrapper:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+div.loginPage div.loginWrapper div.loginContent {
+  float: right;
+  padding-bottom: 20px;
+  width: 560px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+  padding: 30px 40px;
+  position: relative;
+  z-index: 2;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain h1 {
+  font-family: Lato, Helvetica, Verdana, Sans-Serif;
+  font-size: 28px;
+  font-size: 2.8rem;
+  font-weight: normal;
+  line-height: 125%;
+  margin: .1em 0 .5em 0;
+  padding: 0;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain p {
+  line-height: 1.5;
+  margin: 0;
+  padding: .15em 0;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginMessaging p.welcomeMessage,
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginMessagingNoLogo p.welcomeMessage {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginMessaging {
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+  width: 315px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginLogo {
+  display: inline-block;
+  overflow: hidden;
+  text-align: right;
+  vertical-align: top;
+  width: 140px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginLogo img {
+  max-height: 140px;
+  max-width: 140px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain img#skinnedLogo {
+  display: block;
+  max-height: 30px;
+  max-width: 230px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain span.alertMsg {
+  background-position: 0 -256px;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  vertical-align: middle;
+  width: 25px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMaindiv.noLogo p {
+  line-height: 1.55;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMaindiv.noLogo p div.loginMessaging {
+  margin-right: 0;
+  width: auto;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert {
+  background: #be3900;
+  /* Old browsers */
+  background: -webkit-linear-gradient(top, #d44a00 0, #b73400 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #d44a00 0, #b73400 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #d44a00 0, #b73400 100%);
+  /* W3C */
+  color: #fff;
+  display: block;
+  margin: 12px -40px 7px -40px;
+  padding: 15px 30px 16px 30px;
+  position: relative;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert h2,
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert h3 {
+  color: #fff;
+  font-size: 22px;
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: .04em 0 .12em 0;
+  padding: 0;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert p {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: .4em 0 .2em 0;
+  vertical-align: middle;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert a {
+  color: #fff;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg p {
+  width: 320px;
+  display: inline-block;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul {
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1.6rem;
+  vertical-align: top;
+  list-style-type: none;
+  margin: 0;
+  padding: .2em .0em .4em .2em;
+  text-align: center;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li {
+  display: inline-block;
+  margin: 0 0 0 15px;
+  padding: 0;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li span.browser {
+  display: block;
+  padding-top: 5px;
+  vertical-align: middle;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li span.cxIcon {
+  height: 26px;
+  width: 28px;
+  opacity: 0.7;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li span.internetExplorer {
+  background-position: 0 -60px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li span.chrome {
+  background-position: 0 -110px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li span.firefox {
+  background-position: 0 -160px;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li a {
+  cursor: pointer;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li a:hover {
+  color: #fff;
+}
+div.loginPage div.loginWrapper div.loginContent div.loginMain div.browserAlert .windowsUpgradeMsg ul li a:hover .cxIcon {
+  opacity: 1;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm {
+  padding: 15px 0 5px 0;
+  /*09/11/14 - SJK: Style appears to be obsolete.*/
+  /*.loginInvalidMessage {
+					color: #e42000;
+					display: block; 
+					font-weight: 400;
+					font-size: .85em;										
+					padding: 0 0 12px 0;
+
+					.cxIcon {
+						height: 17px;
+						margin-right: 8px;
+						vertical-align: middle;
+					}
+				}*/
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm input.field[disabled] {
+  border-color: #ccc;
+  color: #999;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm input.field[disabled]:hover {
+  box-shadow: none;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper {
+  display: inline-block;
+  overflow: visible;
+  position: relative;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper label {
+  color: #555;
+  cursor: text;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-style: italic;
+  left: 8px;
+  padding: 4px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+  z-index: 1;
+  transition: opacity .2s;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper label.hasFocus {
+  opacity: .25;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper label.hasSomething {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm input[type=text].field,
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm input[type=password].field {
+  border-radius: 5px;
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin: 0 3px 0 0;
+  padding: 5px 5px 7px 7px;
+  width: 170px;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm a.submit {
+  color: #fff;
+  margin: 0;
+  margin-right: -5px;
+  padding: 7px 18px;
+  transition: background-position ease-in 0.15s;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm a.submit:hover {
+  color: #fff;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions {
+  margin-top: 6px;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions div.rememberWrapper {
+  display: inline-block;
+  width: 192px;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions div.rememberWrapper label {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions a.didYouForget {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+div.loginSupport {
+  background: #efefef;
+  background: linear-gradient(to bottom, #e6e9f2 0, #dcdee5 100%);
+  /* W3C */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-top: -15px;
+  padding: 33px 30px 20px 35px;
+}
+div.loginSupport div.support {
+  display: inline-block;
+  width: 305px;
+}
+div.loginSupport p {
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: .3em;
+}
+div.loginSupport ul.supportInfo {
+  font-size: 13px;
+  font-size: 1.3rem;
+  list-style: none;
+  margin: 6px 0 2px 0;
+  padding: 0;
+}
+div.loginSupport ul.supportInfo li {
+  display: inline-block;
+  margin: 0 .75em 0 0;
+  padding: 0;
+}
+div.loginSupport div.representative {
+  border-left: 1px solid #ccc;
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  padding-left: 20px;
+  vertical-align: top;
+  width: 160px;
+}
+div.loginSupport a.getSupport {
+  display: block;
+  margin: 8px 0 2px 0;
+}
+div.loginSupport .loginWarningPanel {
+  margin-top: 30px;
+  border-top: 1px solid #E68B8B;
+  border-top: 1px solid rgba(230, 139, 139, 0.5);
+  padding: 10px 0;
+  border-bottom: 1px solid #E68B8B;
+  border-bottom: 1px solid rgba(230, 139, 139, 0.5);
+  color: #9a4545;
+}
+div.expiredPasswordArea {
+  border-top: 1px dashed #ccc;
+  margin-top: 15px;
+}
+div.expiredPasswordArea div.expiredPasswordMessage {
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: top;
+}
+div.expiredPasswordArea div.expiredPasswordFields {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+div.expiredPasswordArea div.expiredPasswordFields input[type="password"].field {
+  margin-bottom: 10px;
+}
+div.expiredPasswordArea div.expiredPasswordFields.singleFieldRow {
+  width: 100%;
+}
+/*#region Multiple Impersonation*/
+.cxlWrapper.chooseUser .cxlContent {
+  max-width: 620px;
+}
+.overlayDescription {
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 3px 0;
+}
+.multipleUsers {
+  margin: 15px 0;
+}
+.multipleUserID {
+  min-width: 70px;
+}
+.multipleUser {
+  min-width: 150px;
+}
+.multipleUsername {
+  min-width: 130px;
+}
+.multipleSelect {
+  min-width: 70px;
+}
+.multipleUsers .cxTable {
+  width: 100%;
+}
+.multipleUsers .cxTable th {
+  text-align: left;
+  padding: 7px 5px;
+}
+.multipleUsers .cxTable td {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.multipleUsers .cxTable tr a {
+  text-decoration: none;
+  color: #9e9e9e;
+}
+.multipleUsers .cxTable tr:hover {
+  background: #fffdf2;
+  /* Old browsers */
+  background: -webkit-linear-gradient(top, #fff 0%, #eee 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #fff 0%, #eee 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  /* W3C */
+  cursor: pointer;
+}
+.multipleUsers .cxTable tr:hover .cxIcon.preSelectIcon {
+  background-position: 0 -330px;
+}
+.multipleUsers .cxTable tr.selected {
+  background: #fffdf2;
+  /* Old browsers */
+  background: -webkit-linear-gradient(top, #fffdf2 0%, #fff8ce 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top, #fffdf2 0%, #fff8ce 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fffdf2 0%, #fff8ce 100%);
+  /* W3C */
+  cursor: pointer;
+}
+.multipleUsers .cxTable tr.selected .cxIcon.preSelectIcon {
+  background-position: 0 -330px;
+}
+.multipleUsers .cxTable tr.selected a {
+  color: #666;
+}
+.multipleUsers .cxTable tr > td:last-child {
+  color: #9e9e9e;
+}
+.multipleUsers .cxTable tr:hover > td:last-child,
+.multipleUsers .cxTable tr.selected > td:last-child {
+  color: #000;
+}
+.multipleUsers .cxTable .selectUserWrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 2px;
+}
+.multipleUsers .cxTable .selectUserWrapper input[type=radio] {
+  position: absolute;
+  left: -20px;
+  width: 18px;
+  padding: 0;
+  margin: 0;
+}
+.multipleUsers .cxTable .selectUserWrapper label {
+  display: block;
+  padding: 3px;
+  white-space: nowrap;
+  text-align: left;
+}
+.multipleUsers .cxTable .selectUserWrapper input[type=radio]:focus + label {
+  outline: 1px dotted #666;
+  outline: -webkit-focus-ring-color auto 5px;
+  overflow: visible;
+}
+/*#endregion*/
+/*#region Invalid Entry */
+.invalidLogin {
+  background-color: #fff4f4;
+  border-bottom: 1px solid #e4877d;
+  border-top: 1px solid #e4877d;
+  color: #cc3425;
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 15px 0;
+  padding: 10px;
+}
+.invalidLogin .errorText {
+  vertical-align: middle;
+}
+.loginMain .invalidMessage {
+  color: #da362e;
+  padding: 0 3px 5px 0;
+}
+.loginMain .invalidMessage:before {
+  content: none;
+}
+@media all and (max-width: 640px) {
+  .loginMain .invalidMessage {
+    font-size: 1rem;
+  }
+}
+.loginMain .validationWrapper {
+  padding-top: 8px;
+}
+.loginMain .passwordInstructions {
+  font-size: 1.3rem;
+}
+@media all and (max-width: 640px) {
+  .loginMain .passwordInstructions {
+    font-size: 1rem;
+  }
+}
+/*09/05/14 - SJK: Looks duplicate when compared to invalidLogin above.*/
+/*div.cxForm div.invalidSummary {
+	border-bottom: 1px solid #e4877d;
+	border-left: none;
+	border-right: none;
+	border-top: 1px solid #e4877d;
+	box-shadow: none;
+	display:none;	
+	.mix-font-size-l;	
+	margin: 15px 0 5px 0;
+	padding: 10px 10px 0 10px;
+
+	p {
+		//TODO: 07/11/14 - SJK: Not good. Work with the selectors to not have to use !important.
+		padding:2px 0 2px 22px !important;
+	}
+}*/
+/*#endregion*/
+/*#region Login Media Queries*/
+/* 07/11/14 - SJK: It's easier to keep all media queries grouped here but following the same selector hiearchy 
+ * (this is important!). Interspersing media queries inside selectors above made this much less structured and manageable.
+ */
+@media all and (max-width: 1140px) {
+  div.feedbackWrapper {
+    width: auto;
+    padding-right: 20px;
+  }
+  div.loginPage div.loginWrapper {
+    width: 560px;
+  }
+  div.loginPage div.loginWrapper div.loginContent {
+    width: auto;
+    float: none;
+  }
+  .multipleUsers .cxTable tr > td:last-child {
+    text-align: center;
+  }
+}
+@media all and (max-width: 750px) {
+  .cxlWrapper .cxlContent {
+    width: 100% !important;
+  }
+  .cxTable td {
+    padding: 4px 0 5px 7px;
+    border-bottom: 1px solid #e2e2e2;
+    /*font-size: 13px;*/
+  }
+  .cxTable .multipleUserID {
+    min-width: 55px;
+    max-width: 100px;
+  }
+  .cxTable .multipleUser {
+    min-width: 80px;
+    max-width: 150px;
+  }
+  .cxTable .multipleUsername {
+    min-width: 100px;
+  }
+}
+@media all and (max-width: 640px) {
+  .chooseUser .cxlContent {
+    height: 100% !important;
+    width: 100% !important;
+  }
+  .chooseUser .cxlContent h2 {
+    font-family: Lato, Helvetica, Verdana, Sans-Serif;
+    font-size: 13.75px;
+    font-size: 1.375rem;
+  }
+  .chooseUser .cxlContent .overlayDescription {
+    display: none;
+  }
+  table#impersonationTable th,
+  table#impersonationTable td {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  .multipleUsers tr td:nth-child(3),
+  .multipleUsers tr th:nth-child(3) {
+    display: none;
+  }
+  .multipleUserSelectText {
+    display: none;
+  }
+  div#environmentIndicator {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+    text-indent: 25px;
+  }
+  div.loginPage:before,
+  .bgBranding,
+  div.feedbackWrapper,
+  div.loginMessaging {
+    display: none;
+  }
+  div.mainContent {
+    padding: 0;
+    height: auto;
+  }
+  div.mainContent div.loginPage {
+    height: auto;
+    min-height: 0;
+  }
+  div.mainContent div.loginPage div.loginWrapper {
+    padding: 20px;
+    width: auto;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent {
+    padding-bottom: 0;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain img#skinnedLogo {
+    margin: 10px auto;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginLogo {
+    margin: 0 auto 10px auto;
+    text-align: center;
+    display: block;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginLogo img {
+    margin: 10px auto;
+    max-width: 85px;
+    max-height: 85px;
+    display: inline;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    margin: 0 -20px;
+    padding: 20px;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper {
+    display: block;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper label {
+    /*.mix-font-size-s;*/
+    font-size: 10px;
+    font-size: 1rem;
+    left: 8px;
+    top: 8px;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.fieldWrapper input.field {
+    font-size: 11.25px;
+    font-size: 1.125rem;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions div.rememberWrapper,
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions a.didYouForget {
+    display: block;
+    padding: 4px 0;
+    width: auto;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions div.rememberWrapper label {
+    font-size: 10px;
+    font-size: 1rem;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent fieldset.loginForm div.loginOptions a.didYouForget {
+    font-size: 10px;
+    font-size: 1rem;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginMessaging,
+  div.mainContent div.loginPage div.loginWrapper div.loginContent div.loginMain div.loginMessagingNoLogo {
+    display: none;
+  }
+  div.mainContent div.loginPage div.loginWrapper .loginBox.forgotPassword {
+    padding: 25px;
+  }
+  div.mainContent div.loginPage div.loginWrapper .loginBox.forgotPassword div.loginMain {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  div.mainContent div.loginPage div.loginWrapper .fieldset {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: auto;
+    padding: 20px;
+  }
+  div.loginSupport {
+    background: #fff;
+    box-shadow: none;
+    padding: 0 0 10px 0;
+    margin: 0 auto;
+    width: auto;
+  }
+  div.loginSupport h2 {
+    display: block;
+    font-weight: normal;
+    padding: .6em 0 .3em 0;
+    position: static;
+    left: inherit;
+    z-index: inherit;
+    text-indent: 0;
+    height: auto;
+    width: auto;
+  }
+  div.loginSupport p {
+    display: block;
+    font-size: 8.75px;
+    font-size: 0.875rem;
+    padding: .1em 0;
+  }
+  div.loginSupport p br {
+    display: none;
+  }
+  div.loginSupport div.support ul {
+    font-size: 10px;
+    font-size: 1rem;
+    margin: 2px 0;
+  }
+  div.loginSupport div.representative,
+  div.loginSupport div.support {
+    border: none;
+    padding-top: 10px;
+    padding-left: 0;
+    width: auto;
+  }
+  div.loginSupport div.representative a.getSupport {
+    padding-top: 0;
+  }
+  div.expiredPasswordArea div.expiredPasswordMessage {
+    width: 100%;
+  }
+  div.expiredPasswordArea div.expiredPasswordFields {
+    width: 100%;
+  }
+  .loginMain.forgotPassword .loginMessaging {
+    display: block;
+  }
+  div.loginWrapper {
+    position: initial;
+  }
+  .invalidLogin {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  div.loginPage div.loginWrapper div.loginContent div.loginMain h1 {
+    font-size: 18.75px;
+    font-size: 1.875rem;
+  }
+  /*#region Buttons*/
+  body .cxBtn,
+  .ie8 div .cxBtnLegacy {
+    font-size: 11.25px;
+    font-size: 1.125rem;
+  }
+  /*#endregion*/
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .loginPage .cxIcon,
+  .multipleUsers .cxIcon {
+    background-image: url(../../images/loginIconSprites@2x.png);
+  }
+  .multipleUsers .cxTable .cxIcon.preSelectIcon {
+    height: 20px;
+  }
+}
+/*#endregion*/
+/*#endregion*/
+/*#region Forgot Password */
+div.loginWrapper div.loginContent div.forgotPassword div.loginMessagingNoLogo {
+  display: block !important;
+}
+div.loginWrapper div.loginContent div.forgotPassword div.loginMessagingNoLogo p.forgotPasswordMessage {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+div.loginWrapper div.loginContent div.forgotPassword ul.supportInfo {
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 10px 0;
+}
+div.loginWrapper div.loginContent div.forgotPassword ul.supportInfo li {
+  display: inline-block;
+  margin: 0 .75em 0 0;
+  padding: 0;
+}
+div.loginWrapper div.loginContent div.forgotPassword fieldset.forgotPasswordForm {
+  padding: 10px 0;
+}
+div.loginWrapper div.loginContent div.forgotPassword fieldset.forgotPasswordForm div.action {
+  padding: 10px 0;
+}
+div.loginWrapper div.loginContent div.forgotPassword fieldset.forgotPasswordForm div.action a.backToLogin {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0 1em;
+}
+div.loginWrapper div.loginContent div.forgotPassword div.captchaWrapper {
+  margin: 10px -20px;
+  padding: 15px 20px;
+}
+div.loginWrapper div.loginContent div.forgotPassword div.captchaWrapper div.resetPasswordMessage {
+  display: inline-block;
+  margin-right: 3px;
+  max-width: 250px;
+  vertical-align: top;
+}
+/*#endregion*/
+/*#region Forgot Password Media Queries*/
+@media all and (max-width: 640px) {
+  div.loginWrapper div.loginContent div.forgotPassword div.loginMessagingNoLogo p.forgotPasswordMessage {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  div.loginWrapper div.loginContent div.forgotPassword ul.supportInfo {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  div.loginWrapper div.loginContent div.forgotPassword fieldset.forgotPasswordForm {
+    padding: 20px;
+  }
+  div.loginWrapper div.loginContent div.forgotPassword fieldset.forgotPasswordForm div.action a.backToLogin {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  div.loginWrapper div.loginContent div.forgotPassword div.captchaWrapper span.captchaNote,
+  div.loginWrapper div.loginContent div.forgotPassword div.captchaWrapper .LBD_CaptchaDiv a span {
+    font-size: 8.75px;
+    font-size: 0.875rem;
+  }
+  div.resetPasswordMessage {
+    max-width: 100%;
+  }
+}
+/*#endregion*/
+/*#region TODO: --> LESS*/
+/*#region Bg Branding */
+.bgBranding {
+  overflow: hidden;
+  position: fixed;
+  background-color: #000;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.bgBranding div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.bgBranding div:last-child {
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
+  opacity: 1;
+}
+.cxBtn.cxBtnLogin {
+  padding: 8px 12px;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.ie8 .bgBranding div {
+  background-position: center;
+}
+.ie7 .bgBranding div {
+  text-align: center;
+}
+/*#endregion*/
+/*#region IE 7*/
+html.ie8 div.loginPage div.loginWrapper div.loginContent fieldset.loginForm a.submit {
+  padding: 0;
+  padding-right: 7px;
+}
+html.ie8 div.loginPage div.loginWrapper div.loginContent fieldset.loginForm a.submit span {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.ie7 div.loginPage div.loginWrapper div.loginContent div.loginMain {
+  padding-bottom: 20px;
+}
+.ie7 div.loginPage div.loginWrapper div.loginContent div.forgotPassword div.captchaWrapper {
+  margin: 20px 0;
+}
+.ie7 div.loginFooterWrapper div.loginFooter div.copyright {
+  float: left;
+}
+#validationSummary {
+  display: none;
+}
+.ie7 .loginMessaging,
+.ie7 .LBD_CaptchaImageDiv,
+.ie7 .LBD_CaptchaIconsDiv,
+.ie7 .footerLinks li,
+.ie7 .loginLogo,
+.ie7 .supportInfo li,
+.ie7 .loginForm .fieldWrapper,
+.ie7 .didYouForget,
+.ie7 .rememberWrapper,
+.ie7 .loginSupport .support,
+.ie7 .loginSupport .representative,
+.ie7 .copyright,
+.ie7 .browserAlert .windowsUpgradeMsg p,
+.ie7 .browserAlert .windowsUpgradeMsg ul,
+.ie7 .browserAlert .windowsUpgradeMsg li {
+  display: inline !important;
+  zoom: 1;
+}
+.ie7 .loginForm {
+  position: relative;
+}
+.ie8 .loginForm .submit {
+  line-height: 1.3;
+}
+/*#endregion*/
+/*#endregion*/
+/*# sourceMappingURL=login.css.map */
