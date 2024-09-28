@@ -1,13 +1,18 @@
 // ==UserScript==
 // @name         Switch Viewer Plugin for ConneXus
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  A Third-Party Mod for ConneXus Lesson Viewer
 // @author       kilgorezer
 // @match        https://www.connexus.com/content/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
+// @downloadURL  https://tpviewer.kilgorezer.com/switchviewer.js
+// @updateURL    https://tpviewer.kilgorezer.com/switchviewer.js
 // @grant        none
 // ==/UserScript==
+
+// /\
+// Delete the download and update URLs if you make a plugin based on this one.
 
 // config
 var allowedOnIsResponsive = true; // set to false if you do not want to load on responsive viewer

@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Third-Party Plugins for ConneXus Lesson Viewer
 // @author       kilgorezer
 // @match        https://www.connexus.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
+// @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.js
+// @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
 // @grant        none
 // ==/UserScript==
 (function() {
@@ -20,7 +22,23 @@ if(location.pathname=="/homepage"){
 	localStorage.user_name = document.getElementsByTagName("pvs-header-user-greeting")[0].userName;
 }
 
-if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx") {
+if(location.pathname=='/webuser/profileDefaults.aspx') {
+	var tmp = document.createElement('tr')
+	tmp.innerHTML = `
+	<tr id="thirdPartyConfig">
+		<td class="formLabel">Third Party:</td>
+		<td>
+			<span id="tpoptions" class=" field">
+				<a class="caButtonHolder" onclick="localStorage.clear('disabletp')" href="javascript:void(0);"><input type="button" value="Yes" causesvalidation="false"></a>
+				<a class="caButtonHolder" onclick="localStorage.disabletp='1'" href="javascript:void(0);"><input type="button" value="No" causesvalidation="false"></a>
+			</span>
+			<span class="formHelp"> Enable or disable third-party plugins.</span>
+		</td>
+	</tr>`
+	document.getElementsByTagName("table")[1].children[0].appendChild(tmp);
+}
+
+if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)) {
 	$(`<div id="menuThirdParty" class="menu-button menu-1">
 		<button type="button" onclick="document.getElementById('feedbackModal').getElementsByClassName('modal-close-btn')[0].click();executeUserscript(localStorage.user_name);" title="ThirdParty">
 			<i class="material-icons menu-icon">TP</i>
@@ -37,7 +55,7 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx") {
 	document.getElementsByClassName('header-buttons-left')[0].innerHTML += `<button type="button" onclick="executeUserscript(localStorage.user_name);" class="header-button">Third-Party<br>Plugins</button>`
 }
 
-if(location.pathname=="/content/chrome/online/lessonViewer.aspx") {
+if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)) {
 	document.getElementsByClassName("toolbarList")[0].innerHTML += `<li><a id="ctl00_helpLink" title="Third-Party" class="lvIcon helpIcon" href="javascript:executeUserscript(localStorage.user_name)" style="background-image: url('https://tpviewer.kilgorezer.com/oldviewericon.png')!important;">Third-Party</a></li>`;
 }
 
