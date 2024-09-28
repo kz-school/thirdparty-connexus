@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  Third-Party Mods for ConneXus Lesson Viewer
+// @version      1.2
+// @description  Third-Party Plugins for ConneXus Lesson Viewer
 // @author       kilgorezer
 // @match        https://www.connexus.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
@@ -69,7 +69,7 @@ window.executeUserscript = function(UserName) {
         thirdpartyw.innerHTML="Third Party Plugins<hr/>";
         for(var i = 0; i < tpitems.length; i++) {
             tmp.innerText=tpitems[i].name;
-            thirdpartyw.innerHTML+="<a href='javascript:tpitems["+i+"].onclick(localStorage.user_name)'>"+tmp.innerHTML+"</a><br/>";
+            thirdpartyw.innerHTML+="<a href='javascript:tpitems["+i+"].onclick(localStorage.user_name, lessonInformation)'>"+tmp.innerHTML+"</a><br/>";
         }
         ( location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx" ? document.getElementById("mainLmuContent") : document.getElementById("lessonContent") ).appendChild(thirdpartyw);
     } else {
