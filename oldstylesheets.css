@@ -4038,7 +4038,7 @@ div.loginFooterWrapper div.loginFooter ul.footerLinks a:hover {
 /*#region Login Icon Sprite*/
 .loginPage .cxIcon,
 .multipleUsers .cxIcon {
-  background-image: url(../..https://www.connexus.com/images/loginIconSprites.png);
+  background-image: url(https://www.connexus.com/images/loginIconSprites.png);
 }
 .cxIcon.phoneIcon {
   width: 16px;
@@ -4805,7 +4805,7 @@ div.expiredPasswordArea div.expiredPasswordFields.singleFieldRow {
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .loginPage .cxIcon,
   .multipleUsers .cxIcon {
-    background-image: url(../..https://www.connexus.com/images/loginIconSprites@2x.png);
+    background-image: url(https://www.connexus.com/images/loginIconSprites@2x.png);
   }
   .multipleUsers .cxTable .cxIcon.preSelectIcon {
     height: 20px;
