@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Switch Viewer Plugin for ConneXus
+// @name         Switch Viewer Plugin for Connexus
 // @namespace    http://tampermonkey.net/
-// @version      1.3
-// @description  A Third-Party Mod for ConneXus Lesson Viewer
+// @version      1.4
+// @description  A Third-Party Mod for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        https://www.connexus.com/content/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
@@ -19,7 +19,7 @@ var allowedOnIsResponsive = true; // set to false if you do not want to load on 
 var allowedOnUnResponsive = true; // set to false if you do not want to load on old viewer, it is recommended to set this to false
 
 // ignore this, this is just semi-obfuscated text
-var are=location.pathname=='/content/chrome/online/lessonViewer_responsive.aspx'?allowedOnIsResponsive:!allowedOnIsResponsive;var aun=location.pathname=='/content/chrome/online/lessonViewer_responsive.aspx'?!allowedOnUnResponsive:allowedOnUnResponsive;if(are||aun){if(!window.tpitems){window.tpitems=[];} window.tpitems[window.tpitems.length]={
+var are=location.pathname=='/content/chrome/online/lessonViewer_responsive.aspx'?allowedOnIsResponsive:false;var aun=location.pathname=='/content/chrome/online/lessonViewer_responsive.aspx'?false:allowedOnUnResponsive;if(are||aun){if(!window.tpitems){window.tpitems=[];}window.tpitems[window.tpitems.length]={
 
 // more config
  name: "Switch viewer to the " + (location.pathname=='/content/chrome/online/lessonViewer_responsive.aspx' ? 'Old' : 'Responsive') + " Viewer" // This is your plugin name.
