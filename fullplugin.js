@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
@@ -22,7 +22,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 1.6;
+window.tp_version = 1.7;
 
 window.tpconfig = function() {
     var j = open("about:blank", "", "resizable=0,popup");
@@ -95,12 +95,14 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
             <p>You can download additional plugins here.</p>
             <p>Here are the avalible plugins made by kilgorezer:</p>
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
-            <span class=stat>Old</span> means it supports the legacy viewer.</h6>
+            <span class=stat>Old</span> means it supports the legacy viewer.<br/>
+            <span class=stat>Loader</span> means it is a plugin loader</h6>
             <tp-dialog>
                 Kilgorezer's Third-Party Plugins
                 <hr/>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text><h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text><h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/ainotes.js', '', 'popup')"><tp-text>AI-Generated Note Taker</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><hr/>More plugins coming soon!<br/></tp-plugin>
                 <!-- <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/> -->
             </tp-dialog>
@@ -112,61 +114,119 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
         display: block;
         height: 100%;
         width: 100%;
-        overflow-y: scroll;
+        overflow-x: none;
+        overflow-y: auto;
     `);
 },0);}
 
-if(location.pathname=="/homepage"){
-    window.tpoldhref = location.href;
-    var i = function() {
-        try {window.tpiran=true;
-            if(location.href!=window.tpoldhref || !window.tpran) {
-                console.log('conditional met');
-                window.tpoldhref = location.href;
-                var tmp = document.createElement('span');
-                document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
-                tmp.outerHTML = (`
+
+/*if (location.pathname === "/homepage") {
+    //window.tpoldhref = location.href;
+    var i = function() {try{
+        if (/ *location.href !== window.tpoldhref || !window.tpran* / true) {
+            //console.log('conditional met');
+            window.tpran = true;
+            //window.tpoldhref = location.href;
+            var tmp = document.createElement('span');
+            document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
+            tmp.outerHTML = (`
                     <li>
                         <a id="tpconfig" href="javascript:void(0)">Third-Party Viewer Configuration</a>
                     </li>
                     <li>
                         <a id="tpinstructions" href="javascript:void(0)">How to use Third-party Viewer</a>
                     </li>
-                `);
-                document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
-                document.getElementById('tpinstructions').addEventListener("click", window.tpinstructions);
-            }
-            clearInterval(window.tpint);
-        } catch(e) {
-            tmp.remove(); // There is always next time, the code just has to do cleanup first;
+            `);
+            document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
+            document.getElementById('tpinstructions').addEventListener("click", window.tpinstructions);
+            clearInterval(window.tpint); // Clear the interval
+            window.tpint = undefined;
         }
-    }
-	localStorage.user_name = document.getElementsByTagName("pvs-header-user-greeting")[0].userName;
+    }catch(e){}};
+
+    localStorage.user_name = document.getElementsByTagName("pvs-header-user-greeting")[0].userName;
     window.tpint2 = setInterval(function() {
-        if(document.querySelectorAll('a[href="#/student/links"]').length=0) {return;};
-        clearInterval(window.tpint2);
-        document.querySelectorAll('a[href="#/student/links"]')[0].addEventListener("click", function(event) {if(!window.tpiran) {
-            window.tpint = setInterval(i, 0);
-            console.log('Opened links');
-        }});
-        var tmp4 = document.querySelectorAll('.homepage-tabs a:not([href="#/student/links"])');
-        for(var i = 0; i < tmp4.length; i++) {
-            tmp4[i].addEventListener("click", function(event) {if(!window.tpiran) {
-                window.tpiran = false;
-            }});
-            console.log(tmp4[i]);
+        if (document.querySelectorAll('a[href="#/student/links"]').length === 0) {
+            return;
         }
+        clearInterval(window.tpint2);
+        document.querySelectorAll('a[href="#/student/links"]')[0].addEventListener("click", function(event) {
+            if (!window.tpran) {
+                if(window.tpint==undefined) {window.tpint = setInterval(i, 1)};
+                console.log('Opened links');
+            }
+        });
         clearInterval(window.tpint2);
     }, 2000);
-    if(location.href=="https://www.connexus.com/homepage#/student/links") {
-        window.tpint = setInterval(i, 0);
+
+    if (location.href === "https://www.connexus.com/homepage#/student/links") {
+        if(window.tpint==undefined) {window.tpint = setInterval(i, 1)};
     }
 
-    if(!localStorage.tpran) {
+    if (!localStorage.tpran) {
         localStorage.tpran = "1";
         setTimeout(window.tpinstructions, 250);
     }
-}
+}*/
+
+// Additional logic to handle hash changes
+var previousHash = location.hash;
+window.addEventListener('hashchange', function() {if (previousHash !== location.hash && location.hash === '#/student/links') {/*
+    if (previousHash !== location.hash && location.hash === '#/student/links') {
+        window.tpran = false; // Reset the flag
+        setTimeout(i, 750); // Run the function again
+    }
+    previousHash = location.hash;*/
+    var i = function() {try{
+        if (/*location.href !== window.tpoldhref || !window.tpran*/ true) {
+            //console.log('conditional met');
+            window.tpran = true;
+            //window.tpoldhref = location.href;
+            var tmp = document.createElement('span');
+            document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
+            tmp.outerHTML = (`
+                    <li>
+                        <a id="tpconfig" href="javascript:void(0)">Third-Party Viewer Configuration</a>
+                    </li>
+                    <li>
+                        <a id="tpinstructions" href="javascript:void(0)">How to use Third-party Viewer</a>
+                    </li>
+            `);
+            document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
+            document.getElementById('tpinstructions').addEventListener("click", window.tpinstructions);
+            clearInterval(window.tpint); // Clear the interval
+        }
+    }catch(e){}};
+    window.tpint = setInterval(i, 1);
+    var previousHash = location.hash;
+}});
+
+(function(){
+    var i = function() {try{
+        if (/*location.href !== window.tpoldhref || !window.tpran*/ true) {
+            //console.log('conditional met');
+            window.tpran = true;
+            //window.tpoldhref = location.href;
+            var tmp = document.createElement('span');
+            document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
+            tmp.outerHTML = (`
+                    <li>
+                        <a id="tpconfig" href="javascript:void(0)">Third-Party Viewer Configuration</a>
+                    </li>
+                    <li>
+                        <a id="tpinstructions" href="javascript:void(0)">How to use Third-party Viewer</a>
+                    </li>
+            `);
+            document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
+            document.getElementById('tpinstructions').addEventListener("click", window.tpinstructions);
+            clearInterval(window.tpint); // Clear the interval
+        }
+    }catch(e){}};
+    if (location.href === "https://www.connexus.com/homepage#/student/links") {
+        if(window.tpint==undefined) {window.tpint = setInterval(i, 1)};
+    }
+})();
+
 
 if(location.pathname=='/index.html'&&location.hostname=='prodpcx-cdn-vegaviewer.emssvc.connexus.com') {
     window.addEventListener("message", function(event) {
@@ -389,7 +449,8 @@ window.tpdialog = function(window, document, location, console) {
         display: block;
         height: 100%;
         width: 100%;
-        overflow-y: scroll;
+        overflow-x: none;
+        overflow-y: auto;
     `);
     return false;
 };
@@ -434,7 +495,8 @@ window.tpidialog = function(window, document, location, console) {
                 border-radius: 2mm;
                 background: gray
                 padding: 0.75mm;
-                margin-top: 1.75mm;
+                margin-top: 3mm;
+                margin-bottom: 3mm;
             }
         </style>
     `);
@@ -459,6 +521,8 @@ window.tpidialog = function(window, document, location, console) {
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span></li>
             <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
+            <p>Plugins are automatically installed by userscripts, meaning to disable them you have to disable the userscript that installs the plugin.</p>
+            <p>To open a plugin, just click on its link in the <span class=stat>Third-Party Plugins</span> menu.</p>
             <hr/>
             <a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
         </div>
@@ -477,7 +541,8 @@ window.tpidialog = function(window, document, location, console) {
         display: block;
         height: 100%;
         width: 100%;
-        overflow-y: scroll;
+        overflow-x: none;
+        overflow-y: auto;
     `);
     return false;
 };
