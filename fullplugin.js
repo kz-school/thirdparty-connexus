@@ -1,15 +1,19 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
-// @match        https://*.connexus.com/*
+// @match        *://*.connexus.com/*
+// @match        *://*.pearson.com/*
+// @match        *://*.connectionsacademy.com/*
+// @match        *://tpviewer.kilgorezer.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
 // @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.js
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
 // @grant        none
 // ==/UserScript==
+// Keypress Update
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -18,35 +22,149 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
+window.tp_version = 1.6;
+
 window.tpconfig = function() {
     var j = open("about:blank", "", "resizable=0,popup");
     window.tpdialog(j, j.document, j.location, j.console);
 };
 
+window.tpinstructions = function() {
+    var j = open("about:blank", "", "resizable=0,popup");
+    window.tpidialog(j, j.document, j.location, j.console);
+}
+
+if(location.hostname=='www.connexus.com') {
+    addEventListener("keyup", (event) => {
+        if(event.key.toUpperCase() == "F4") {
+            window.tp_utils.config();
+        }
+    });
+}
+
+if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(function(){
+    window.i = document.body.innerText;
+    document.body.innerHTML = '';
+    document.head.innerHTML = (`
+        <title>Third-Party Viewer</title>
+        <link rel="stylesheet" href="https://www.connexus.com/_stylesheets/main.css?v=2016_i07"/>
+        <style>
+            a {text-decoration: none!important;}
+            .stat {
+                background: purple;
+                border: 1mm solid purple;
+                border-radius: 1mm;
+                color: white;
+            }
+            tp-dialog {
+                display: block;
+                text-align: center;
+                width: fit-content;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                background: white;
+                color: black;
+                border: 2mm solid purple;
+                padding: 0.75mm;
+                padding-bottom: 2.75mm;
+                border-radius: 1.25mm;
+            }
+            .icon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                cursor: pointer;
+                width: 5mm;
+                height: 5mm;
+            }
+            tp-plugin {
+                display: block;
+                margin-bottom: 3px;
+                text-decoration: none!important;
+            }
+            tp-text {
+                text-decoration: underline!important;
+            }
+        </style>
+    `);
+    document.body.innerHTML = (`
+        <div id=container>
+            <h2>Website</h2>
+            <hr/>
+            <p>You can download additional plugins here.</p>
+            <p>Here are the avalible plugins made by kilgorezer:</p>
+            <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
+            <span class=stat>Old</span> means it supports the legacy viewer.</h6>
+            <tp-dialog>
+                Kilgorezer's Third-Party Plugins
+                <hr/>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text><h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text><h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><hr/>More plugins coming soon!<br/></tp-plugin>
+                <!-- <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/> -->
+            </tp-dialog>
+        </div>
+    `);
+    document.getElementById('container').style = (`
+        text-align: center;
+        margin: none;
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    `);
+},0);}
+
 if(location.pathname=="/homepage"){
-    //window.tpoldhref = location.href;
+    window.tpoldhref = location.href;
     var i = function() {
-        if(/*location.href!=window.tpoldhref || !window.tpran*/ true) {
-            //console.log('conditional met');
-            window.tpran = true;
-            //window.tpoldhref = location.href;
-            var tmp = document.createElement('li');
-            tmp.innerHTML = (`
-                <a id="tpconfig" href="javascript:void(0)">Third-Party Viewer Configuration</a>
-            `);
-            document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
-            document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
+        try {window.tpiran=true;
+            if(location.href!=window.tpoldhref || !window.tpran) {
+                console.log('conditional met');
+                window.tpoldhref = location.href;
+                var tmp = document.createElement('span');
+                document.getElementsByClassName("home-links")[0].children[0].appendChild(tmp);
+                tmp.outerHTML = (`
+                    <li>
+                        <a id="tpconfig" href="javascript:void(0)">Third-Party Viewer Configuration</a>
+                    </li>
+                    <li>
+                        <a id="tpinstructions" href="javascript:void(0)">How to use Third-party Viewer</a>
+                    </li>
+                `);
+                document.getElementById('tpconfig').addEventListener("click", window.tpconfig);
+                document.getElementById('tpinstructions').addEventListener("click", window.tpinstructions);
+            }
+            clearInterval(window.tpint);
+        } catch(e) {
+            tmp.remove(); // There is always next time, the code just has to do cleanup first;
         }
     }
 	localStorage.user_name = document.getElementsByTagName("pvs-header-user-greeting")[0].userName;
-    setTimeout(function() {
-        document.querySelectorAll('a[href="#/student/links"]')[0].addEventListener("click", function(event) {
-            setTimeout(i, 750);
+    window.tpint2 = setInterval(function() {
+        if(document.querySelectorAll('a[href="#/student/links"]').length=0) {return;};
+        clearInterval(window.tpint2);
+        document.querySelectorAll('a[href="#/student/links"]')[0].addEventListener("click", function(event) {if(!window.tpiran) {
+            window.tpint = setInterval(i, 0);
             console.log('Opened links');
-        });
+        }});
+        var tmp4 = document.querySelectorAll('.homepage-tabs a:not([href="#/student/links"])');
+        for(var i = 0; i < tmp4.length; i++) {
+            tmp4[i].addEventListener("click", function(event) {if(!window.tpiran) {
+                window.tpiran = false;
+            }});
+            console.log(tmp4[i]);
+        }
+        clearInterval(window.tpint2);
     }, 2000);
     if(location.href=="https://www.connexus.com/homepage#/student/links") {
-        setTimeout(i, 2000);
+        window.tpint = setInterval(i, 0);
+    }
+
+    if(!localStorage.tpran) {
+        localStorage.tpran = "1";
+        setTimeout(window.tpinstructions, 250);
     }
 }
 
@@ -133,7 +251,8 @@ if(location.pathname=='/login.aspx'&&location.hostname=='www.connexus.com'&&(!lo
         border-radius: 1.25mm;
     `);
     document.body.appendChild(tmp2);
-    tmp2.innerText=`Contains third-party plugins`;
+    tmp2.innerText=`Contains third-party plugins
+Press F4 to configure`;
 }
 
 if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
@@ -227,7 +346,6 @@ window.tp_utils = {
     logOut: Function("location.href = 'https://www.connexus.com/logoff.aspx?sendTo=' + encodeURIComponent(location.href)"),
     config: window.tpconfig,
 }
-})();})();
 
 window.tpdialog = function(window, document, location, console) {
     console.log('button clicked');
@@ -275,3 +393,92 @@ window.tpdialog = function(window, document, location, console) {
     `);
     return false;
 };
+
+window.tpidialog = function(window, document, location, console) {
+    window.moveTo(10, 10);
+    window.resizeTo(800, 600);
+    document.head.innerHTML = (`
+        <title>Third-Party Viewer Instructions</title>
+        <link rel="stylesheet" href="https://www.connexus.com/_stylesheets/main.css?v=2016_i07"/>
+        <style>
+            .stat {
+                background: purple;
+                border: 1mm solid purple;
+                border-radius: 1mm;
+                color: white;
+            }
+            tp-dialog {
+                display: block;
+                text-align: center;
+                width: fit-content;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                background: white;
+                color: black;
+                border: 2mm solid purple;
+                padding: 0.75mm;
+                padding-bottom: 2.75mm;
+                border-radius: 1.25mm;
+            }
+            .icon {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                cursor: pointer;
+                width: 5mm;
+                height: 5mm;
+            }
+            li {
+                display: block;
+                border-radius: 2mm;
+                background: gray
+                padding: 0.75mm;
+                margin-top: 1.75mm;
+            }
+        </style>
+    `);
+    document.body.innerHTML = (`
+        <div id=container>
+            <h2>How To Use</h2>
+            <hr/>
+            <p>When you are in a lesson, click on the "Third-Party Plugins" button to show or hide the dialog.</p>
+            <p>The dialog should look like this:</p>
+            <tp-dialog>
+                Third-Party Plugins
+                <hr/>
+                <a href="javascript:void(0)">Plugin 1</a><br/>
+                <a href="javascript:void(0)">Plugin 2</a><br/>
+                <a href="javascript:void(0)">Plugin 3</a><br/>
+                ...<br/>
+                <a href="javascript:void(0)">Plugin N</a><br/>
+                <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/>
+            </tp-dialog><br/>
+            <p>You can press <span class=stat>F4</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
+            <li><span class=stat>Lesson Viewer</span> <b>&gt;</b> <span class=stat>Third-Party Plugins</span> <b>&gt;</b> <span class=stat><img src="https://tpviewer.kilgorezer.com/settings.png" width=16 style="position:relative;top:3px;filter:invert(1)" alt="gear icon"/></span></li>
+            <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span></li>
+            <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span></li>
+            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
+            <hr/>
+            <a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
+        </div>
+    `);
+    document.getElementsByTagName("html")[0].style = (`
+        border: 2mm solid purple;
+        scroll:;
+        position: sticky;
+        max-height: 100%;
+        overflow: hidden;
+        padding: none;
+    `);
+    document.getElementById('container').style = (`
+        text-align: center;
+        margin: none;
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    `);
+    return false;
+};
+})();})();
