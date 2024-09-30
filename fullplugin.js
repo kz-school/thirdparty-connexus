@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      1.8
+// @version      1.9
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
@@ -15,7 +15,7 @@
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
 // @grant        none
 // ==/UserScript==
-// Keypress Update
+// Homepage Update
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -24,7 +24,12 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 1.8;
+window.tp_version = 1.9;
+
+if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
+    console.log('I\'m Home!');
+    setTimeout(function(){document.getElementsByTagName('a')[0].click()},0);
+}
 
 window.tpconfig = function() {
     var j = open("about:blank", "", "resizable=0,popup");
@@ -33,7 +38,7 @@ window.tpconfig = function() {
 
 window.tpinstructions = function() {
     var j = open("about:blank", "", "resizable=0,popup");
-    window.tpidialog(j, j.document, j.location, j.console);
+    window.tpidialog(j, j.document, j.location, j.console, window);
 }
 
 if(true) {
@@ -81,11 +86,12 @@ if(true) {
     });
 }
 
-if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(function(){
+if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout(function(){*/
     window.i = document.body.innerText;
     document.body.innerHTML = '';
     document.head.innerHTML = (`
         <title>Third-Party Viewer</title>
+        <link rel="icon" href="https://tpviewer.kilgorezer.com/favicon.ico">
         <link rel="stylesheet" href="https://www.connexus.com/_stylesheets/main.css?v=2016_i07"/>
         <style>
             a {text-decoration: none!important;}
@@ -129,7 +135,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
     `);
     document.body.innerHTML = (`
         <div id=container>
-            <h2>Website</h2>
+            <h2>Plugin Website</h2>
             <hr/>
             <p>You can download additional plugins here.</p>
             <p>Here are the avalible plugins made by kilgorezer:</p>
@@ -156,7 +162,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
         overflow-x: none;
         overflow-y: auto;
     `);
-},0);}
+/*},0);*/}
 
 
 /*if (location.pathname === "/homepage") {
@@ -488,6 +494,7 @@ window.tpdialog = function(window, document, location, console) {
     document.head.innerHTML = (`
         <title>Third-Party Viewer Configuration</title>
         <link rel="stylesheet" href="https://www.connexus.com/_stylesheets/main.css?v=2016_i07"/>
+        <link rel="icon" type="image/png" href="https://tpviewer.kilgorezer.com/settings.png">
         <style>
             .stat {
                 background: purple;
@@ -529,12 +536,14 @@ window.tpdialog = function(window, document, location, console) {
     return false;
 };
 
-window.tpidialog = function(window, document, location, console) {
+window.tpidialog = function(window, document, location, console, realwindow) {
     window.moveTo(10, 10);
-    window.resizeTo(800, 600);
+    window.resizeTo(600, 437); // The 37 in 437 is intentional and I picked it because of its intresting properties. I kept it because the window ended up looking nice.
+    window.tp_utils = realwindow.tp_utils;
     document.head.innerHTML = (`
         <title>Third-Party Viewer Instructions</title>
         <link rel="stylesheet" href="https://www.connexus.com/_stylesheets/main.css?v=2016_i07"/>
+        <link rel="icon" type="image/png" href="https://tpviewer.kilgorezer.com/help.png">
         <style>
             .stat {
                 background: purple;
@@ -592,12 +601,15 @@ window.tpidialog = function(window, document, location, console) {
             </tp-dialog><br/>
             <p>You can press <span class=stat>F4</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
             <li><span class=stat>Lesson Viewer</span> <b>&gt;</b> <span class=stat>Third-Party Plugins</span> <b>&gt;</b> <span class=stat><img src="https://tpviewer.kilgorezer.com/settings.png" width=16 style="position:relative;top:3px;filter:invert(1)" alt="gear icon"/></span></li>
-            <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span></li>
-            <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span></li>
+            <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
+            <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
+            <a class="caButtonHolder" onclick="tp_utils.config()" href="javascript:void(0);"><input type="button" value="This page, by clicking here!"></a></li>
             <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
             <p>Plugins are automatically installed by userscripts, meaning to disable them you have to disable the userscript that installs the plugin.</p>
             <p>To open a plugin, just click on its link in the <span class=stat>Third-Party Plugins</span> menu.</p>
             <hr/>
+            <p>You can access this menu at any time by clicking on</p>
+            <p><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>How to use Third-party Viewer</span></p>
             <a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
         </div>
     `);
