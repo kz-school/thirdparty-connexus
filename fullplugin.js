@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         Third-Party Viewer
-// @namespace    http://tampermonkey.net/
-// @version      1.7
+// @namespace    https://tpviewer.kilgorezer.com/
+// @version      1.8
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
 // @match        *://*.pearson.com/*
 // @match        *://*.connectionsacademy.com/*
+// @match        *://edynamiclearningcdn.com/*
+// @match        *://*.edynamiclearningcdn.com/*
 // @match        *://tpviewer.kilgorezer.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
 // @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.js
@@ -22,7 +24,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 1.7;
+window.tp_version = 1.8;
 
 window.tpconfig = function() {
     var j = open("about:blank", "", "resizable=0,popup");
@@ -34,11 +36,48 @@ window.tpinstructions = function() {
     window.tpidialog(j, j.document, j.location, j.console);
 }
 
-if(location.hostname=='www.connexus.com') {
+if(true) {
     addEventListener("keyup", (event) => {
         if(event.key.toUpperCase() == "F4") {
-            window.tp_utils.config();
+            setTimeout(window.tp_utils.config(),0);
         }
+        const properties = {
+            type: event.type,
+            key: event.key,
+            keyCode: event.keyCode,
+            shiftKey: event.shiftKey,
+            ctrlKey: event.ctrlKey,
+            altKey: event.altKey,
+            metaKey: event.metaKey,
+            repeat: event.repeat,
+            // removed due to errors with sending messages, you will have to work around it
+            /*getModifierState: function(x) {
+                    return event.getModifierState(x);
+            },*/
+        };
+        //console.log(properties);
+        window.postMessage({
+            thirdparty: true,
+            eventtype: 'keyup',
+            event: properties
+        });
+    });
+    addEventListener("keydown", (event) => {
+        const properties = {
+            type: event.type,
+            key: event.key,
+            keyCode: event.keyCode,
+            shiftKey: event.shiftKey,
+            ctrlKey: event.ctrlKey,
+            altKey: event.altKey,
+            metaKey: event.metaKey,
+            repeat: event.repeat,
+        };
+        window.postMessage({
+            thirdparty: true,
+            eventtype: 'keydown',
+            event: properties
+        });
     });
 }
 
@@ -95,7 +134,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
             <p>You can download additional plugins here.</p>
             <p>Here are the avalible plugins made by kilgorezer:</p>
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
-            <span class=stat>Old</span> means it supports the legacy viewer.<br/>
+            <span class=stat>Old</span> means it supports the legacy viewer.<br/><br/>
             <span class=stat>Loader</span> means it is a plugin loader</h6>
             <tp-dialog>
                 Kilgorezer's Third-Party Plugins
@@ -168,6 +207,13 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {setTimeout(f
         setTimeout(window.tpinstructions, 250);
     }
 }*/
+
+if (location.pathname === "/homepage") {
+    if (!localStorage.tpran) {
+        localStorage.tpran = "1";
+        setTimeout(window.tpinstructions, 250);
+    }
+}
 
 // Additional logic to handle hash changes
 var previousHash = location.hash;
@@ -337,7 +383,19 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!l
 }
 
 if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
-	document.getElementsByClassName("toolbarList")[0].innerHTML += (`<li><a id="ctl00_helpLink" title="Third-Party" class="lvIcon helpIcon" href="javascript:executeUserscript(localStorage.user_name)" style="background-image: url('https://tpviewer.kilgorezer.com/oldviewericon.png')!important;">Third-Party</a></li>`);
+    var tmp3 = document.createElement('link');
+    document.head.appendChild(tmp3);
+    tmp3.outerHTML = (`
+        <style>
+            [third-party-utils] {
+                background-image: url('https://tpviewer.kilgorezer.com/oldviewericon.png');
+            }
+            .lmuRightWindowSmall [third-party-utils] {
+                background-image: url('https://tpviewer.kilgorezer.com/oldviewericonsmall.png');
+            }
+        </style>
+    `);
+	document.getElementsByClassName("toolbarList")[0].innerHTML += (`<li><a id="ctl00_thirdparty" third-party-utils title="Third-Party" class="lvIcon helpIcon" href="javascript:executeUserscript(localStorage.user_name)">Third-Party</a></li>`);
 }
 
 
@@ -405,6 +463,22 @@ window.tp_utils = {
     legacyPrev: window.previousPage,
     logOut: Function("location.href = 'https://www.connexus.com/logoff.aspx?sendTo=' + encodeURIComponent(location.href)"),
     config: window.tpconfig,
+    /*event: {
+        keyUp: function(reciever) {
+            window.addEventListener('message', (event) => {
+                if(event.data.thirdparty && event.data.eventtype=='keyup') {
+                    reciever(event.data.event);
+                }
+            });
+        },
+        keyDown: function(reciever) {
+            window.addEventListener('message', (event) => {
+                if(event.data.thirdparty && event.data.eventtype=='keydown') {
+                    reciever(event.data.event);
+                }
+            });
+        },
+    },*/// i will find a way to impliment this properly in a future version
 }
 
 window.tpdialog = function(window, document, location, console) {
