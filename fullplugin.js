@@ -15,7 +15,7 @@
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
 // @grant        none
 // ==/UserScript==
-// Homepage Update
+// Plugin Update
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
