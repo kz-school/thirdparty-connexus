@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      1.9
+// @version      2.0
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
@@ -10,12 +10,17 @@
 // @match        *://edynamiclearningcdn.com/*
 // @match        *://*.edynamiclearningcdn.com/*
 // @match        *://tpviewer.kilgorezer.com/*
+// @run-at       document-body
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
 // @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.js
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
 // @grant        none
 // ==/UserScript==
-// Plugin Update
+// Firefox Update
+
+// The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
+// The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
+// So, this is version 10.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -24,22 +29,25 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 1.9;
+window.tp_version = 1.95;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
     setTimeout(function(){document.getElementsByTagName('a')[0].click()},0);
 }
 
-window.tpconfig = function() {
+window.tpopendialog = function(onload) {
     var j = open("about:blank", "", "resizable=0,popup");
-    window.tpdialog(j, j.document, j.location, j.console);
+    j.onload = function(){onload(j, j.document, j.location, j.console, window)};
+};
+
+window.tpconfig = function() {
+    window.tpopendialog(window.tpdialog);
 };
 
 window.tpinstructions = function() {
-    var j = open("about:blank", "", "resizable=0,popup");
-    window.tpidialog(j, j.document, j.location, j.console, window);
-}
+    window.tpopendialog(window.tpidialog);
+};
 
 if(true) {
     addEventListener("keyup", (event) => {
@@ -320,8 +328,22 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
     document.getElementById('legacyloginstat').innerText = localStorage.legacylogin ? "on" : "off";
 }
 
-if(location.pathname=='/login.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {setTimeout(function(){
-    document.getElementById('bgBranding').children[0].style.backgroundImage = "url('/images/login/defaultBG_metal-min.png')";
+if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
+    location.pathname="/loginNative.aspx";
+    document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
+    document.body.outerHTML = (`
+        <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
+            <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
+        </body>
+    `);
+}
+
+if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
+    document.getElementById('bgBranding').children[0].style = "background-image: url('/images/login/defaultBG_metal-min.png')!important";
+    var i = document.getElementById('bgBranding').children[0].style.animation;
+    document.getElementById('bgBranding').children[0].style.animation = 'none';
+    document.getElementById('bgBranding').children[0].offsetHeight;
+    document.getElementById('bgBranding').children[0].style.animation = '';
     document.getElementsByClassName('copyright')[0].innerHTML = "<img src='/images/connexus_logo_login.png'/>" + document.getElementsByClassName('copyright')[0].innerHTML;
     document.getElementById('loginLogoDiv').remove();
     document.getElementsByClassName('loginMessaging')[0].outerHTML=(`
@@ -341,10 +363,10 @@ if(location.pathname=='/login.aspx'&&location.hostname=='www.connexus.com'&&loca
         </a>
     `)
     document.getElementById("tollFreePhoneNumberLiteral4").outerHTML = document.getElementById("tollFreePhoneNumberLiteral4").innerHTML;
-    document.getElementsByTagName("title")[0].innerText="Welcome to Connexus | The Education Management System"
-}, 1000);}
+    document.getElementsByTagName("title")[0].innerText="Welcome to Connexus | The Education Management System";
+}
 
-if(location.pathname=='/login.aspx'&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {
+if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {
     var tmp2 = document.createElement('tp-popup');
     tmp2.style=(`
         display: block;
@@ -487,7 +509,7 @@ window.tp_utils = {
     },*/// i will find a way to impliment this properly in a future version
 }
 
-window.tpdialog = function(window, document, location, console) {
+window.tpdialog = function(window, document, location, console, realwindow) {
     console.log('button clicked');
     window.moveTo(10, 10);
     window.resizeTo(600, 300);
