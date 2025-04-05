@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MathJax Fix
 // @namespace    http://tpviewer.kilgorezer.com/
-// @version      1.1
+// @version      1.2
 // @description  Fix MathJax on Connexus on Supermium
 // @author       kilgorezer
 // @match        https://prodpcx-cdn-vegaviewer.emssvc.connexus.com/index.html
@@ -12,5 +12,5 @@
 // ==/UserScript==
 
 (function() {
-    window.MathJax = undefined;
+    setInterval(a=>{window.MathJax.Hub.queue.pending=1;}, 1000);
 })();
