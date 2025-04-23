@@ -14,4 +14,6 @@ TP Off + Default Login + Legacy Events: Off\
 TP Off + Default Login + Planner-Based Events: Planner-Based Connexus\
 and many more\
 \
-The MathJax bypass is only recommended if your browser sends a yellow error when you try to access a lesson with a MathJax equation (Used in Math and Science subjects).
+The MathJax bypass is only recommended if your browser sends a yellow error when you try to access a lesson with a MathJax equation (Used in Math and Science subjects).\
+\
+This userscript uses popups for some UI elements, but only with user consent or on first detected use, please enable popups in your browser for connexus.com.
