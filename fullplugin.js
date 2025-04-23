@@ -150,7 +150,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
             <p>Here are the avalible plugins made by kilgorezer:</p>
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
             <span class=stat>Old</span> means it supports the legacy viewer.<br/><br/>
-            <span class=stat>Loader</span> means it is a plugin loader</h6>
+            <span class=stat>Loader</span> means it is a plugin loader<br/><br/>
             <span class=stat>Viewer</span> means it applies in the context of the lesson contents.</h6>
             <tp-dialog>
                 Kilgorezer's Third-Party Plugins
