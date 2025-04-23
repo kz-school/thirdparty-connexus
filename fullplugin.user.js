@@ -721,7 +721,7 @@ window.tpidialog = function(window, document, location, console, realwindow) {
                 <a href="javascript:void(0)">Plugin N</a><br/>
                 <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/>
             </tp-dialog><br/>
-            <p>You can press <span class=stat>Alt+F1</span or <span class=stat>Alt+\\</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
+            <p>You can press <span class=stat>Alt+F1</span> or <span class=stat>Alt+\\</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
             <li><span class=stat>Lesson Viewer</span> <b>&gt;</b> <span class=stat>Third-Party Plugins</span> <b>&gt;</b> <span class=stat><img src="https://tpviewer.kilgorezer.com/settings.png" width=16 style="position:relative;top:3px;filter:invert(1)" alt="gear icon"/></span></li>
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
