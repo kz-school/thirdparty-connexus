@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.1
+// @version      2.2
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
@@ -11,16 +11,16 @@
 // @match        *://*.edynamiclearningcdn.com/*
 // @match        *://tpviewer.kilgorezer.com/*
 // @run-at       document-body
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=connexus.com
-// @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.js
-// @updateURL    https://tpviewer.kilgorezer.com/fullplugin.js
+// @icon         https://tpviewer.kilgorezer.com/favicon.ico
+// @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.user.js
+// @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Major Bugfix Update
+// Advanced Navigation Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 11.
+// So, this is version 12.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -29,7 +29,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 2.1;
+window.tp_version = 2.2;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
@@ -52,7 +52,7 @@ window.tpinstructions = function() {
 
 if(true) {
     addEventListener("keyup", (event) => {
-        if(event.key.toUpperCase() == "F1" && event.altKey) {
+        if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey)) {
             setTimeout(window.tp_utils.config(),0);
         }
         const properties = {
@@ -95,7 +95,7 @@ if(true) {
     });
 }
 
-if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout(function(){*/
+if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.user.js") {/*setTimeout(function(){*/
     window.i = document.body.innerText;
     document.body.innerHTML = '';
     document.head.innerHTML = (`
@@ -151,12 +151,14 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
             <span class=stat>Old</span> means it supports the legacy viewer.<br/><br/>
             <span class=stat>Loader</span> means it is a plugin loader</h6>
+            <span class=stat>Viewer</span> means it applies in the context of the lesson contents.</h6>
             <tp-dialog>
                 Kilgorezer's Third-Party Plugins
                 <hr/>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/ainotes.js', '', 'popup')"><tp-text>AI-Generated Note Taker</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <span class=stat>Viewer</span></tp-plugin>
                 <tp-plugin><hr/>More plugins coming soon!<br/></tp-plugin>
                 <!-- <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/> -->
             </tp-dialog>
@@ -223,10 +225,67 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
     }
 }*/
 
+var replaceEvent = async function() {
+    if (localStorage.tpdisableevent == "1") {return ''}
+    var eremoved = true;
+    while(eremoved) {
+        if (document.getElementsByClassName('st-events-section').length > 0) {
+            document.getElementsByClassName('st-events-section')[0].outerHTML = `<iframe id="tpframe" class="ct-user-box" src="/plannerpage" width="100%" style="height: 30vw;"></iframe>`;
+            var win = document.getElementById('tpframe').contentWindow;
+            // Please note this error seems to be related to how the content window is used in the content window, this is to prevent the code from modifying the parent.
+            win.onload = function() {
+                win.document.getElementsByClassName('header-skeleton')[0].remove()
+                win.document.getElementsByClassName('pvs-footer-wrapper')[0].remove()
+                    // Store the original window.location object
+                const originalLocation = win.location;
+
+                // Override the window.location object
+                Object.defineProperty(win, 'location', {
+                    configurable: true,
+                    enumerable: true,
+                    get: function() {
+                        return originalLocation;
+                    },
+                    set: function(newLocation) {
+                        // Check if the new location is different from the current one
+                        if (newLocation !== originalLocation.href) {
+                            // Open the new location in a new tab/window
+                            window.open(newLocation, '_blank');
+                            // Prevent the original redirection of the iframe
+                            console.log(`[Userscript] Redirect to ${newLocation} opened in a new tab.`);
+                        }
+                    }
+                });
+
+                // Override window.location.href for direct assignments
+                Object.defineProperty(win.location, 'href', {
+                    configurable: true,
+                    enumerable: true,
+                    get: function() {
+                        return originalLocation.href;
+                    },
+                    set: function(newHref) {
+                        if (newHref !== originalLocation.href) {
+                            window.open(newHref, '_blank');
+                            console.log(`[Userscript] Redirect (href) to ${newHref} opened in a new tab.`);
+                        }
+                    }
+                });
+            };
+            eremoved = false;
+        } else {
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+    }
+}
+
 if (location.pathname === "/homepage") {
     if (!localStorage.tpran) {
         localStorage.tpran = "1";
         setTimeout(window.tpinstructions, 250);
+    }
+    if (location.hash = "#/student/today") {
+        replaceEvent();
     }
 }
 
@@ -260,6 +319,8 @@ window.addEventListener('hashchange', function() {if (previousHash !== location.
     }catch(e){}};
     window.tpint = setInterval(i, 1);
     var previousHash = location.hash;
+} else if (previousHash !== location.hash && location.hash === '#/student/today') {
+    replaceEvent();
 }});
 
 (function(){
@@ -325,9 +386,20 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 			    <span class="formHelp"> Enable or disable 2021-style login screen. Currently <span id='legacyloginstat'>error</span>.</span>
 		    </td>
 	    </tr>
+	    <tr id="thirdPartyConfig">
+		    <td class="formLabel">Event Style:</td>
+		    <td>
+		    	<span id="tpoptions" class=" field">
+			    	<a class="caButtonHolder" onclick="localStorage.clear('disabletp');document.getElementById('tpevent').innerText='planner-based'" href="javascript:void(0);"><input type="button" value="Planner-Based" causesvalidation="false"></a>
+			    	<a class="caButtonHolder" onclick="localStorage.disabletp='1';document.getElementById('tpevent').innerText='legacy'" href="javascript:void(0);"><input type="button" value="Legacy" causesvalidation="false"></a>
+			    </span>
+			    <span class="formHelp"> Change event type. Currently <span id='tpevent'>error</span>.</span>
+		    </td>
+	    </tr>
     `) // legacylogin based on https://web.archive.org/web/20210903173755if_/https://www.connexus.com/login.aspx?sendTo=%2fDefault.aspx&token=826516348
     document.getElementById('tpstat').innerText = localStorage.disabletp ? "off" : "on";
     document.getElementById('legacyloginstat').innerText = localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off");
+    document.getElementById('tpevent').innerText = localStorage.tpdisableevent ? "legacy" : "planner-based";
 }
 
 if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
@@ -393,7 +465,24 @@ if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'
     `);
     document.body.appendChild(tmp2);
     tmp2.innerText=`Contains third-party plugins
-Press Alt+F1 to configure`;
+Press Alt+F1 or Alt+\\ to configure`;
+    var tmp3 = document.createElement('tp-popup');
+    tmp3.style=(`
+        display: block;
+        position: absolute;
+        bottom: 0.1mm;
+        right: 0.1mm;
+        text-align: center;
+        background: #ffffff88;
+        color: black;
+        border: 1px solid #bfb4ae;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+        max-height: 95%;
+        overflow: auto;
+        border-radius: 1.25mm;
+    `);
+    document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
+    tmp3.innerText=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.`;
 }
 
 if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
@@ -418,9 +507,9 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!l
 }
 
 if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
-    var tmp3 = document.createElement('link');
-    document.head.appendChild(tmp3);
-    tmp3.outerHTML = (`
+    var tmp4 = document.createElement('link');
+    document.head.appendChild(tmp4);
+    tmp4.outerHTML = (`
         <style>
             [third-party-utils] {
                 background-image: url('https://tpviewer.kilgorezer.com/oldviewericon.png');
@@ -543,6 +632,9 @@ window.tpdialog = function(window, document, location, console, realwindow) {
             <a class="caButtonHolder" onclick="localStorage.legacylogin='2';document.getElementById('legacyloginstat').innerText='Currently Mid 2024.'" href="javascript:void(0);"><input type="button" value="Set to Mid 2024" causesvalidation="false"></a>
             <span id=legacyloginstat class=stat>Currently ${localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off")}.</span></span>
 			<a class="caButtonHolder" onclick="localStorage.clear('legacylogin');document.getElementById('legacyloginstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Legacy Login" causesvalidation="false"></a><br/>
+			<a class="caButtonHolder" onclick="localStorage.clear('tpdisableevent');document.getElementById('tpevent').innerText='Currently planner-based.'" href="javascript:void(0);"><input type="button" value="Planner-Based Events" causesvalidation="false"></a>
+            <span id=tpevent class=stat>Currently ${localStorage.tpdisableevent?"legacy":"planner-based"}.</span>
+			<a class="caButtonHolder" onclick="localStorage.tpdisableevent='1';document.getElementById('tpevent').innerText='Currently legacy.'" href="javascript:void(0);"><input type="button" value="Legacy Events" causesvalidation="false"></a><br/>
 			<a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
         </div>
     `);
@@ -634,7 +726,7 @@ window.tpidialog = function(window, document, location, console, realwindow) {
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
             <a class="caButtonHolder" onclick="tp_utils.config()" href="javascript:void(0);"><input type="button" value="This page, by clicking here!"></a></li>
-            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
+            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.user.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
             <p>Plugins are automatically installed by userscripts, meaning to disable them you have to disable the userscript that installs the plugin.</p>
             <p>To open a plugin, just click on its link in the <span class=stat>Third-Party Plugins</span> menu.</p>
             <hr/>
