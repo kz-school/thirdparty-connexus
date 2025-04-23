@@ -726,7 +726,7 @@ window.tpidialog = function(window, document, location, console, realwindow) {
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
             <a class="caButtonHolder" onclick="tp_utils.config()" href="javascript:void(0);"><input type="button" value="This page, by clicking here!"></a></li>
-            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.user.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
+            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
             <p>Plugins are automatically installed by userscripts, meaning to disable them you have to disable the userscript that installs the plugin.</p>
             <p>To open a plugin, just click on its link in the <span class=stat>Third-Party Plugins</span> menu.</p>
             <hr/>
