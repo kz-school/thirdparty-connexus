@@ -390,8 +390,8 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 		    <td class="formLabel">Event Style:</td>
 		    <td>
 		    	<span id="tpoptions" class=" field">
-			    	<a class="caButtonHolder" onclick="localStorage.clear('disabletp');document.getElementById('tpevent').innerText='planner-based'" href="javascript:void(0);"><input type="button" value="Planner-Based" causesvalidation="false"></a>
-			    	<a class="caButtonHolder" onclick="localStorage.disabletp='1';document.getElementById('tpevent').innerText='legacy'" href="javascript:void(0);"><input type="button" value="Legacy" causesvalidation="false"></a>
+			    	<a class="caButtonHolder" onclick="localStorage.clear('tpdisableevent');document.getElementById('tpevent').innerText='planner-based'" href="javascript:void(0);"><input type="button" value="Planner-Based" causesvalidation="false"></a>
+			    	<a class="caButtonHolder" onclick="localStorage.tpdisableevent='1';document.getElementById('tpevent').innerText='legacy'" href="javascript:void(0);"><input type="button" value="Legacy" causesvalidation="false"></a>
 			    </span>
 			    <span class="formHelp"> Change event type. Currently <span id='tpevent'>error</span>.</span>
 		    </td>
