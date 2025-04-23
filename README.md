@@ -1,5 +1,6 @@
 # Third Party Viewer
 This is a third-party lesson viewer loader for Connections Academy, which allows some reverse compatibility directly.\
+It is supported on Chrome, Edge, Firefox, and Supermium.\
 \
 It is recommended, albeit not enabled by default for compatibility reasons, to enable legacy login to 2024 or earlier.\
 This bypasses the unneeded two-part login that interfers with some browser's password managers, and allows you to save your username for quick login.\
