@@ -3,7 +3,7 @@
 // @namespace    https://tpviewer.kilgorezer.com/
 // @version      2.3
 // @description  Third-Party Plugins for Connexus Lesson Viewer
-// @author       kilgorezer
+// @author       kz-school
 // @match        *://*.connexus.com/*
 // @match        *://*.pearson.com/*
 // @match        *://*.connectionsacademy.com/*
