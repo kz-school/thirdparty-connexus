@@ -147,13 +147,13 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
             <h2>Plugin Website</h2>
             <hr/>
             <p>You can download additional plugins here.</p>
-            <p>Here are the avalible plugins made by kilgorezer:</p>
+            <p>Here are the avalible plugins made by kz-school:</p>
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
             <span class=stat>Old</span> means it supports the legacy viewer.<br/><br/>
             <span class=stat>Loader</span> means it is a plugin loader<br/><br/>
             <span class=stat>Viewer</span> means it applies in the context of the lesson contents.</h6>
             <tp-dialog>
-                Kilgorezer's Third-Party Plugins
+                KZ-School's Third-Party Plugins
                 <hr/>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.user.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
