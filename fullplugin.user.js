@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.3
+// @version      2.4
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kilgorezer
 // @match        *://*.connexus.com/*
@@ -16,11 +16,11 @@
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Emergency Change Update
+// Emergency Bugfux Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 13.
+// So, this is version 14.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -29,7 +29,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 2.3;
+window.tp_version = 2.4;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
@@ -158,7 +158,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
                 <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.user.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/ainotes.user.js', '', 'popup')"><tp-text>AI-Generated Note Taker</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.user.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <span class=stat>Viewer</span></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.user.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <h6 style=display:inline> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
                 <tp-plugin><hr/>More plugins coming soon!<br/></tp-plugin>
                 <!-- <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/> -->
             </tp-dialog>
@@ -721,7 +721,7 @@ window.tpidialog = function(window, document, location, console, realwindow) {
                 <a href="javascript:void(0)">Plugin N</a><br/>
                 <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/>
             </tp-dialog><br/>
-            <p>You can press <span class=stat>F4</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
+            <p>You can press <span class=stat>Alt+F1</span or <span class=stat>Alt+\\</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
             <li><span class=stat>Lesson Viewer</span> <b>&gt;</b> <span class=stat>Third-Party Plugins</span> <b>&gt;</b> <span class=stat><img src="https://tpviewer.kilgorezer.com/settings.png" width=16 style="position:relative;top:3px;filter:invert(1)" alt="gear icon"/></span></li>
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
