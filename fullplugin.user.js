@@ -155,7 +155,7 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
             <tp-dialog>
                 Kilgorezer's Third-Party Plugins
                 <hr/>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.user.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/ainotes.user.js', '', 'popup')"><tp-text>AI-Generated Note Taker</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.user.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <h6 style=display:inline> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
