@@ -12,4 +12,6 @@ TP On + 2021 Login + Legacy Events: Preferred Legacy Setup\
 TP Off + 2024 Login + Planner-Based Events: Preferred Loaderless Setup\
 TP Off + Default Login + Legacy Events: Off\
 TP Off + Default Login + Planner-Based Events: Planner-Based Connexus\
-and many more
+and many more\
+\
+The MathJax bypass is only recommended if your browser sends a yellow error when you try to access a lesson with a MathJax equation (Used in Math and Science subjects).
