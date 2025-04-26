@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.5
+// @version      2.6
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kz-school
 // @match        *://*.connexus.com/*
@@ -16,11 +16,11 @@
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Ultimate Event Update
+// Event Bugfix Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 15.
+// So, this is version 16.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -29,7 +29,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 2.5;
+window.tp_version = 2.6;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
@@ -55,6 +55,7 @@ if(true) {
         if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey) || event.key.toUpperCase() == "F13") {
             setTimeout(window.tp_utils.config(),0);
         }
+        if(location.pathname.startsWith('/login')||location.pathname.startsWith('/webuser/')) {return;};
         const properties = {
             type: event.type,
             key: event.key,
@@ -68,6 +69,7 @@ if(true) {
             /*getModifierState: function(x) {
                     return event.getModifierState(x);
             },*/
+            onAssesment: !(document.getElementById('learnosity-asssessment-player')===null),
         };
         //console.log(properties);
         window.top.postMessage({
@@ -87,6 +89,7 @@ if(true) {
             altKey: event.altKey,
             metaKey: event.metaKey,
             repeat: event.repeat,
+            onAssesment: !(document.getElementById('learnosity-asssessment-player')===null),
         };
         window.top.postMessage({
             thirdparty: true,
@@ -295,13 +298,13 @@ if (location.pathname === "/homepage") {
         setTimeout(window.tpinstructions, 250);
     }
     if (location.hash = "#/student/today") {
-        replaceEvent();
+        setTimeout(replaceEvent, 250);
     }
 }
 
 // Additional logic to handle hash changes
 var previousHash = location.hash;
-window.addEventListener('hashchange', function() {if (previousHash !== location.hash && location.hash === '#/student/links') {/*
+window.addEventListener('hashchange', function() {if (previousHash !== location.hash && location.hash.endsWith('/links')) {/*
     if (previousHash !== location.hash && location.hash === '#/student/links') {
         window.tpran = false; // Reset the flag
         setTimeout(i, 750); // Run the function again
@@ -371,9 +374,9 @@ if(location.pathname=='/index.html'&&location.hostname=='prodpcx-cdn-vegaviewer.
     });
 }
 
-if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.connexus.com') {
+if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.connexus.com') {setTimeout(()=>{
 	var tmp = document.createElement('tr')
-	document.getElementsByTagName("table")[1].children[0].appendChild(tmp);
+	document.querySelector('#profileDefaults table tbody').appendChild(tmp);
 	tmp.outerHTML = (`
 	    <tr id="thirdPartyConfig">
 		    <td class="formLabel">Third Party:</td>
@@ -410,19 +413,29 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
     document.getElementById('tpstat').innerText = localStorage.disabletp ? "off" : "on";
     document.getElementById('legacyloginstat').innerText = localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off");
     document.getElementById('tpevent').innerText = localStorage.tpdisableevent ? "legacy" : "planner-based";
-}
+},250);}
 
 if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
-    location.pathname="/loginNative.aspx";
-    document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
-    document.body.outerHTML = (`
-        <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
-            <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
-        </body>
-    `);
+    try {
+        location.pathname="/loginNative.aspx";
+        document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
+        document.body.outerHTML = (`
+            <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
+                <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
+            </body>
+        `);
+    } catch(e) {setTimeout(()=>{
+        location.pathname="/loginNative.aspx";
+        document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
+        document.body.outerHTML = (`
+            <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
+                <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
+            </body>
+        `);
+    },250);}
 }
 
-if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="1") {
+if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="1") {setTimeout(()=>{
     document.getElementById('bgBranding').children[0].style = "background-image: url('/images/login/defaultBG_metal-min.png')!important";
     var i = document.getElementById('bgBranding').children[0].style.animation;
     document.getElementById('bgBranding').children[0].style.animation = 'none';
@@ -437,7 +450,7 @@ if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'
         </div>
     `);
     document.querySelectorAll('style, link[rel="stylesheet"]').forEach(e => e.remove());
-    tmp = document.createElement('link');
+    var tmp = document.createElement('link');
     tmp.rel = 'stylesheet';
     tmp.href = 'https://tpviewer.kilgorezer.com/oldstylesheets.css';
     document.head.appendChild(tmp);
@@ -448,14 +461,16 @@ if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'
     `)
     document.getElementById("tollFreePhoneNumberLiteral4").outerHTML = document.getElementById("tollFreePhoneNumberLiteral4").innerHTML;
     document.getElementsByTagName("title")[0].innerText="Welcome to Connexus | The Education Management System";
-}
+    history.replaceState({page: 'current'}, document.title, `/login.aspx${location.search}${location.hash}`);
+},250);}
 
-if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="2") {
+if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="2") {setTimeout(()=>{
     document.getElementById('loginLogoImage').src = "https://www.connexus.com/_skin/supportFiles/1/572000-762022-104237-PM-209780856.png";
     document.getElementsByClassName('welcomeTitle')[0].innerText = "Welcome to Pearson Online Classroom";
-}
+    history.replaceState({page: 'current'}, document.title, `/login.aspx${location.search}${location.hash}`);
+},250);}
 
-if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {
+if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {setTimeout(()=>{
     var tmp2 = document.createElement('tp-popup');
     tmp2.style=(`
         display: block;
@@ -472,10 +487,15 @@ if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'
         max-height: 95%;
         overflow: auto;
         border-radius: 1.25mm;
+        cursor: default;
     `);
     document.body.appendChild(tmp2);
     tmp2.innerText=`Contains third-party plugins
 Press Alt+F1 or Alt+\\ to configure`;
+},250);}
+
+
+if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com') {setTimeout(()=>{
     var tmp3 = document.createElement('tp-popup');
     tmp3.style=(`
         display: block;
@@ -490,10 +510,12 @@ Press Alt+F1 or Alt+\\ to configure`;
         max-height: 95%;
         overflow: auto;
         border-radius: 1.25mm;
+        cursor: help;
     `);
     document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
-    tmp3.innerText=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.`;
-}
+    tmp3.title=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.  This userscript is not at fault for any data collection caused by ${(!localStorage.disabletp) ? "external plugins or other userscripts" : "other userscripts"}. Data is stored locally and not sent to third parties by the userscript itself. Any input tracking unrelated to configuration keybinds (Alt+F1, Alt+\\, F13) is disabled on login or user settings pages for security reasons.`;
+    tmp3.innerText=`Hover for more info.`;
+},250);}
 
 if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {try{
 	window.$(`
@@ -516,7 +538,7 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!l
 	document.getElementsByClassName('header-buttons-left')[0].innerHTML += (`<button type="button" onclick="executeUserscript(localStorage.user_name);" class="header-button">Third-Party<br>Plugins</button>`)
 }catch(e){console.log(e)}}
 
-if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
+if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {setTimeout(()=>{
     var tmp4 = document.createElement('link');
     document.head.appendChild(tmp4);
     tmp4.outerHTML = (`
@@ -530,7 +552,7 @@ if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage
         </style>
     `);
 	document.getElementsByClassName("toolbarList")[0].innerHTML += (`<li><a id="ctl00_thirdparty" third-party-utils title="Third-Party" class="lvIcon helpIcon" href="javascript:executeUserscript(localStorage.user_name)">Third-Party</a></li>`);
-}
+},250);}
 
 
 window.executeUserscript = function(UserName) {
