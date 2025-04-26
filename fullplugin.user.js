@@ -75,7 +75,7 @@ if(true) {
             eventtype: 'keyup',
             event: properties,
             origin: location.pathname,
-        }, '*');
+        }, 'https://www.connexus.com');
     });
     addEventListener("keydown", (event) => {
         const properties = {
@@ -93,7 +93,7 @@ if(true) {
             eventtype: 'keydown',
             event: properties,
             origin: location.pathname,
-        }, '*');
+        }, 'https://www.connexus.com');
     });
 }
 
