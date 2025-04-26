@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.4
+// @version      2.5
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kz-school
 // @match        *://*.connexus.com/*
@@ -16,11 +16,11 @@
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Emergency Bugfux Update
+// Ultimate Event Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 14.
+// So, this is version 15.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -29,7 +29,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 2.4;
+window.tp_version = 2.5;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
@@ -52,7 +52,7 @@ window.tpinstructions = function() {
 
 if(true) {
     addEventListener("keyup", (event) => {
-        if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey)) {
+        if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey) || event.key.toUpperCase() == "F13") {
             setTimeout(window.tp_utils.config(),0);
         }
         const properties = {
@@ -70,11 +70,12 @@ if(true) {
             },*/
         };
         //console.log(properties);
-        window.postMessage({
+        window.top.postMessage({
             thirdparty: true,
             eventtype: 'keyup',
-            event: properties
-        });
+            event: properties,
+            origin: location.pathname,
+        }, '*');
     });
     addEventListener("keydown", (event) => {
         const properties = {
@@ -87,13 +88,54 @@ if(true) {
             metaKey: event.metaKey,
             repeat: event.repeat,
         };
-        window.postMessage({
+        window.top.postMessage({
             thirdparty: true,
             eventtype: 'keydown',
-            event: properties
-        });
+            event: properties,
+            origin: location.pathname,
+        }, '*');
     });
 }
+
+window.addEventListener('message', function(event) {
+    var origin = event.origin;
+    let isSafe = false;
+
+    if (origin.endsWith('.connexus.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.pearson.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.connectionsacademy.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.edynamiclearningcdn.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin === 'https://edynamiclearningcdn.com') {
+        isSafe = true;
+    } else if (origin === 'https://tpviewer.kilgorezer.com') {
+        isSafe = true;
+    }
+
+    if (isSafe) {
+        var data = event.data;
+        try {
+            if(data.thirdparty && data.eventtype.startsWith('key')) {
+                if(data.origin.startsWith("/login") || data.origin.startsWith("/webuser/")) {throw"";};
+                var props = data.event;
+                if(props.keyCode === undefined) {throw"";}
+                //console.log('Properties:', props);
+                const keyboardEvent = new CustomEvent('tpkeyboard', {
+                    detail: {
+                        data: props,
+                        type: data.eventtype
+                    }
+                });
+                setTimeout(()=>{window.dispatchEvent(keyboardEvent)},0);
+            }
+        } catch(e) {return;}
+    } else {
+        console.warn('Message from unsafe origin:', origin);
+    }
+});
 
 if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout(function(){*/
     window.i = document.body.innerText;
@@ -227,52 +269,19 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
 }*/
 
 var replaceEvent = async function() {
-    if (localStorage.tpdisableevent == "1") {return ''}
+    if (localStorage.tpdisableevent == "1") {return '';}
     var eremoved = true;
     while(eremoved) {
         if (document.getElementsByClassName('st-events-section').length > 0) {
             document.getElementsByClassName('st-events-section')[0].outerHTML = `<iframe id="tpframe" class="ct-user-box" src="/plannerpage" width="100%" style="height: 30vw;"></iframe>`;
-            var win = document.getElementById('tpframe').contentWindow;
             // Please note this error seems to be related to how the content window is used in the content window, this is to prevent the code from modifying the parent.
-            win.onload = function() {
-                win.document.getElementsByClassName('header-skeleton')[0].remove()
-                win.document.getElementsByClassName('pvs-footer-wrapper')[0].remove()
-                    // Store the original window.location object
-                const originalLocation = win.location;
-
-                // Override the window.location object
-                Object.defineProperty(win, 'location', {
-                    configurable: true,
-                    enumerable: true,
-                    get: function() {
-                        return originalLocation;
-                    },
-                    set: function(newLocation) {
-                        // Check if the new location is different from the current one
-                        if (newLocation !== originalLocation.href) {
-                            // Open the new location in a new tab/window
-                            window.open(newLocation, '_blank');
-                            // Prevent the original redirection of the iframe
-                            console.log(`[Userscript] Redirect to ${newLocation} opened in a new tab.`);
-                        }
-                    }
-                });
-
-                // Override window.location.href for direct assignments
-                Object.defineProperty(win.location, 'href', {
-                    configurable: true,
-                    enumerable: true,
-                    get: function() {
-                        return originalLocation.href;
-                    },
-                    set: function(newHref) {
-                        if (newHref !== originalLocation.href) {
-                            window.open(newHref, '_blank');
-                            console.log(`[Userscript] Redirect (href) to ${newHref} opened in a new tab.`);
-                        }
-                    }
-                });
-            };
+            document.getElementById('tpframe').contentWindow.onload = ()=>{(function(window, realwindow) {(function(document, location, console, setInterval) {
+                window.document.getElementsByClassName('header-skeleton')[0].remove();
+                window.document.getElementsByClassName('pvs-footer-wrapper')[0].remove();
+                setInterval(()=>{
+                    window.document.getElementById('pageTitleHeaderText').innerText = 'Your Events';
+                },100);
+            })(window.document, window.location, window.console, window.setInterval);})(document.getElementById('tpframe').contentWindow, window);};
             eremoved = false;
         } else {
             await new Promise(resolve => setTimeout(resolve, 100));
@@ -486,7 +495,7 @@ Press Alt+F1 or Alt+\\ to configure`;
     tmp3.innerText=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.`;
 }
 
-if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
+if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {try{
 	window.$(`
         <div id="menuThirdParty" class="menu-button menu-1">
 		    <button type="button" onclick="document.getElementById('feedbackModal').getElementsByClassName('modal-close-btn')[0].click();executeUserscript(localStorage.user_name);" title="ThirdParty">
@@ -505,7 +514,7 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!l
     `).insertAfter("#slideOutMenuAssessment");
 
 	document.getElementsByClassName('header-buttons-left')[0].innerHTML += (`<button type="button" onclick="executeUserscript(localStorage.user_name);" class="header-button">Third-Party<br>Plugins</button>`)
-}
+}catch(e){console.log(e)}}
 
 if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
     var tmp4 = document.createElement('link');
@@ -603,7 +612,19 @@ window.tp_utils = {
                 }
             });
         },
-    },*/// i will find a way to impliment this properly in a future version
+    },*/// i found a way to impliment this properly but leaving this old piece of code
+    event: {
+        keyUp: function(reciever) {
+            window.addEventListener('tpkeyboard', function({detail}) {
+                if (detail.type == 'keyup') {reciever(detail.data)}
+            });
+        },
+        keyDown: function(reciever) {
+            window.addEventListener('tpkeyboard', function({detail}) {
+                if (detail.type == 'keydown') {reciever(detail.data)}
+            });
+        }
+    },
 }
 
 window.tpdialog = function(window, document, location, console, realwindow) {
