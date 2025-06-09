@@ -440,7 +440,7 @@ if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStor
 
 if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.tppearson) {
     var sendTo = sessionStorage.tptemp || ""; // This makes tp_utils.logOut work as sendTo is overridden
-    sessionStorage.removeItem(sessionStorage.tptemp);
+    sessionStorage.tptemp = "";
     location.href = "https://www.connexus.com/login/IesLogin/IesAuthentication?sendToFromQuery=" + sendTo;
 }
 
