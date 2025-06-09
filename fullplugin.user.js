@@ -504,7 +504,7 @@ Press Alt+F1 or Alt+\\ to configure`;
 },250);}
 
 
-if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'||location.hostname=='iam.pearson.com') {setTimeout(()=>{
+if((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com')||location.hostname=='iam.pearson.com') {setTimeout(()=>{
     var tmp3 = document.createElement('tp-popup');
     tmp3.style=(`
         display: block;
