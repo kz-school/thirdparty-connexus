@@ -479,7 +479,7 @@ if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'
     history.replaceState({page: 'current'}, document.title, `/login.aspx${location.search}${location.hash}`);
 },250);}
 
-if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {setTimeout(()=>{
+if(((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com')||location.hostname=='iam.pearson.com')&&(!localStorage.disabletp)) {setTimeout(()=>{
     var tmp2 = document.createElement('tp-popup');
     tmp2.style=(`
         display: block;
@@ -508,7 +508,7 @@ if((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com
     var tmp3 = document.createElement('tp-popup');
     tmp3.style=(`
         display: block;
-        position: absolute;
+        position: fixed;
         bottom: 0.1mm;
         right: 0.1mm;
         text-align: center;
@@ -521,9 +521,14 @@ if((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com
         border-radius: 1.25mm;
         cursor: help;
     `);
-    document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
+    if(location.pathname.startsWith('/login')) document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
+    if(location.hostname=='iam.pearson.com') document.body.appendChild(tmp3);
     tmp3.title=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.  This userscript is not at fault for any data collection caused by ${(!localStorage.disabletp) ? "external plugins or other userscripts" : "other userscripts"}. Data is stored locally and not sent to third parties by the userscript itself. Any input tracking unrelated to configuration keybinds (Alt+F1, Alt+\\, F13) is disabled on login or user settings pages for security reasons.`;
     tmp3.innerText=`Hover for more info.`;
+    setInterval(()=>{
+        document.querySelector('iframe[title="reCAPTCHA"]').style.display = "none";
+        document.querySelector('div.grecaptcha-badge').style.display = "none";
+    }, 500);
 },250);}
 
 if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {try{
