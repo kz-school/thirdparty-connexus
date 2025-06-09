@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.6
+// @version      2.7
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kz-school
 // @match        *://*.connexus.com/*
@@ -10,17 +10,20 @@
 // @match        *://edynamiclearningcdn.com/*
 // @match        *://*.edynamiclearningcdn.com/*
 // @match        *://tpviewer.kilgorezer.com/*
+// @match        *://iam.pearson.com/*
 // @run-at       document-body
 // @icon         https://tpviewer.kilgorezer.com/favicon.ico
 // @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Event Bugfix Update
+// Final Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 16.
+// So, this is version 17.
+
+// I may no longer be able to develop this plugin, as I am leaving Connections Academy.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -55,7 +58,7 @@ if(true) {
         if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey) || event.key.toUpperCase() == "F13") {
             setTimeout(window.tp_utils.config(),0);
         }
-        if(location.pathname.startsWith('/login')||location.pathname.startsWith('/webuser/')) {return;};
+        if(location.pathname.startsWith('/login')||location.pathname.startsWith('/webuser/')||location.hostname=='iam.pearson.com') {return;};
         const properties = {
             type: event.type,
             key: event.key,
@@ -122,7 +125,7 @@ window.addEventListener('message', function(event) {
         var data = event.data;
         try {
             if(data.thirdparty && data.eventtype.startsWith('key')) {
-                if(data.origin.startsWith("/login") || data.origin.startsWith("/webuser/")) {throw"";};
+                if(data.origin.startsWith("/login") || data.origin.startsWith("/webuser/") || location.hostname=='iam.pearson.com') {throw"";};
                 var props = data.event;
                 if(props.keyCode === undefined) {throw"";}
                 //console.log('Properties:', props);
@@ -388,7 +391,7 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 			    <span class="formHelp"> Enable or disable third-party plugins. Currently <span id='tpstat'>error</span>.</span>
 		    </td>
 	    </tr>
-    	<tr id="legacyLogin">
+    	<!--<tr id="legacyLogin">
 		    <td class="formLabel">Legacy Login:</td>
 		    <td>
 			    <span id="tpoptions" class=" field">
@@ -398,7 +401,7 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 			    </span>
 			    <span class="formHelp"> Enable or disable 2021-style login screen. Currently <span id='legacyloginstat'>error</span>.</span>
 		    </td>
-	    </tr>
+	    </tr>-->
 	    <tr id="thirdPartyConfig">
 		    <td class="formLabel">Event Style:</td>
 		    <td>
@@ -415,7 +418,7 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
     document.getElementById('tpevent').innerText = localStorage.tpdisableevent ? "legacy" : "planner-based";
 },250);}
 
-if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
+if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin&&false) { // Legacy login no longer works as the native login finally changed (on 6/2/2025) for the first time since the school started
     try {
         location.pathname="/loginNative.aspx";
         document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
@@ -433,6 +436,12 @@ if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStor
             </body>
         `);
     },250);}
+}
+
+if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.tppearson) {
+    var sendTo = sessionStorage.tptemp || ""; // This makes tp_utils.logOut work as sendTo is overridden
+    sessionStorage.removeItem(sessionStorage.tptemp);
+    location.href = "https://www.connexus.com/login/IesLogin/IesAuthentication?sendToFromQuery=" + sendTo;
 }
 
 if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="1") {setTimeout(()=>{
@@ -495,7 +504,7 @@ Press Alt+F1 or Alt+\\ to configure`;
 },250);}
 
 
-if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com') {setTimeout(()=>{
+if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'||location.hostname=='iam.pearson.com') {setTimeout(()=>{
     var tmp3 = document.createElement('tp-popup');
     tmp3.style=(`
         display: block;
@@ -617,7 +626,7 @@ window.tp_utils = {
     exitIntro: window.startLesson,
     legacyNext: window.nextPage,
     legacyPrev: window.previousPage,
-    logOut: Function("location.href = 'https://www.connexus.com/logoff.aspx?sendTo=' + encodeURIComponent(location.href)"),
+    logOut: ()=>{location.href = 'https://www.connexus.com/logoff.aspx?';sessionStorage.tptemp=encodeURIComponent(location.href)},
     config: window.tpconfig,
     /*event: {
         keyUp: function(reciever) {
@@ -672,13 +681,16 @@ window.tpdialog = function(window, document, location, console, realwindow) {
 			<a class="caButtonHolder" onclick="localStorage.clear('disabletp');document.getElementById('tpstat').innerText='Currently on.'" href="javascript:void(0);"><input type="button" value="Turn On Plugins" causesvalidation="false"></a>
             <span id=tpstat class=stat>Currently ${localStorage.disabletp?"off":"on"}.</span>
 			<a class="caButtonHolder" onclick="localStorage.disabletp='1';document.getElementById('tpstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Plugins" causesvalidation="false"></a><br/>
-			<a class="caButtonHolder" onclick="localStorage.legacylogin='1';document.getElementById('legacyloginstat').innerText='Currently 2021.'" href="javascript:void(0);"><input type="button" value="Set to 2021" causesvalidation="false"></a>
+			<!--<a class="caButtonHolder" onclick="localStorage.legacylogin='1';document.getElementById('legacyloginstat').innerText='Currently 2021.'" href="javascript:void(0);"><input type="button" value="Set to 2021" causesvalidation="false"></a>
             <a class="caButtonHolder" onclick="localStorage.legacylogin='2';document.getElementById('legacyloginstat').innerText='Currently Mid 2024.'" href="javascript:void(0);"><input type="button" value="Set to Mid 2024" causesvalidation="false"></a>
             <span id=legacyloginstat class=stat>Currently ${localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off")}.</span></span>
-			<a class="caButtonHolder" onclick="localStorage.clear('legacylogin');document.getElementById('legacyloginstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Legacy Login" causesvalidation="false"></a><br/>
+			<a class="caButtonHolder" onclick="localStorage.clear('legacylogin');document.getElementById('legacyloginstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Legacy Login" causesvalidation="false"></a><br/>-->
 			<a class="caButtonHolder" onclick="localStorage.clear('tpdisableevent');document.getElementById('tpevent').innerText='Currently planner-based.'" href="javascript:void(0);"><input type="button" value="Planner-Based Events" causesvalidation="false"></a>
             <span id=tpevent class=stat>Currently ${localStorage.tpdisableevent?"legacy":"planner-based"}.</span>
 			<a class="caButtonHolder" onclick="localStorage.tpdisableevent='1';document.getElementById('tpevent').innerText='Currently legacy.'" href="javascript:void(0);"><input type="button" value="Legacy Events" causesvalidation="false"></a><br/>
+			<a class="caButtonHolder" onclick="localStorage.clear('tppearson');document.getElementById('tppearson').innerText='Currently legacy login.'" href="javascript:void(0);"><input type="button" value="Legacy (Migrating)" causesvalidation="false"></a>
+            <span id=tppearson class=stat>Currently ${localStorage.tppearson?"Pearson":"legacy"} login.</span>
+			<a class="caButtonHolder" onclick="localStorage.tppearson='1';document.getElementById('tppearson').innerText='Currently Pearson login.'" href="javascript:void(0);"><input type="button" value="Pearson" causesvalidation="false"></a><br/>
 			<a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
         </div>
     `);
