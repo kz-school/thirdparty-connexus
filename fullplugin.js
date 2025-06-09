@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Third-Party Viewer
 // @namespace    https://tpviewer.kilgorezer.com/
-// @version      2.3
+// @version      2.7
 // @description  Third-Party Plugins for Connexus Lesson Viewer
 // @author       kz-school
 // @match        *://*.connexus.com/*
@@ -10,17 +10,20 @@
 // @match        *://edynamiclearningcdn.com/*
 // @match        *://*.edynamiclearningcdn.com/*
 // @match        *://tpviewer.kilgorezer.com/*
+// @match        *://iam.pearson.com/*
 // @run-at       document-body
 // @icon         https://tpviewer.kilgorezer.com/favicon.ico
 // @downloadURL  https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @updateURL    https://tpviewer.kilgorezer.com/fullplugin.user.js
 // @grant        none
 // ==/UserScript==
-// Emergency Change Update
+// Final Update
 
 // The loader scheme follows this format: majordigit2andaboveplus1.majordigit1[.0.minordigit]
 // The official plugin scheme follows this format: majordigit2andaboveplus1.majordigit1.plugindigit[.minordigit]
-// So, this is version 13.
+// So, this is version 17.
+
+// I may no longer be able to develop this plugin, as I am leaving Connections Academy.
 (function() {
 
 // jQuery is already in the lesson viewer, so I removed the module from here.
@@ -29,7 +32,7 @@
 // My code
 (function(){if(!window.tpitems){window.tpitems=[];}
 
-window.tp_version = 2.3;
+window.tp_version = 2.6;
 
 if(location.hostname=='tpviewer.kilgorezer.com' && location.pathname=="/") {
     console.log('I\'m Home!');
@@ -52,9 +55,10 @@ window.tpinstructions = function() {
 
 if(true) {
     addEventListener("keyup", (event) => {
-        if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey)) {
+        if((event.key.toUpperCase() == "F1" && event.altKey) || (event.key.toUpperCase() == "\\" && event.altKey) || event.key.toUpperCase() == "F13") {
             setTimeout(window.tp_utils.config(),0);
         }
+        if(location.pathname.startsWith('/login')||location.pathname.startsWith('/webuser/')||location.hostname=='iam.pearson.com') {return;};
         const properties = {
             type: event.type,
             key: event.key,
@@ -68,13 +72,15 @@ if(true) {
             /*getModifierState: function(x) {
                     return event.getModifierState(x);
             },*/
+            onAssesment: !(document.getElementById('learnosity-asssessment-player')===null),
         };
         //console.log(properties);
-        window.postMessage({
+        window.top.postMessage({
             thirdparty: true,
             eventtype: 'keyup',
-            event: properties
-        });
+            event: properties,
+            origin: location.pathname,
+        }, 'https://www.connexus.com');
     });
     addEventListener("keydown", (event) => {
         const properties = {
@@ -86,14 +92,56 @@ if(true) {
             altKey: event.altKey,
             metaKey: event.metaKey,
             repeat: event.repeat,
+            onAssesment: !(document.getElementById('learnosity-asssessment-player')===null),
         };
-        window.postMessage({
+        window.top.postMessage({
             thirdparty: true,
             eventtype: 'keydown',
-            event: properties
-        });
+            event: properties,
+            origin: location.pathname,
+        }, 'https://www.connexus.com');
     });
 }
+
+window.addEventListener('message', function(event) {
+    var origin = event.origin;
+    let isSafe = false;
+
+    if (origin.endsWith('.connexus.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.pearson.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.connectionsacademy.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin.endsWith('.edynamiclearningcdn.com') && origin.startsWith('https://')) {
+        isSafe = true;
+    } else if (origin === 'https://edynamiclearningcdn.com') {
+        isSafe = true;
+    } else if (origin === 'https://tpviewer.kilgorezer.com') {
+        isSafe = true;
+    }
+
+    if (isSafe) {
+        var data = event.data;
+        try {
+            if(data.thirdparty && data.eventtype.startsWith('key')) {
+                if(data.origin.startsWith("/login") || data.origin.startsWith("/webuser/") || location.hostname=='iam.pearson.com') {throw"";};
+                var props = data.event;
+                if(props.keyCode === undefined) {throw"";}
+                //console.log('Properties:', props);
+                const keyboardEvent = new CustomEvent('tpkeyboard', {
+                    detail: {
+                        data: props,
+                        type: data.eventtype
+                    }
+                });
+                setTimeout(()=>{window.dispatchEvent(keyboardEvent)},0);
+            }
+        } catch(e) {return;}
+    } else {
+        console.warn('Message from unsafe origin:', origin);
+    }
+});
 
 if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout(function(){*/
     window.i = document.body.innerText;
@@ -147,19 +195,19 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
             <h2>Plugin Website</h2>
             <hr/>
             <p>You can download additional plugins here.</p>
-            <p>Here are the avalible plugins made by kilgorezer:</p>
+            <p>Here are the avalible plugins made by kz-school:</p>
             <h6><span class=stat>Responsive</span> means it supports the default viewer.<br/><br/>
             <span class=stat>Old</span> means it supports the legacy viewer.<br/><br/>
             <span class=stat>Loader</span> means it is a plugin loader<br/><br/>
             <span class=stat>Viewer</span> means it applies in the context of the lesson contents.</h6>
             <tp-dialog>
-                Kilgorezer's Third-Party Plugins
+                KZ-School's Third-Party Plugins
                 <hr/>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('#raw', '', 'popup')"><tp-text>Third-Party Viewer</tp-text> <h6 style=display:inline> <span class=stat>Loader</span> <span class=stat>Responsive</span> <span class=stat>Old</span> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/switchviewer.user.js', '', 'popup')"><tp-text>Switch Lesson Viewer</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
                 <tp-plugin><a href="javascript:void(0)" onclick="open('/ainotes.user.js', '', 'popup')"><tp-text>AI-Generated Note Taker</tp-text> <h6 style=display:inline> <span class=stat>Responsive</span> <span class=stat>Old</span></h6></a><br/></tp-plugin>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.user.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <span class=stat>Viewer</span></tp-plugin>
-                <tp-plugin><a href="javascript:void(0)" onclick="open('/teachers.user.js', '', 'popup')"><tp-text>Scrollable Teachers View</tp-text></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/mathjaxfix.user.js', '', 'popup')"><tp-text>Stand-alone MathJax Bugfix for Chromium</tp-text> <h6 style=display:inline> <span class=stat>Viewer</span></h6></a><br/></tp-plugin>
+                <tp-plugin><a href="javascript:void(0)" onclick="open('/teachers.user.js', '', 'popup')"><tp-text>Scrollable Teachers View</tp-text></a><br/></tp-plugin>
                 <tp-plugin><hr/>More plugins coming soon!<br/></tp-plugin>
                 <!-- <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/> -->
             </tp-dialog>
@@ -227,52 +275,19 @@ if(location.href=="https://tpviewer.kilgorezer.com/fullplugin.js") {/*setTimeout
 }*/
 
 var replaceEvent = async function() {
-    if (localStorage.tpdisableevent == "1") {return ''}
+    if (localStorage.tpdisableevent == "1") {return '';}
     var eremoved = true;
     while(eremoved) {
         if (document.getElementsByClassName('st-events-section').length > 0) {
             document.getElementsByClassName('st-events-section')[0].outerHTML = `<iframe id="tpframe" class="ct-user-box" src="/plannerpage" width="100%" style="height: 30vw;"></iframe>`;
-            var win = document.getElementById('tpframe').contentWindow;
             // Please note this error seems to be related to how the content window is used in the content window, this is to prevent the code from modifying the parent.
-            win.onload = function() {
-                win.document.getElementsByClassName('header-skeleton')[0].remove()
-                win.document.getElementsByClassName('pvs-footer-wrapper')[0].remove()
-                    // Store the original window.location object
-                const originalLocation = win.location;
-
-                // Override the window.location object
-                Object.defineProperty(win, 'location', {
-                    configurable: true,
-                    enumerable: true,
-                    get: function() {
-                        return originalLocation;
-                    },
-                    set: function(newLocation) {
-                        // Check if the new location is different from the current one
-                        if (newLocation !== originalLocation.href) {
-                            // Open the new location in a new tab/window
-                            window.open(newLocation, '_blank');
-                            // Prevent the original redirection of the iframe
-                            console.log(`[Userscript] Redirect to ${newLocation} opened in a new tab.`);
-                        }
-                    }
-                });
-
-                // Override window.location.href for direct assignments
-                Object.defineProperty(win.location, 'href', {
-                    configurable: true,
-                    enumerable: true,
-                    get: function() {
-                        return originalLocation.href;
-                    },
-                    set: function(newHref) {
-                        if (newHref !== originalLocation.href) {
-                            window.open(newHref, '_blank');
-                            console.log(`[Userscript] Redirect (href) to ${newHref} opened in a new tab.`);
-                        }
-                    }
-                });
-            };
+            document.getElementById('tpframe').contentWindow.onload = ()=>{(function(window, realwindow) {(function(document, location, console, setInterval) {
+                window.document.getElementsByClassName('header-skeleton')[0].remove();
+                window.document.getElementsByClassName('pvs-footer-wrapper')[0].remove();
+                setInterval(()=>{
+                    window.document.getElementById('pageTitleHeaderText').innerText = 'Your Events';
+                },100);
+            })(window.document, window.location, window.console, window.setInterval);})(document.getElementById('tpframe').contentWindow, window);};
             eremoved = false;
         } else {
             await new Promise(resolve => setTimeout(resolve, 100));
@@ -286,13 +301,13 @@ if (location.pathname === "/homepage") {
         setTimeout(window.tpinstructions, 250);
     }
     if (location.hash = "#/student/today") {
-        replaceEvent();
+        setTimeout(replaceEvent, 250);
     }
 }
 
 // Additional logic to handle hash changes
 var previousHash = location.hash;
-window.addEventListener('hashchange', function() {if (previousHash !== location.hash && location.hash === '#/student/links') {/*
+window.addEventListener('hashchange', function() {if (previousHash !== location.hash && location.hash.endsWith('/links')) {/*
     if (previousHash !== location.hash && location.hash === '#/student/links') {
         window.tpran = false; // Reset the flag
         setTimeout(i, 750); // Run the function again
@@ -362,9 +377,9 @@ if(location.pathname=='/index.html'&&location.hostname=='prodpcx-cdn-vegaviewer.
     });
 }
 
-if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.connexus.com') {
+if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.connexus.com') {setTimeout(()=>{
 	var tmp = document.createElement('tr')
-	document.getElementsByTagName("table")[1].children[0].appendChild(tmp);
+	document.querySelector('#profileDefaults table tbody').appendChild(tmp);
 	tmp.outerHTML = (`
 	    <tr id="thirdPartyConfig">
 		    <td class="formLabel">Third Party:</td>
@@ -376,7 +391,7 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 			    <span class="formHelp"> Enable or disable third-party plugins. Currently <span id='tpstat'>error</span>.</span>
 		    </td>
 	    </tr>
-    	<tr id="legacyLogin">
+    	<!--<tr id="legacyLogin">
 		    <td class="formLabel">Legacy Login:</td>
 		    <td>
 			    <span id="tpoptions" class=" field">
@@ -386,7 +401,7 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
 			    </span>
 			    <span class="formHelp"> Enable or disable 2021-style login screen. Currently <span id='legacyloginstat'>error</span>.</span>
 		    </td>
-	    </tr>
+	    </tr>-->
 	    <tr id="thirdPartyConfig">
 		    <td class="formLabel">Event Style:</td>
 		    <td>
@@ -401,19 +416,35 @@ if(location.pathname=='/webuser/profileDefaults.aspx'&&location.hostname=='www.c
     document.getElementById('tpstat').innerText = localStorage.disabletp ? "off" : "on";
     document.getElementById('legacyloginstat').innerText = localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off");
     document.getElementById('tpevent').innerText = localStorage.tpdisableevent ? "legacy" : "planner-based";
+},250);}
+
+if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin&&false) { // Legacy login no longer works as the native login finally changed (on 6/2/2025) for the first time since the school started
+    try {
+        location.pathname="/loginNative.aspx";
+        document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
+        document.body.outerHTML = (`
+            <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
+                <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
+            </body>
+        `);
+    } catch(e) {setTimeout(()=>{
+        location.pathname="/loginNative.aspx";
+        document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
+        document.body.outerHTML = (`
+            <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
+                <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
+            </body>
+        `);
+    },250);}
 }
 
-if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin) {
-    location.pathname="/loginNative.aspx";
-    document.getElementsByTagName('title')[0].innerText="Skipping login stage 1, please wait...";
-    document.body.outerHTML = (`
-        <body style="display:flex;background-color:#eee;width:100vw;height:100vh;margin:0;justify-content:center;align-items:center;overflow:hidden">
-            <img src="https://www.connexus.com/content/chrome/online/_images/lvLoadingIcon.gif" style="width:40vh;aspect-ratio:1/1;image-rendering: crisp-edges"/>
-        </body>
-    `);
+if(location.pathname=='/login'&&location.hostname=='www.connexus.com'&&localStorage.tppearson) {
+    var sendTo = sessionStorage.tptemp || ""; // This makes tp_utils.logOut work as sendTo is overridden
+    sessionStorage.tptemp = "";
+    location.href = "https://www.connexus.com/login/IesLogin/IesAuthentication?sendToFromQuery=" + sendTo;
 }
 
-if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="1") {
+if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="1") {setTimeout(()=>{
     document.getElementById('bgBranding').children[0].style = "background-image: url('/images/login/defaultBG_metal-min.png')!important";
     var i = document.getElementById('bgBranding').children[0].style.animation;
     document.getElementById('bgBranding').children[0].style.animation = 'none';
@@ -428,7 +459,7 @@ if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'
         </div>
     `);
     document.querySelectorAll('style, link[rel="stylesheet"]').forEach(e => e.remove());
-    tmp = document.createElement('link');
+    var tmp = document.createElement('link');
     tmp.rel = 'stylesheet';
     tmp.href = 'https://tpviewer.kilgorezer.com/oldstylesheets.css';
     document.head.appendChild(tmp);
@@ -439,14 +470,16 @@ if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'
     `)
     document.getElementById("tollFreePhoneNumberLiteral4").outerHTML = document.getElementById("tollFreePhoneNumberLiteral4").innerHTML;
     document.getElementsByTagName("title")[0].innerText="Welcome to Connexus | The Education Management System";
-}
+    history.replaceState({page: 'current'}, document.title, `/login.aspx${location.search}${location.hash}`);
+},250);}
 
-if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="2") {
+if(location.pathname=='/loginNative.aspx'&&location.hostname=='www.connexus.com'&&localStorage.legacylogin=="2") {setTimeout(()=>{
     document.getElementById('loginLogoImage').src = "https://www.connexus.com/_skin/supportFiles/1/572000-762022-104237-PM-209780856.png";
     document.getElementsByClassName('welcomeTitle')[0].innerText = "Welcome to Pearson Online Classroom";
-}
+    history.replaceState({page: 'current'}, document.title, `/login.aspx${location.search}${location.hash}`);
+},250);}
 
-if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'&&(!localStorage.disabletp)) {
+if(((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com')||location.hostname=='iam.pearson.com')&&(!localStorage.disabletp)) {setTimeout(()=>{
     var tmp2 = document.createElement('tp-popup');
     tmp2.style=(`
         display: block;
@@ -463,14 +496,19 @@ if(location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com'
         max-height: 95%;
         overflow: auto;
         border-radius: 1.25mm;
+        cursor: default;
     `);
     document.body.appendChild(tmp2);
     tmp2.innerText=`Contains third-party plugins
 Press Alt+F1 or Alt+\\ to configure`;
+},250);}
+
+
+if((location.pathname.startsWith('/login')&&location.hostname=='www.connexus.com')||location.hostname=='iam.pearson.com') {setTimeout(()=>{
     var tmp3 = document.createElement('tp-popup');
     tmp3.style=(`
         display: block;
-        position: absolute;
+        position: fixed;
         bottom: 0.1mm;
         right: 0.1mm;
         text-align: center;
@@ -481,12 +519,19 @@ Press Alt+F1 or Alt+\\ to configure`;
         max-height: 95%;
         overflow: auto;
         border-radius: 1.25mm;
+        cursor: help;
     `);
-    document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
-    tmp3.innerText=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.`;
-}
+    if(location.pathname.startsWith('/login')) document.getElementsByClassName('loginFooter')[0].appendChild(tmp3);
+    if(location.hostname=='iam.pearson.com') document.body.appendChild(tmp3);
+    tmp3.title=`Third-Party Viewer uses optional popups to improve your experience. Any malfunctions are likely due to site updates or incompatibility.  This userscript is not at fault for any data collection caused by ${(!localStorage.disabletp) ? "external plugins or other userscripts" : "other userscripts"}. Data is stored locally and not sent to third parties by the userscript itself. Any input tracking unrelated to configuration keybinds (Alt+F1, Alt+\\, F13) is disabled on login or user settings pages for security reasons.`;
+    tmp3.innerText=`Hover for more info.`;
+    setInterval(()=>{
+        document.querySelector('iframe[title="reCAPTCHA"]').style.display = "none";
+        document.querySelector('div.grecaptcha-badge').style.display = "none";
+    }, 500);
+},250);}
 
-if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
+if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {try{
 	window.$(`
         <div id="menuThirdParty" class="menu-button menu-1">
 		    <button type="button" onclick="document.getElementById('feedbackModal').getElementsByClassName('modal-close-btn')[0].click();executeUserscript(localStorage.user_name);" title="ThirdParty">
@@ -505,9 +550,9 @@ if(location.pathname=="/content/chrome/online/lessonViewer_responsive.aspx"&&(!l
     `).insertAfter("#slideOutMenuAssessment");
 
 	document.getElementsByClassName('header-buttons-left')[0].innerHTML += (`<button type="button" onclick="executeUserscript(localStorage.user_name);" class="header-button">Third-Party<br>Plugins</button>`)
-}
+}catch(e){console.log(e)}}
 
-if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {
+if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage.disabletp)&&location.hostname=='www.connexus.com') {setTimeout(()=>{
     var tmp4 = document.createElement('link');
     document.head.appendChild(tmp4);
     tmp4.outerHTML = (`
@@ -521,7 +566,7 @@ if(location.pathname=="/content/chrome/online/lessonViewer.aspx"&&(!localStorage
         </style>
     `);
 	document.getElementsByClassName("toolbarList")[0].innerHTML += (`<li><a id="ctl00_thirdparty" third-party-utils title="Third-Party" class="lvIcon helpIcon" href="javascript:executeUserscript(localStorage.user_name)">Third-Party</a></li>`);
-}
+},250);}
 
 
 window.executeUserscript = function(UserName) {
@@ -586,7 +631,7 @@ window.tp_utils = {
     exitIntro: window.startLesson,
     legacyNext: window.nextPage,
     legacyPrev: window.previousPage,
-    logOut: Function("location.href = 'https://www.connexus.com/logoff.aspx?sendTo=' + encodeURIComponent(location.href)"),
+    logOut: ()=>{location.href = 'https://www.connexus.com/logoff.aspx?';sessionStorage.tptemp=encodeURIComponent(location.href)},
     config: window.tpconfig,
     /*event: {
         keyUp: function(reciever) {
@@ -603,7 +648,19 @@ window.tp_utils = {
                 }
             });
         },
-    },*/// i will find a way to impliment this properly in a future version
+    },*/// i found a way to impliment this properly but leaving this old piece of code
+    event: {
+        keyUp: function(reciever) {
+            window.addEventListener('tpkeyboard', function({detail}) {
+                if (detail.type == 'keyup') {reciever(detail.data)}
+            });
+        },
+        keyDown: function(reciever) {
+            window.addEventListener('tpkeyboard', function({detail}) {
+                if (detail.type == 'keydown') {reciever(detail.data)}
+            });
+        }
+    },
 }
 
 window.tpdialog = function(window, document, location, console, realwindow) {
@@ -629,13 +686,16 @@ window.tpdialog = function(window, document, location, console, realwindow) {
 			<a class="caButtonHolder" onclick="localStorage.clear('disabletp');document.getElementById('tpstat').innerText='Currently on.'" href="javascript:void(0);"><input type="button" value="Turn On Plugins" causesvalidation="false"></a>
             <span id=tpstat class=stat>Currently ${localStorage.disabletp?"off":"on"}.</span>
 			<a class="caButtonHolder" onclick="localStorage.disabletp='1';document.getElementById('tpstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Plugins" causesvalidation="false"></a><br/>
-			<a class="caButtonHolder" onclick="localStorage.legacylogin='1';document.getElementById('legacyloginstat').innerText='Currently 2021.'" href="javascript:void(0);"><input type="button" value="Set to 2021" causesvalidation="false"></a>
+			<!--<a class="caButtonHolder" onclick="localStorage.legacylogin='1';document.getElementById('legacyloginstat').innerText='Currently 2021.'" href="javascript:void(0);"><input type="button" value="Set to 2021" causesvalidation="false"></a>
             <a class="caButtonHolder" onclick="localStorage.legacylogin='2';document.getElementById('legacyloginstat').innerText='Currently Mid 2024.'" href="javascript:void(0);"><input type="button" value="Set to Mid 2024" causesvalidation="false"></a>
             <span id=legacyloginstat class=stat>Currently ${localStorage.legacylogin=='1'?"2021":(localStorage.legacylogin=='2'?"Mid 2024":"off")}.</span></span>
-			<a class="caButtonHolder" onclick="localStorage.clear('legacylogin');document.getElementById('legacyloginstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Legacy Login" causesvalidation="false"></a><br/>
+			<a class="caButtonHolder" onclick="localStorage.clear('legacylogin');document.getElementById('legacyloginstat').innerText='Currently off.'" href="javascript:void(0);"><input type="button" value="Turn Off Legacy Login" causesvalidation="false"></a><br/>-->
 			<a class="caButtonHolder" onclick="localStorage.clear('tpdisableevent');document.getElementById('tpevent').innerText='Currently planner-based.'" href="javascript:void(0);"><input type="button" value="Planner-Based Events" causesvalidation="false"></a>
             <span id=tpevent class=stat>Currently ${localStorage.tpdisableevent?"legacy":"planner-based"}.</span>
 			<a class="caButtonHolder" onclick="localStorage.tpdisableevent='1';document.getElementById('tpevent').innerText='Currently legacy.'" href="javascript:void(0);"><input type="button" value="Legacy Events" causesvalidation="false"></a><br/>
+			<a class="caButtonHolder" onclick="localStorage.clear('tppearson');document.getElementById('tppearson').innerText='Currently legacy login.'" href="javascript:void(0);"><input type="button" value="Legacy (Migrating)" causesvalidation="false"></a>
+            <span id=tppearson class=stat>Currently ${localStorage.tppearson?"Pearson":"legacy"} login.</span>
+			<a class="caButtonHolder" onclick="localStorage.tppearson='1';document.getElementById('tppearson').innerText='Currently Pearson login.'" href="javascript:void(0);"><input type="button" value="Pearson" causesvalidation="false"></a><br/>
 			<a class="caButtonHolder" onclick="window.close()" href="javascript:void(0);"><input type="button" value="Close" causesvalidation="false"></a>
         </div>
     `);
@@ -722,12 +782,12 @@ window.tpidialog = function(window, document, location, console, realwindow) {
                 <a href="javascript:void(0)">Plugin N</a><br/>
                 <img src="https://tpviewer.kilgorezer.com/settings.png" class="icon"/>
             </tp-dialog><br/>
-            <p>You can press <span class=stat>F4</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
+            <p>You can press <span class=stat>Alt+F1</span> or <span class=stat>Alt+\\</span> to open the configuration anywhere, OR you can access it on any of the following pages:</p>
             <li><span class=stat>Lesson Viewer</span> <b>&gt;</b> <span class=stat>Third-Party Plugins</span> <b>&gt;</b> <span class=stat><img src="https://tpviewer.kilgorezer.com/settings.png" width=16 style="position:relative;top:3px;filter:invert(1)" alt="gear icon"/></span></li>
             <li><span class=stat>Homepage</span> <b>&gt;</b> <span class=stat>Links</span> <b>&gt;</b> <span class=stat>Third-Party Viewer Configuration</span></li>
             <li><span class=stat>Account Settings</span> <b>&gt;</b> <span class=stat>My Defaults</span><br/>
             <a class="caButtonHolder" onclick="tp_utils.config()" href="javascript:void(0);"><input type="button" value="This page, by clicking here!"></a></li>
-            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.user.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
+            <p>If you need a download link to download plugins that existed when this version came out, click on<a class="caButtonHolder" alt="this button" href="https://tpviewer.kilgorezer.com/fullplugin.js"><input type="button" value="this button" causesvalidation="false"></a>.</p>
             <p>Plugins are automatically installed by userscripts, meaning to disable them you have to disable the userscript that installs the plugin.</p>
             <p>To open a plugin, just click on its link in the <span class=stat>Third-Party Plugins</span> menu.</p>
             <hr/>
